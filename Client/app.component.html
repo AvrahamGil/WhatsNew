@@ -1,0 +1,1712 @@
+ <!--Header-->
+<section id="header">
+
+  <div class="container-fruid"  id="categories-link">
+
+  <nav class="navbar navbar-expand-lg navbar-dark" id="navbar-panel">
+    <a href="#"><img id="logo" src="assets/images/WhatsNewLogo.jpeg"/></a>
+
+    <button class="navbar-toggler" id="toggler" type="button" data-toggle="collapse" data-target="#headerOptions" aria-controls="headerOptions" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+
+    <div class="collapse navbar-collapse" id="headerOptions">
+      <ul class="navbar-nav ml-auto" >
+        <li clas="nav-item">
+          <span (click)= "scrollTo('real-news-category')" data-toggle="collapse" id="options" ><a class="btn btn-light" id="header-category"><i class="far fa-newspaper" id="header-icon"></i>News</a></span>
+        </li>
+        <li clas="nav-item">
+          <span  (click)= "scrollTo('real-business-category')" data-toggle="collapse" id="options" ><a class="btn btn-light"  id="header-category"><i class="fas fa-business-time" id="header-icon"></i>Business</a></span>
+        </li>
+        <li clas="nav-item">
+          <span (click)= "scrollTo('real-sport-category')" data-toggle="collapse" id="options" ><a class="btn btn-light"  id="header-category"><i class="fas fa-running" id="header-icon"></i>Sport</a></span>
+        </li>
+        <li clas="nav-item">
+          <span (click)= "scrollTo('real-technology-category')" data-toggle="collapse" id="options" ><a class="btn btn-light"  id="header-category"><i class="fas fa-digital-tachograph" id="header-icon"></i>Technology</a></span>
+        </li>
+        <li clas="nav-item">
+          <span (click)= "scrollTo('real-travel-category')" data-toggle="collapse" id="options" ><a class="btn btn-light" id="header-category"><i class="fas fa-globe" id="header-icon"></i>Travel</a></span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    </div>
+</section>
+       
+
+<!--Just button-->
+<button class=" btn-primary btn-sm"id="scrollTop" type="button"><i class="fas fa-angle-up size-4x" id="scrollTopIcon"></i></button>
+
+<!--Random articles-->
+<div class="category" id="randomArticles">
+  <div class="card-group">
+    <div class="card-body">
+      <div  id="sites">
+        <div class="row" id="randomBody">
+          <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+              <div class="card" id="article-body">
+                <span class="card-title" id="web-name"><h4>News</h4></span>
+                <div class="card-body" id="loadRandomArticles">
+               <!--Site-->
+                <div *ngFor="let item of newsRandomArticle; index as i; first as isFirst; ">
+                  <div class="row" id="blue-line">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                      <img id="article-images" src={{item?.imageUrl}}/>
+                    </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" >
+                    <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                      <p class="article-description">{{item?.description}}</p>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+              <div class="card" id="article-body">
+                <span class="card-title" id="web-name"><h4>Business</h4></span>
+                <div class="card-body" id="loadRandomArticles">
+               <!--Site-->
+                <div *ngFor="let item of businessRandomArticle; index as i; first as isFirst; ">
+                  <div class="row" id="blue-line">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                      <img id="article-images" src={{item?.imageUrl}}/>
+                    </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                    <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                      <p class="article-description">{{item?.description}}</p>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+              <div class="card" id="article-body">
+                <span class="card-title" id="web-name"><h4>Sport</h4></span>
+                <div class="card-body" id="loadRandomArticles">
+               <!--Site-->
+                <div *ngFor="let item of sportRandomArticle; index as i; first as isFirst; ">
+                  <div class="row" id="blue-line">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                      <img id="article-images" src={{item?.imageUrl}}/>
+                    </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                    <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                      <p class="article-description">{{item?.description}}</p>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+              <div class="card" id="article-body">
+                <span class="card-title" id="web-name"><h4>Technology</h4></span>
+                <div class="card-body" id="loadRandomArticles">
+               <!--Site-->
+                <div *ngFor="let item of technologyRandomArticle; index as i; first as isFirst; ">
+                  <div class="row" id="blue-line">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                      <img id="article-images" src={{item?.imageUrl}}/>
+                    </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                    <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                      <p class="article-description">{{item?.description}}</p>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+              <div class="card" id="article-body">
+                <span class="card-title" id="web-name"><h4>Travel</h4></span>
+                <div class="card-body" id="loadRandomArticles">
+               <!--Site-->
+                <div  *ngFor="let item of travelRandomArticle; index as i; first as isFirst; ">
+                  <div class="row" id="blue-line">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                      <img id="article-images" src={{item?.imageUrl}}/>
+                    </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                    <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                      <p class="article-description">{{item?.description}}</p>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Categories-->
+<div class="category" id="real-news-category">
+  <div class="news-category">
+    <div id="categories">
+      <div class="card-header" >
+        <h2 id="news-header">News</h2>
+      </div>
+      <div id="news-articles" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row" id="cechkingArticles">
+  
+                    <!--Ynet site-->
+                    <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Ynet</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div *ngFor="let item of ynetarticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                     <!--COVID-19 News-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>COVID-19</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of covid19Articles; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                   <!--The Wall Street Journal Site-->
+                   <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>The Wall Street Journal</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                      <div  *ngFor="let item of wallStreetJournalArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                    
+                       <!--New York site-->
+                       <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>New York Times</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of newYorkPoliticsArticles; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.urlToImage}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+  
+                     <!--CNN site-->
+                     <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>CNN</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div  *ngFor="let item of cnnArticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!--The Guardian Site-->
+                    <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>The Guardian</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div  *ngFor="let item of theguardianArticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    
+                    <!--The Blaze Site-->
+                    <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>The Blaze</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div  *ngFor="let item of theBlazeArticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                        <!--ABC Site-->
+                        <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="web-name"><h4>ABC News</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of abcNewsArticles; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                        <!--Jerusalem post site--> 
+                        <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="web-name"><h4>Jerusalem post</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of jerusalemPostArticles; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <!--NBC Site-->
+                        <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="web-name"><h4>NBC</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of nbcArticles; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+      
+                    <!--Time  site-->   
+                    <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Time</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div  *ngFor="let item of timeNews; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src="{{item?.imageUrl}}"/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                      <!--BBC Site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>BBC</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of bbcArticles; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" id="control" href="#news-articles" role="button" data-slide="prev">
+            <span class="btn btn-dark"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+          </a>
+          <a class="carousel-control-next" id="control" href="#news-articles" role="button" data-slide="next">
+            <span class="btn btn-dark"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+          </a>
+            <ul class="carousel-indicators" id="step">
+              <li data-target="#news-articles" data-slide-to="0" class="active"></li>
+              <li data-target="#news-articles" data-slide-to="1"></li>
+              <li data-target="#news-articles" data-slide-to="2"></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="category" id="real-business-category">
+  <div class="business-category">
+    <div id="categories">
+      <div class="card-header">
+        <h2 id="">Business</h2>
+      </div>
+      <div class="">
+      </div>
+      <div id="business-articles" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                      <!--CleanTechnica site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>CleanTechnica</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div  *ngFor="let item of cleanTechnicaBusinessArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                           <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                    
+                <!--Zacks Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Zacks</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--artical -->
+                      <div  *ngFor="let item of zackArticles; index as i; first as isFirst;">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" >
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--MarketWatch Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>MarketWatch</h4></span>
+                    <div class="card-body" id="articles">
+                     <!--artical -->
+                      <div *ngFor="let item of marketWatchArticles; index as i; first as isFirst;">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!--BusinessInsider site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>BusinessInsider</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div *ngFor="let item of businessInsiderArticles; index as i; first as isFirst;">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                        <!--Fool site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Fool</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                      <div  *ngFor="let item of foolArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Entrepreneur Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Entrepreneur</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                        <div *ngFor="let item of entrepreneurArticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Bloomberg Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Bloomberg</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                        <div *ngFor="let item of bloombergBusinessArticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--Forbes site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Forbes</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div *ngFor="let item of forBesBusinessArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                         <!--FTN Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Financial Times</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div *ngFor="let item of ftBusinessArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--CNBC Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>CNBC</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div *ngFor="let item of cnbcBusinessArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Ibtimes Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Ibtimes</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div *ngFor="let item of ibtimesBusinessArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+
+                 <!--YahooFinance site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>YahooFinance</h4></span>
+                    <div class="card-body" id="articles">
+                            <div *ngFor="let item of yahooFinanceArticles; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <a class="carousel-control-prev" id="control" href="#business-articles" role="button" data-slide="prev">
+            <span class="btn btn-dark"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+          </a>
+          <a class="carousel-control-next" id="control" href="#business-articles" role="button" data-slide="next">
+            <span class="btn btn-dark"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+          </a>
+
+          <ol class="carousel-indicators" id="step">
+            <li data-target="#business-articles" data-slide-to="0" class="active"></li>
+            <li data-target="#business-articles" data-slide-to="1"></li>
+            <li data-target="#business-articles" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="category" id="real-sport-category">
+  <div class="sport-category">
+    <div id="categories">
+      <div class="card-header">
+        <h2 >Sport</h2>
+      </div>
+      <div id="sports-articles" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                       <!--New York Times site-->
+                       <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>New York Times</h4></span>
+                          <div class="card-body" id="articles">
+                            <!--artical -->
+                            <div  *ngFor="let item of newYorkTimesSportArticles; index as i; first as isFirst;">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" >
+                                  <img id="article-images" src={{item?.urlToImage}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--YardBarker site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>YardBarker</h4></span>
+                          <div class="card-body" id="articles">
+                            <!--artical -->
+                            <div  *ngFor="let item of yardBarkerArticles; index as i; first as isFirst;">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" >
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--Sport5 Site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>Sbnation</h4></span>
+                          <div class="card-body" id="articles">
+                           <!--artical -->
+                            <div  *ngFor="let item of sbnationArticles; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!--Maariv site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>Fansided</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of fanSidedArticles; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                      <!--SportsIllustratedArticles site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Sports Illustrated</h4></span>
+                    <div class="card-body" id="articles">
+                            <!--Site-->
+                              <div  *ngFor="let item of sportsIllustratedArticles; index as i; first as isFirst; ">
+                                <div class="row" id="blue-line">
+                                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                    <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                <!--Walla Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Sporting News</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                      <div  *ngFor="let item of sportingNewsArticels; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--ESPN Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>ESPN</h4></span>
+                    <div class="card-body" id="articles">
+                             <!--Site-->
+                              <div *ngFor="let item of espnArticles; index as i; first as isFirst; ">
+                                <div class="row" id="blue-line">
+                                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                    <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                
+                <!--CBS site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>CBS</h4></span>
+                    <div class="card-body" id="articles">
+                      <!--Site-->
+                      <div  *ngFor="let item of cbsArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                            <!--syracuse site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Syracuse</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of syracuseArticles; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--MLB Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>MLB</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of mlbArticles; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--DeadSpin Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>DeadSpin</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of deadSpinArticles; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                    <!--Yahoo Site-->
+                    <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Yahoo</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--artical -->
+                          <div  *ngFor="let item of yahooSportArticles; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <a class="carousel-control-prev" id="control" href="#sports-articles" role="button" data-slide="prev">
+            <span class="btn btn-dark"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+          </a>
+          <a class="carousel-control-next" id="control" href="#sports-articles" role="button" data-slide="next">
+            <span class="btn btn-dark"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+          </a>
+          <ol class="carousel-indicators" id="step">
+            <li data-target="#sport-articles" data-slide-to="0" class="active"></li>
+            <li data-target="#sport-articles" data-slide-to="1"></li>
+            <li data-target="#sport-articles" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="category" id="real-technology-category">
+  <div class="technology-category">
+    <div id="categories">
+      <div class="card-header">
+        <h2 id="">Technology</h2>
+      </div>
+      <div class="">
+      </div>
+      <div id="technology-articles" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                  <!--Engadet site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Engadet</h4></span>
+                      <div class="card-body" id="articles">
+                      <div *ngFor="let item of engadgetArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--TheVerge Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>TheVerge</h4></span>
+                      <div class="card-body" id="articles">
+                      <div *ngFor="let item of theVergeArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                       <!--TechCrunc Site-->
+                       <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>TechCrunc</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of techCrunchArticles; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.media}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.link}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.summary}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                        
+                        <!--Gizmodo site-->
+                        <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="web-name"><h4>Gizmodo</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div *ngFor="let item of gizmodoArticles; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                          <!--Apple Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Apple</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                      <div *ngFor="let item of appleArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.media}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.link}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.summary}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                        
+                     <!--Bitcoin  site-->   
+                     <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Bitcoin</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div *ngFor="let item of bitcionArticles; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.media}}/>
+                            </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.link}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.summary}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+              
+  
+                  <!--Axios Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Axios</h4></span>
+                      <div class="card-body" id="articles">
+                      <div  *ngFor="let item of axiosArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--Sciencedaily site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>ScienceDaily</h4></span>
+                      <div class="card-body" id="articles">
+                      <div *ngFor="let item of sciencedailyArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                         <!--TechRadar site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>TechRadar</h4></span>
+                      <div class="card-body" id="articles">
+                      <div  *ngFor="let item of techRadarArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.media}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.link}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.summary}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--Wire Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Wire</h4></span>
+                      <div class="card-body" id="articles">
+                      <div *ngFor="let item of wiredArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!--Arstechnica Site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Arstechnica</h4></span>
+                      <div class="card-body" id="articles">
+                      <div  *ngFor="let item of arstechnicaArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--Thenextweb site-->
+                  <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Thenextweb</h4></span>
+                      <div class="card-body" id="articles">
+                      <div *ngFor="let item of thenextwebArticles; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <a class="carousel-control-prev" id="control" href="#technology-articles" role="button" data-slide="prev">
+            <span class="btn btn-dark"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+          </a>
+          <a class="carousel-control-next" id="control" href="#technology-articles" role="button" data-slide="next">
+            <span class="btn btn-dark"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+          </a>
+          <ol class="carousel-indicators" id="step">
+            <li data-target="#technology-articles" data-slide-to="0" class="active"></li>
+            <li data-target="#technology-articles" data-slide-to="1"></li>
+            <li data-target="#technology-articles" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="category" id="real-travel-category">
+  <div class="travel-category">
+    <div id="categories">
+      <div class="card-header">
+        <h2 id="">Travel</h2>
+      </div>
+      <div class="">
+      </div>
+      <div id="travel-articles" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                    
+                      <!--Travel Daily site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>Travel Daily</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div *ngFor="let item of travelDailyNews; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!--Travel And Tour World Site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>Travel And Tour World</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div *ngFor="let item of travelAndTourWorld; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <!--Skift Site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>Skift</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of skift; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!--PhocusWire site-->
+                      <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="web-name"><h4>PhocusWire</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of phocusWire; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                      <!--Travel Weekly site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>TravelWeekly</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of travelWeekly; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Business Travel Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Business Travel</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div *ngFor="let item of businessTravel; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Travel Pulse Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Travel Pulsel</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div *ngFor="let item of travelPulse; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!--EturboNews site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>EturboNews</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of eturboNews; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card-body"  aria-expanded="false">
+                <div class="container" id="sites">
+                  <div class="row">
+                <!--Lonely Planet site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex">
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Lonely Planet</h4></span>
+                    <div class="card-body" id="articles">
+                      <!--artical -->
+                          <div *ngFor="let item of lonelyPlanet; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" >
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--TTGMedia Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>TTG</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of ttgMediaNews; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--TTN World Wide Site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>TTN World Wide</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div *ngFor="let item of ttnWorldWideNews; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!--Visit Sea site-->
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex" >
+                  <div class="card mb-3 box-shadow" id="article-body">
+                    <span class="card-title" id="web-name"><h4>Visit Sea</h4></span>
+                    <div class="card-body" id="articles">
+                   <!--Site-->
+                    <div  *ngFor="let item of Visitseattle; index as i; first as isFirst; ">
+                      <div class="row" id="blue-line">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                          <p class="article-description">{{item?.description}}</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <a class="carousel-control-prev" id="control" href="#travel-articles" role="button" data-slide="prev">
+            <span class="btn btn-dark"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+          </a>
+          <a class="carousel-control-next" id="control" href="#travel-articles" role="button" data-slide="next">
+            <span class="btn btn-dark"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+          </a>
+          <ol class="carousel-indicators" id="step">
+            <li data-target="#travel-articles" data-slide-to="0" class="active"></li>
+            <li data-target="#travel-articles" data-slide-to="1"></li>
+            <li data-target="#travel-articles" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <!--Summary-->
+<div id="summary">
+  <div class="container" >
+    <div class="row" id="content">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
+        <img  id="slogan" src="assets/images/header.jpg">
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" id="summaryContent">
+        <h3>The site is for learning purposes only.</h3>
+        <p> Hi, my name is Gil, I'm a fullstack developer.
+          <br> Looking for my next challenge,
+          <br>Email - gilavr92@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
