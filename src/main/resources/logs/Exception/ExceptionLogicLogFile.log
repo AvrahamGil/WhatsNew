@@ -1,0 +1,1785 @@
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-22T11:53:26</date>
+  <millis>1671702806239</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Due to limitations of the com.mongodb.BasicDocument, you can't add a second 'newsType' criteria. Query already contains '{ "newsType" : "theblaze.com"}'</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-22T14:34:47</date>
+  <millis>1671712487315</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Due to limitations of the com.mongodb.BasicDocument, you can't add a second 'newsType' criteria. Query already contains '{ "newsType" : "theblaze.com"}'</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:32</date>
+  <millis>1672051712863</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:34</date>
+  <millis>1672051714001</millis>
+  <sequence>34</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:35</date>
+  <millis>1672051715019</millis>
+  <sequence>37</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:36</date>
+  <millis>1672051716030</millis>
+  <sequence>40</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:37</date>
+  <millis>1672051717045</millis>
+  <sequence>43</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:38</date>
+  <millis>1672051718058</millis>
+  <sequence>46</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:39</date>
+  <millis>1672051719090</millis>
+  <sequence>49</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:40</date>
+  <millis>1672051720126</millis>
+  <sequence>52</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:41</date>
+  <millis>1672051721145</millis>
+  <sequence>55</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:42</date>
+  <millis>1672051722163</millis>
+  <sequence>58</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:43</date>
+  <millis>1672051723175</millis>
+  <sequence>61</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:44</date>
+  <millis>1672051724192</millis>
+  <sequence>64</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:45</date>
+  <millis>1672051725210</millis>
+  <sequence>67</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:46</date>
+  <millis>1672051726235</millis>
+  <sequence>70</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:47</date>
+  <millis>1672051727253</millis>
+  <sequence>73</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:48</date>
+  <millis>1672051728276</millis>
+  <sequence>76</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:49</date>
+  <millis>1672051729308</millis>
+  <sequence>79</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:50</date>
+  <millis>1672051730331</millis>
+  <sequence>82</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:51</date>
+  <millis>1672051731355</millis>
+  <sequence>85</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:52</date>
+  <millis>1672051732376</millis>
+  <sequence>88</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:53</date>
+  <millis>1672051733392</millis>
+  <sequence>91</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:54</date>
+  <millis>1672051734412</millis>
+  <sequence>94</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:55</date>
+  <millis>1672051735429</millis>
+  <sequence>97</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:56</date>
+  <millis>1672051736455</millis>
+  <sequence>100</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:57</date>
+  <millis>1672051737474</millis>
+  <sequence>103</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:58</date>
+  <millis>1672051738488</millis>
+  <sequence>106</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:59</date>
+  <millis>1672051739499</millis>
+  <sequence>109</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:00</date>
+  <millis>1672051740512</millis>
+  <sequence>112</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:01</date>
+  <millis>1672051741528</millis>
+  <sequence>115</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:02</date>
+  <millis>1672051742538</millis>
+  <sequence>118</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:03</date>
+  <millis>1672051743550</millis>
+  <sequence>121</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:04</date>
+  <millis>1672051744574</millis>
+  <sequence>124</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:05</date>
+  <millis>1672051745589</millis>
+  <sequence>127</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:06</date>
+  <millis>1672051746613</millis>
+  <sequence>130</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:07</date>
+  <millis>1672051747637</millis>
+  <sequence>133</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:08</date>
+  <millis>1672051748657</millis>
+  <sequence>136</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:09</date>
+  <millis>1672051749684</millis>
+  <sequence>139</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:10</date>
+  <millis>1672051750702</millis>
+  <sequence>142</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:11</date>
+  <millis>1672051751713</millis>
+  <sequence>145</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:12</date>
+  <millis>1672051752792</millis>
+  <sequence>148</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:13</date>
+  <millis>1672051753805</millis>
+  <sequence>151</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:14</date>
+  <millis>1672051754834</millis>
+  <sequence>154</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:15</date>
+  <millis>1672051755867</millis>
+  <sequence>157</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:16</date>
+  <millis>1672051756888</millis>
+  <sequence>160</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:17</date>
+  <millis>1672051757923</millis>
+  <sequence>163</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:18</date>
+  <millis>1672051758948</millis>
+  <sequence>166</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:19</date>
+  <millis>1672051759982</millis>
+  <sequence>169</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:21</date>
+  <millis>1672051761011</millis>
+  <sequence>172</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:22</date>
+  <millis>1672051762021</millis>
+  <sequence>175</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:23</date>
+  <millis>1672051763036</millis>
+  <sequence>178</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:24</date>
+  <millis>1672051764737</millis>
+  <sequence>181</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:25</date>
+  <millis>1672051765745</millis>
+  <sequence>184</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:26</date>
+  <millis>1672051766753</millis>
+  <sequence>187</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:27</date>
+  <millis>1672051767760</millis>
+  <sequence>190</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:28</date>
+  <millis>1672051768786</millis>
+  <sequence>193</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:29</date>
+  <millis>1672051769815</millis>
+  <sequence>196</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:30</date>
+  <millis>1672051770848</millis>
+  <sequence>199</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:31</date>
+  <millis>1672051771881</millis>
+  <sequence>202</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:32</date>
+  <millis>1672051772893</millis>
+  <sequence>205</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:33</date>
+  <millis>1672051773924</millis>
+  <sequence>208</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:34</date>
+  <millis>1672051774940</millis>
+  <sequence>211</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:35</date>
+  <millis>1672051775965</millis>
+  <sequence>214</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:36</date>
+  <millis>1672051776986</millis>
+  <sequence>217</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:38</date>
+  <millis>1672051778009</millis>
+  <sequence>220</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:39</date>
+  <millis>1672051779032</millis>
+  <sequence>223</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:40</date>
+  <millis>1672051780038</millis>
+  <sequence>226</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:41</date>
+  <millis>1672051781059</millis>
+  <sequence>229</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:42</date>
+  <millis>1672051782073</millis>
+  <sequence>232</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:43</date>
+  <millis>1672051783090</millis>
+  <sequence>235</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:44</date>
+  <millis>1672051784121</millis>
+  <sequence>238</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:45</date>
+  <millis>1672051785154</millis>
+  <sequence>241</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:46</date>
+  <millis>1672051786182</millis>
+  <sequence>244</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:47</date>
+  <millis>1672051787214</millis>
+  <sequence>247</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:48</date>
+  <millis>1672051788240</millis>
+  <sequence>250</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:49</date>
+  <millis>1672051789264</millis>
+  <sequence>253</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:50</date>
+  <millis>1672051790290</millis>
+  <sequence>256</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:51</date>
+  <millis>1672051791325</millis>
+  <sequence>259</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:52</date>
+  <millis>1672051792342</millis>
+  <sequence>262</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:53</date>
+  <millis>1672051793354</millis>
+  <sequence>265</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:54</date>
+  <millis>1672051794376</millis>
+  <sequence>268</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:55</date>
+  <millis>1672051795387</millis>
+  <sequence>271</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:56</date>
+  <millis>1672051796398</millis>
+  <sequence>274</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:57</date>
+  <millis>1672051797427</millis>
+  <sequence>277</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:58</date>
+  <millis>1672051798452</millis>
+  <sequence>280</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:59</date>
+  <millis>1672051799480</millis>
+  <sequence>283</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:00</date>
+  <millis>1672051800507</millis>
+  <sequence>286</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:01</date>
+  <millis>1672051801530</millis>
+  <sequence>289</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:02</date>
+  <millis>1672051802564</millis>
+  <sequence>292</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:03</date>
+  <millis>1672051803583</millis>
+  <sequence>295</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:04</date>
+  <millis>1672051804611</millis>
+  <sequence>298</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:05</date>
+  <millis>1672051805644</millis>
+  <sequence>301</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:06</date>
+  <millis>1672051806676</millis>
+  <sequence>304</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:07</date>
+  <millis>1672051807684</millis>
+  <sequence>307</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:08</date>
+  <millis>1672051808703</millis>
+  <sequence>310</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:09</date>
+  <millis>1672051809719</millis>
+  <sequence>313</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Domains failed, check domains correctly or file path</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-28T13:52:22</date>
+  <millis>1672228342942</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>25</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-28T13:52:22</date>
+  <millis>1672228342945</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>25</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-28T13:54:33</date>
+  <millis>1672228473814</millis>
+  <sequence>34</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>26</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-29T11:35:08</date>
+  <millis>1672306508163</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>29</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-29T16:26:08</date>
+  <millis>1672323968854</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>28</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-29T16:55:36</date>
+  <millis>1672325736469</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>25</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-29T16:56:04</date>
+  <millis>1672325764195</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>28</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-29T16:56:04</date>
+  <millis>1672325764196</millis>
+  <sequence>34</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>28</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-01T16:05:07</date>
+  <millis>1672581907225</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>30</thread>
+  <message>Get list failed, please check your details and try again</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-01T16:05:07</date>
+  <millis>1672581907227</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>30</thread>
+  <message>Get list failed, please check your details and try again</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:35:23</date>
+  <millis>1672652123671</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>26</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:35:33</date>
+  <millis>1672652133625</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>27</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:35:33</date>
+  <millis>1672652133741</millis>
+  <sequence>34</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>27</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:36:44</date>
+  <millis>1672652204019</millis>
+  <sequence>35</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>30</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:36:44</date>
+  <millis>1672652204022</millis>
+  <sequence>36</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>30</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:36:59</date>
+  <millis>1672652219640</millis>
+  <sequence>37</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>31</thread>
+  <message>Verified token failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:37:55</date>
+  <millis>1672652275228</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>27</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:38:00</date>
+  <millis>1672652280629</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>29</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T11:39:57</date>
+  <millis>1672652397313</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>29</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T12:03:17</date>
+  <millis>1672653797657</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>26</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T12:03:41</date>
+  <millis>1672653821767</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>28</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T12:04:09</date>
+  <millis>1672653849367</millis>
+  <sequence>34</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>32</thread>
+  <message>Filtering</message>
+</record>
+</log>

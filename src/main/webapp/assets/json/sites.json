@@ -1,0 +1,87 @@
+
+[
+    {
+            "news": {
+            "theblaze.com":"0",
+            "time.com": "1",
+            "wsj.com":"2",
+            "cnn.com":"3",
+            "ynetnews.com":"4",
+            "theguardian.com":"5",
+            "abcnews.go.com":"6",
+            "BBC":"7",
+            "N12":"8",
+            "covid-19":"9",
+            "nbc.com":"10",
+            "jpost.com" :"11",
+            "NewYorkTimes" :"12",
+            "thestreet.com":"13"
+         }
+    },
+    {
+            "business" : {
+            "cnbc.com":"0",
+             "ft.com":"1",
+            "forbes.com":"2",
+            "fool.com":"3",
+            "bloomberg.com":"4",
+            "cleantechnica.com":"5",
+            "ibtimes.com":"6",
+            "marketwatch.com":"7",
+            "entrepreneur.com":"8",
+            "finance.yahoo.com":"9",
+            "businessinsider.com":"10",
+            "zacks.com":"11"
+            }
+    }
+    ,
+    {
+            "sport" : {
+            "mlb.com":"0",
+            "syracuse.com":"1",
+            "deadspin.com":"2",
+            "yardbarker.com":"3",
+            "cbssports.com":"4",
+            "si.com":"5",
+            "espn.com":"6",
+            "sports.yahoo.com":"7",
+            "fansided.com":"8",
+            "sbnation.com":"9",
+            "sportingnews.com":"10",
+            "NewYorkTimes":"11"
+            }
+    }
+    ,
+    {
+            "technology" : {
+            "sciencedaily.com":"0",
+            "gizmodo.com":"1",
+            "engadget.com":"2",
+            "theverge.com":"3",
+            "axios.com":"4",
+            "wired.com":"5",
+            "arstechnica.com":"6",
+            "thenextweb.com":"7",
+            "techcrunch.com":"8",
+            "apple.com":"9",
+            "techradar.com":"10",
+            "bitcoin.com":"11"
+            }
+    },
+    {
+            "travel" : {
+            "traveldailynews.com":"0",
+            "travelandtourworld.com":"1",
+            "Skift.com":"2",
+            "phocuswire.com":"3",
+            "travelpulse.com":"4",
+            "ttgmedia.com":"5",
+            "ttnworldwide.com":"6",
+            "eturbonews.com":"7",
+            "visitseattle.org":"8",
+            "travelweekly.com":"9",
+            "businesstraveller.com":"10",
+            "lonelyplanet.com":"11"
+            }
+    }
+    ]
