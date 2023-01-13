@@ -1,0 +1,52 @@
+
+[
+{
+		"create": {
+		"news":"insert into news (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"newsNewYork" : "insert into news (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"business": "insert into business (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"sports" : "insert into sport (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"sportsNewYork" : "insert into sport (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"technology" : "insert into technology (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"technologyOther" : "insert into technology (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)",
+		"travel" : "insert into travel (Title , Description , Url , ImageUrl ,ArticleSource) value (:Title, :Description, :Url, :ImageUrl,:ArticleSource)"
+		}
+},
+{
+		"delete" : {
+		"news" : "delete from news",
+		"business" : "delete from business",
+		"sports" : "delete from sport",
+		"technology" : "delete from technology",
+		"travel" : "delete from travel"
+		}
+}
+,
+{
+		"getListOfArticles" : {
+		"news" : "select Title,Description,Url,ImageUrl,ArticleSource from news",
+		"business" : "select Title,Description,Url,ImageUrl,ArticleSource from business",
+		"sports" : "select Title,Description,Url,ImageUrl,ArticleSource from sport",
+		"technology" :"select Title,Description,Url,ImageUrl,ArticleSource from technology",
+		"otherTechnology" : "select Title,Description,Url,ImageUrl,ArticleSource from technology",
+		"travel" : "select Title,Description,Url,ImageUrl,ArticleSource from travel"
+		}
+}
+,
+{
+		"getNewYorkArticles" : {
+		"news" : "select Title,Description,Url,ImageUrl,ArticleSource from news where binary ArticleSource = :articleSource",
+		"sports" : "select Title,Description,Url,ImageUrl,ArticleSource from sport where binary ArticleSource = :articleSource",
+		"technology" : "select Title,Description,Url,ImageUrl,ArticleSource from technology where binary ArticleSource = :articleSource"
+		}
+},
+{
+		"getRandom" : {
+		"news" : "select Title,Description,Url,ImageUrl,ArticleSource from news order by RAND() limit 1",
+		"business" : "select Title,Description,Url,ImageUrl,ArticleSource from business order by RAND() limit 1",
+		"sports" : "select Title,Description,Url,ImageUrl,ArticleSource from sport order by RAND() limit 1",
+		"technology" : "select Title,Description,Url,ImageUrl,ArticleSource from technology order by RAND() limit 1",
+		"travel" : "select Title,Description,Url,ImageUrl,ArticleSource from travel order by RAND() limit 1"
+		}
+}
+]

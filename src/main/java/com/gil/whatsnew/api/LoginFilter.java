@@ -46,7 +46,6 @@ public class LoginFilter implements Filter{
 			if (isLoggedIn && path.startsWith("/rest/api/user")) {
 				chain.doFilter(request, response);
 			} else {
-				LoggingHandler.infoLogHandler(StringPaths.getLogs("ExceptionLogicLogFile"), filter);
 			  	res.setStatus(400);
 			  	requestDispatcher = request.getRequestDispatcher(redirectToo);
 			  	requestDispatcher.include(request, response);

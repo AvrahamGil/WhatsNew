@@ -141,36 +141,6 @@ public class ArticleDao implements IArticlesDao {
 		return null;
 	}
 	
-
-	@Override
-	public List<Article> getRandomArticle(String value) throws ApplicationException {
-		List<Article>articles = new ArrayList<Article>();
-		
-		try {
-			
-			session = getSessionFactory().getCurrentSession();
-			Query query = session.createSQLQuery(JsonUtils.readJsonFile(Keys.GetRandom.getKey(),value , StringPaths.getPath(path)));
-			Object[] result = (Object[]) query.getSingleResult();
-			
-			Article article = new Article();
-			
-			article.setTitle(String.valueOf(result[0]));
-			article.setDescription(String.valueOf(result[1]));
-			article.setUrl(String.valueOf(result[2]));
-			article.setImageUrl(String.valueOf(result[3]));
-			article.setNewsType(String.valueOf(result[4]));
-	
-			articles.add(article);
-			
-			return articles;
-
-		} catch (DataException |NoResultException |EmptyResultDataAccessException ex) {
-			ExceptionHandler.generatedDaoExceptions(ex);
-		} 
-		return null;
-	}
-	
-	
 	private SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}

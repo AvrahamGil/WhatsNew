@@ -85,7 +85,7 @@ export class ArticleService {
   private getRequest;
 
   public getAllArticles() : Observable<Articles> {
-    this.getRequest = "http://localhost:8080/whatsnew/articles/getNewsArticles";
+    this.getRequest = "/whatsnew/articles/getNewsArticles";
     var header = new HttpHeaders();
     header.append('Content-Type','application/json' );
 
@@ -93,15 +93,7 @@ export class ArticleService {
   }
 
   public getNewYorkArticles() : Observable<Articles> {
-    this.getRequest = "http://localhost:8080/whatsnew/articles/getNewYorkTimesNewsArticles";
-    var header = new HttpHeaders();
-    header.append('Content-Type','application/json' );
-
-    return this.http.get<Articles>(this.getRequest,{headers: header});
-  }
-
-  public getRandomArticle() : Observable<Articles> {
-    this.getRequest = "http://localhost:8080/whatsnew/articles/getNewsRandomArticle";
+    this.getRequest = "/whatsnew/articles/getNewYorkTimesNewsArticles";
     var header = new HttpHeaders();
     header.append('Content-Type','application/json' );
 

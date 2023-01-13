@@ -1,10 +1,6 @@
 package com.gil.whatsnew.dao;
 
-import java.util.ArrayList;
-
-
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +9,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import com.gil.whatsnew.bean.Article;
-import com.gil.whatsnew.bean.Multimedia;
 import com.gil.whatsnew.bean.NewYorkTimesApi;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
@@ -35,13 +30,10 @@ public class ArticleDaoMongo implements IArticlesDao{
 			Article article = articles != null ? mongoTemplate.save(articles) : null;
 			NewYorkTimesApi newYorkArticle = newYorkArticles != null ? mongoTemplate.save(newYorkArticles) : null;
 
-			if(article != null) logger.info("Article added"); 
-			if(newYorkArticle != null) logger.info("News york times articles added"); 
-
 		} catch(Exception e) {
 			ExceptionHandler.generatedDaoExceptions(e);
 		}
-		
+		logger.info("Article added");
 	}
 	
 	@Override
@@ -50,13 +42,12 @@ public class ArticleDaoMongo implements IArticlesDao{
 		
 		query.addCriteria(Criteria.where("newsType").is(type));
 		try {
-			List<Article> articleInStock = mongoTemplate.findAllAndRemove(query, Article.class);
-			
-			if(articleInStock.isEmpty()) logger.info("Delete articles success for type " + type); 
+			 mongoTemplate.findAllAndRemove(query, Article.class);
 			
 		}catch(Exception e) {
 			ExceptionHandler.generatedDaoExceptions(e);
 		}
+		logger.info("Delete articles success for type " + type);
 	}
 	
 	@Override
@@ -94,23 +85,4 @@ public class ArticleDaoMongo implements IArticlesDao{
 		return null;
 	
 	}
-	
-	@Override
-	public List<Article> getRandomArticle(String type) throws ApplicationException {
-		Query query = new Query();
-		
-		query.addCriteria(Criteria.where("type").is(type)).limit(3);
-		try {
-			List<Article> articleInStock = mongoTemplate.find(query, Article.class);
-			
-			if(articleInStock != null) return articleInStock;
-			
-			return null;
-		}catch(Exception e) {
-			ExceptionHandler.generatedDaoExceptions(e);
-		}
-		return null;
-	
-	}
-	
 }

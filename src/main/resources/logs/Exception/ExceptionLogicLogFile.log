@@ -1783,3 +1783,99 @@
   <message>Filtering</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-10T13:05:25.176183700Z</date>
+  <millis>1673355925176</millis>
+  <nanos>183700</nanos>
+  <sequence>36</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>29</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-10T13:05:33.406620500Z</date>
+  <millis>1673355933406</millis>
+  <nanos>620500</nanos>
+  <sequence>37</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>30</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-10T13:05:57.738971700Z</date>
+  <millis>1673355957738</millis>
+  <nanos>971700</nanos>
+  <sequence>38</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>24</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-10T13:06:11.435432Z</date>
+  <millis>1673355971435</millis>
+  <nanos>432000</nanos>
+  <sequence>39</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>28</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-10T13:08:37.279214500Z</date>
+  <millis>1673356117279</millis>
+  <nanos>214500</nanos>
+  <sequence>38</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>35</thread>
+  <message>Filtering</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-10T13:08:41.576978100Z</date>
+  <millis>1673356121576</millis>
+  <nanos>978100</nanos>
+  <sequence>39</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>27</thread>
+  <message>Filtering</message>
+</record>
+</log>

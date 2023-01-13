@@ -110,19 +110,6 @@ export class AppComponent {
      });
    }
 
-   private getRandomArticles() {
-    this.articlesService.getRandomArticle().subscribe(data => {
-      this.articlesData = Array.from(Object.keys(data),k =>data[k]);
-
-
-      this.randomArticles[0] = this.articlesData.slice(0,8);
-
-     },err => {
-      console.log(err)
-     });
-   }
-
-
    public scrollTo(el:string) {
     document.getElementById(el).scrollIntoView();
   }
@@ -130,6 +117,6 @@ export class AppComponent {
   private generateArticles() {
     this.getContextArticles();
     this.getNewYorkArticles();
-    this.getRandomArticles();
+
   }
 }

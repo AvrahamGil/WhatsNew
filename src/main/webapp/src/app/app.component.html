@@ -37,40 +37,6 @@
 <!--Just button-->
 <button class=" btn-primary btn-sm"id="scrollTop" type="button"><i class="fas fa-angle-up size-4x" id="scrollTopIcon"></i></button>
 
-<!--Random articles-->
-<div class="category" id="randomArticles">
-  <div class="card-group">
-    <div class="card-body">
-      <div  id="sites">
-        <div class="row" id="randomBody">
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
-            <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
-              <div class="card" id="article-body">
-                <span class="card-title" id="web-name"><h4>Random</h4></span>
-                <div class="card-body" id="loadRandomArticles">
-               <!--Site-->
-                <div *ngFor="let item of randomArticles[0]; index as i; first as isFirst; ">
-                  <div class="row" id="blue-line">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
-                      <img id="article-images" src={{item.imageUrl}}/>
-                    </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" >
-                    <a href={{item.url}}><h2 class="article-title">{{item?.title}}</h2></a>
-                      <p class="article-description">{{item?.description}}</p>
-                  </div>
-                  </div>
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!--Categories-->
 <div class="category" id="real-news-category">
   <div class="news-category">
@@ -652,7 +618,7 @@
                   <div class="card mb-3 box-shadow" id="article-body">
                     <span class="card-title" id="web-name"><h4>TheStreet</h4></span>
                     <div class="card-body" id="articles">
-                            <div *ngFor="let item of newsAr[13]; index as i; first as isFirst; ">
+                            <div *ngFor="let item of newsAr[12]; index as i; first as isFirst; ">
                               <div class="row" id="blue-line">
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
                                   <img id="article-images" src={{item?.imageUrl}}/>
