@@ -17,8 +17,6 @@ public class ExceptionHandler {
 	public static Exception generatedLogicExceptions(ApplicationException e)
 			throws ApplicationException {
 		
-		LoggingHandler.serverLogHandler(StringPaths.getLogs("ExceptionLogicLogFile"), e.getMessage());
-		
 		List<ApplicationException> exceptions = new ArrayList<ApplicationException>();
 		exceptions.add(e);
 		
@@ -40,8 +38,7 @@ public class ExceptionHandler {
 	}
 
 	public static Exception generatedDaoExceptions(Exception e) throws ApplicationException {
-		LoggingHandler.serverLogHandler(StringPaths.getLogs("ExceptionDaoLogFile"), e.getMessage());
-		
+
 		List<Exception> exceptions = new ArrayList<Exception>();
 		exceptions.add(e);
 		
@@ -60,8 +57,6 @@ public class ExceptionHandler {
 	}
 	
 	public static String generatedExceptions(ApplicationException e)  {
-		LoggingHandler.serverLogHandler(StringPaths.getLogs("ExceptionDaoLogFile"), e.getMessage());
-		
 		List<ApplicationException> exceptions = new ArrayList<ApplicationException>();
 		exceptions.add(e);
 		
@@ -77,9 +72,7 @@ public class ExceptionHandler {
 		return ErrorType.General_Error.getMessage();
 	}
 	
-	public static String addExceptionIntoLog(Exception e)  {
-		LoggingHandler.serverLogHandler(StringPaths.getLogs("ExceptionDaoLogFile"), e.getMessage());
-						
+	public static String addExceptionIntoLog(Exception e)  {				
 		return ErrorType.General_Error.getMessage();
 	}
 }

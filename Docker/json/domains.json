@@ -1,0 +1,86 @@
+
+[
+{
+		"news": {
+		"1":"theblaze.com",
+		"2" : "time.com",
+		"3":"wsj.com",
+		"4":"cnn.com",
+		"5":"ynetnews.com",
+		"6":"theguardian.com",
+		"7":"abcnews.go.com",
+		"8":"BBC",
+		"9":"N12",
+		"10":"covid-19",
+		"11":"NewYorkTimes",
+		"12":"nbc.com",
+		"13":"jpost.com"
+		}
+},
+{
+		"business" : {
+		"1":"cnbc.com",
+		"2" : "ft.com",
+		"3":"forbes.com",
+		"4":"fool.com",
+		"5":"bloomberg.com",
+		"6":"cleantechnica.com",
+		"7":"ibtimes.com",
+		"8":"marketwatch.com",
+		"9":"entrepreneur.com",
+		"10":"finance.yahoo.com",
+		"11":"businessinsider.com",
+		"12":"zacks.com",
+		"13":"thestreet.com"
+		}
+}
+,
+{
+		"sport" : {
+		"1":"mlb.com",
+		"2" : "syracuse.com",
+		"3":"deadspin.com",
+		"4":"yardbarker.com",
+		"5":"cbssports.com",
+		"6":"si.com",
+		"7":"espn.com",
+		"8":"sports.yahoo.com",
+		"9":"fansided.com",
+		"10":"sbnation.com",
+		"11":"sportingnews.com"
+		}
+}
+,
+{
+		"technology" : {
+		"1":"sciencedaily.com",
+		"2" : "gizmodo.com",
+		"3":"engadget.com",
+		"4":"theverge.com",
+		"5":"axios.com",
+		"6":"wired.com",
+		"7":"arstechnica.com",
+		"8":"thenextweb.com",
+		"9":"techcrunch.com",
+		"10":"apple.com",
+		"11":"techradar.com",
+		"12":"bitcoin.com"
+		}
+},
+{
+		"travel" : {
+		"1":"traveldailynews.com",
+		"2" : "travelandtourworld.com",
+		"3":"Skift.com",
+		"4":"phocuswire.com",
+		"5":"travelpulse.com",
+		"6":"ttgmedia.com",
+		"7":"ttnworldwide.com",
+		"8":"eturbonews.com",
+		"9":"visitseattle.org",
+		"10":"travelweekly.com",
+		"11":"businesstraveller.com",
+		"12":"lonelyplanet.com"
+		}
+}
+]

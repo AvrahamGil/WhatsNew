@@ -1,0 +1,47 @@
+
+[
+{
+		"context": {
+		"news":"https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=news&autoCorrect=false&pageNumber=1",
+		"newsNewYork" : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=newsNewYork&autoCorrect=false&pageNumber=1",
+		"business": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=business&autoCorrect=false&pageNumber=1",
+		"sports" : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=sports&autoCorrect=false&pageNumber=1",
+		"sportsNewYork" : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=sportsNewYork&autoCorrect=false&pageNumber=1",
+		"technology" : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=technology&autoCorrect=false&pageNumber=1",
+		"travel" : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&q=travel&autoCorrect=false&pageNumber=1"
+		}
+},
+{
+		"newyorktimes" : {
+		"news" : "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=news&api-key=",
+		"sports" : "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=sports&api-key="
+		}
+}
+,
+{
+		"keys" : {
+		"RapidHost" : "x-rapidapi-host",
+		"RapidKey" : "x-rapidapi-key",
+		"NewYorkApiKey" : "K3uyNsrevkFrR487I5sN5qg4GASOU4iz",
+		"RapidKeyValue" :"57a5f5629bmsh4e8fafc07e244d8p1a6da0jsn0b7d9a7cd8cf",
+		"ContextRapidHostValue" : "contextualwebsearch-websearch-v1.p.rapidapi.com"
+		}
+}
+,
+{
+		"config" : {
+		"package" : "com.gil.whatsnew.bean",
+		"driverClass" : "com.mysql.cj.jdbc.Driver",
+		"url" : "jdbc:mysql://localhost:3306/WhatsNew?serverTimezone=UTC",
+		"userName" : "root",
+		"hibernateProperty" : "hibernate.dialect",
+		"hibernateValue" : "org.hibernate.dialect.MySQLDialect"
+		}
+},
+{
+		"mongoconfig" : {
+		"package" : "com.gil.whatsnew",
+		"connection" : "mongodb://localhost:27017/?maxPoolSize=20&w=majority"
+		}
+}
+]

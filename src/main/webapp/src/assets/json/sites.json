@@ -14,14 +14,13 @@
             "covid-19":"9",
             "nbc.com":"10",
             "jpost.com" :"11",
-            "NewYorkTimes" :"12",
-            "thestreet.com":"13"
+            "NewYorkTimes" :"12"
          }
     },
     {
             "business" : {
             "cnbc.com":"0",
-             "ft.com":"1",
+            "ft.com":"1",
             "forbes.com":"2",
             "fool.com":"3",
             "bloomberg.com":"4",
@@ -31,7 +30,8 @@
             "entrepreneur.com":"8",
             "finance.yahoo.com":"9",
             "businessinsider.com":"10",
-            "zacks.com":"11"
+            "zacks.com":"11",
+            "thestreet.com":"12"
             }
     }
     ,

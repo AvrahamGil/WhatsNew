@@ -2,6 +2,7 @@ package com.gil.whatsnew.api;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,16 +22,17 @@ public class ArticleApi {
 	
 	@RequestMapping(value="/getNewsArticles" , method = RequestMethod.GET)
 	public List<List<Article>>getNewsArticles() throws ApplicationException {	
-		return article.getListOfNewsArticles();
+		List<List<Article>>articles = article.getListOfNewsArticles();
+		if(articles != null) return articles;
+		
+		return null;
 	}
 	
 	@RequestMapping(value="/getNewYorkTimesNewsArticles" , method = RequestMethod.GET)
 	public List<NewYorkTimesApi> getNewYorkTimesNewsArticles() throws ApplicationException {
-		return article.getListOfNewYorkTimesArticles();
-	}
-	
-	@RequestMapping(value="/getNewsRandomArticle" , method = RequestMethod.GET)
-	public List<Article> getRandomArticle() throws ApplicationException {	
-		return article.getRandomArticles();
+		List<NewYorkTimesApi>articles = article.getListOfNewYorkTimesArticles();
+		if(articles != null) return articles;
+		
+		return null;
 	}
 }

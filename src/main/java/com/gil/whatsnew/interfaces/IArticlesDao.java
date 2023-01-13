@@ -19,6 +19,4 @@ public interface IArticlesDao {
 	
 	public List<NewYorkTimesApi> getNewYorkTimesArticles(String articleType,String type) throws ApplicationException;
 	
-	public List<Article> getRandomArticle(String type) throws ApplicationException;
-	
 }

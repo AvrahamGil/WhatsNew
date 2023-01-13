@@ -27,8 +27,8 @@ public class BaseRequest {
 		try {
 			getRequestUrl = Requests.RapidApi.getValue() + type;
 			httpGet = new HttpGet(getRequestUrl);
-			httpGet.addHeader(Requests.RapidHost.getValue(),Requests.ContextRapidHostValue.getValue());
-			httpGet.addHeader(Requests.RapidKey.getValue(),Requests.RapidKeyValue.getValue());
+			httpGet.setHeader(Requests.RapidHost.getValue(),Requests.ContextRapidHostValue.getValue());
+			httpGet.setHeader(Requests.RapidKey.getValue(),Requests.RapidKeyValue.getValue());
 			response = (HttpResponse) client.execute(httpGet);
 			
 			

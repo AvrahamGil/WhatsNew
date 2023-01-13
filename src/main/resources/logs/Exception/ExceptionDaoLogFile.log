@@ -1693,3 +1693,65 @@
   <message>Initialize articles failed</message>
 </record>
 </log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-05T16:15:09</date>
+  <millis>1672928109819</millis>
+  <sequence>55</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Initialize articles failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-09T14:46:50</date>
+  <millis>1673268410660</millis>
+  <sequence>32</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>18</thread>
+  <message>Initialize articles failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-11T16:55:43.984397800Z</date>
+  <millis>1673456143984</millis>
+  <nanos>397800</nanos>
+  <sequence>42</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Initialize articles failed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-13T06:43:11.344820800Z</date>
+  <millis>1673592191344</millis>
+  <nanos>820800</nanos>
+  <sequence>40</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>serverLogHandler</method>
+  <thread>21</thread>
+  <message>Initialize articles failed</message>
+</record>
+</log>

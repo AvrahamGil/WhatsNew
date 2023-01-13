@@ -7,8 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -46,7 +48,7 @@ public class ArticleLogic {
 	private final String[] newYorkTimes = { "newsNewYork", "sportsNewYork" };
 
 	private final String path = "domains";
-	private final int maxDomains = 12;
+	private final int maxDomains = 13;
 
 	private int counter = 1;
 	private int maxCounter = 7;
@@ -77,32 +79,6 @@ public class ArticleLogic {
 		}
 	}
 
-	public List<Article> getRandomArticles() throws ApplicationException {
-		List<Article> articles = new ArrayList<Article>();
-		
-		List<Article>random = new ArrayList<Article>();
-		
-		try {
-			for (String category : categories) {
-				articles = articleDaoMongo.getRandomArticle(category);
-				
-				for(Article article : articles) {
-					random.add(article);
-				}
-			}
-			
-			if (random.isEmpty())
-				return null;
-
-			return random;
-
-		} catch (ApplicationException e) {
-			ExceptionHandler.generatedLogicExceptions(e);
-		}
-
-		return null;
-	}
-
 	public List<List<Article>> getListOfNewsArticles() throws ApplicationException {
 		List<List<Article>> articles = new ArrayList<List<Article>>();
 
@@ -110,9 +86,6 @@ public class ArticleLogic {
 			for (String category : categories) {
 				articles.add(articleDaoMongo.getAllArticles(category));
 			}
-
-			if (articles.isEmpty())
-				return null;
 
 			return articles;
 
@@ -128,6 +101,8 @@ public class ArticleLogic {
 		try {
 			for (String category : newYorkTimes) {
 				List<NewYorkTimesApi> articles = articleDaoMongo.getNewYorkTimesArticles(category, "NewYorkTimes");
+				
+				if(articles == null) return null;
 				
 				for(NewYorkTimesApi article : articles) {
 					if(article.getMultimedia() != null) {
@@ -197,6 +172,7 @@ public class ArticleLogic {
 
 		try {
 			HttpResponse response = request.getNewsArticles(type);
+			TimeUnit.SECONDS.sleep(5);
 			List<Article> tempArticles = generatedArticleList(response);
 			String lastTitle = "";
 			String lastUrl = "";
@@ -224,7 +200,7 @@ public class ArticleLogic {
 			}
 
 			return articles;
-		} catch (ApplicationException e) {
+		} catch (ApplicationException | InterruptedException e) {
 			throw new ApplicationException(ErrorType.Api_Failed,ErrorType.Api_Failed.getMessage(), false);
 		}
 
@@ -298,7 +274,6 @@ public class ArticleLogic {
 		Gson gson = new Gson();
 
 		try {
-
 			HttpEntity entity = response.getEntity();
 
 			String responseString = EntityUtils.toString(entity);
@@ -314,7 +289,7 @@ public class ArticleLogic {
 
 			return tempArticles;
 
-		} catch (ParseException | IOException e) {
+		} catch (ParseException | IOException  e) {
 			throw new ApplicationException(ErrorType.Get_List_Failed, ErrorType.Get_List_Failed.getMessage(), false);
 		}
 

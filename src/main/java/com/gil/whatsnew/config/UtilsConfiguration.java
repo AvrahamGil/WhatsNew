@@ -40,9 +40,9 @@ public class UtilsConfiguration {
     public DataSource dataSource() {
     	DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/db?serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/WhatsNew?serverTimezone=UTC");
         dataSource.setUsername("username");
-        dataSource.setPassword("password");
+        dataSource.setPassword("pass");
  
         return dataSource;
     }
