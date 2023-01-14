@@ -26,11 +26,3 @@ RUN chgrp -R tomcat /opt/tomcat && \
 
 ENTRYPOINT ["/tmp/startup.sh"]
 
-
-
-
-
-
-
-
-
