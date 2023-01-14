@@ -108,5 +108,5 @@ ng build
 cd {tomcat}/bin/
 startup.bat
 ```
-4) The new windows is Tomcat console running in the background.
+4) The new window is Tomcat console running in the background.
 5) Browse to http://localhost:8080/whatsnew
