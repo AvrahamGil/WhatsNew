@@ -1,4 +1,4 @@
-# WhatsNew 
+# WhatsNew
 
 #### Web application project URL - https://whatsnew.me
 - ***Note***: Sign Up & Sign In pages are coming soon.
@@ -6,35 +6,41 @@
 ## Installation
 
 ### Docker Image
+#### *Dockerfile:*
 
 ```
 FROM whatsnewwebsite/whatsnew
 ```
+**Or**
+#### *Docker pull from command line:*
+```
+docker pull whatsnewwebsite/whatsnew
+```
 
-Execute `docker run -p 8080:8080 whatsnew`
+Once the image is ready, execute `docker run -p 8080:8080 whatsnew`
 
 ---
 ### Source Code
 
 ***Disclaimer:***
-- The instructions are focused on Windows OS. 
+- The instructions are focused on Windows OS.
 - Other OS users will require to adjust few steps according to their system.
 
 #### Pre-Installation Environment
 
 - The project runs on JDK 18:
     - https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html
-    
+
 - Tomcat webserver, version 9.0.39:
     - https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.39/src/
 
 - Install MongoDB on your system:
     - https://www.mongodb.com/
-    
+
 - Clone the project
     - `git clone https://github.com/AvrahamGil/WhatsNew.git`
-    
-    
+
+
 - Import as Maven project
     - *File* -> *Import...* -> *Existing Maven Projects* -> *WhatsNew* Folder
 
@@ -53,7 +59,7 @@ The project requires API keys to pull data from 3rd party APIs.
 2) Click on *Sign In*, create an account and then sign in.
 3) On the navigation bar, click on your email address and choose **Apps**.
 4) Click on the **+ NEW APP** button and fill **App Name** and enable **Article Search API** create an application API key by click on **SAVE**.
-5) Your API key should be inside the newly created application API. 
+5) Your API key should be inside the newly created application API.
 
 
 
@@ -82,7 +88,7 @@ ContextRapidHostValue("contextualwebsearch-websearch-v1.p.rapidapi.com");
 
 -  **MySQL**
     - The project contains legacy support for MySQL but the default works with MongoDB.
-    
+
 ####  Angular8 Production Mode
 1) Open the command line and execute the following commands:
 ```
