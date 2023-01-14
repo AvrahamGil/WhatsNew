@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StringPaths {
 
-	private static final String basePath = "D:\\Downloads\\whatsnew\\whatsnew\\src\\main\\resources\\";
+	private static final String basePath = "\\whatsnew\\src\\main\\resources\\";
 	
 	private static final String utils = basePath + "utils.json";
 	private static final String sites = basePath + "sql.json";
