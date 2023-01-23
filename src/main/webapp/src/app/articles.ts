@@ -1,12 +1,11 @@
-import { Identifiers } from '@angular/compiler';
+
 
 export class Articles {
-    title:string;
-    description:string;
-    url:string;
-    imageUrl:string;
-    newsType:string;
-    type:string;
-    safe:boolean;
-
+    title:string | undefined;
+    description:string | undefined;
+    url:string | undefined;
+    imageUrl:string | undefined;
+    newsType:string | undefined;
+    type:string | undefined;
+    safe:boolean | undefined;
 }
