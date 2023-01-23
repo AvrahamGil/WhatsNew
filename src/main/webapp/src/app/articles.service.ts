@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Articles } from './Articles';
+import { Articles } from './articles';
 
 export enum ArticleSites {
     //News sites
@@ -82,7 +82,7 @@ export class ArticleService {
 
   constructor(private http:HttpClient) { }
 
-  private getRequest;
+  private getRequest:any;
 
   public getAllArticles() : Observable<Articles> {
     this.getRequest = "/whatsnew/articles/getNewsArticles";
