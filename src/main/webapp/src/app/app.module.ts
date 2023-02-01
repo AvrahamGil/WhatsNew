@@ -4,18 +4,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleService } from './articles.service';
-
+import { NewsComponent } from './news/news.component';
+import { BusinessComponent } from './business/business.component';
+import { SportComponent } from './sport/sport.component';
+import { TechnologyComponent } from './technology/technology.component';
+import { TravelComponent } from './travel/travel.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewsComponent,
+    BusinessComponent,
+    SportComponent,
+    TechnologyComponent,
+    TravelComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,0 +1,298 @@
+<div class="category" id="real-business-category">
+    <div class="business-category">
+      <div id="categories">
+        <div class="card-header">
+          <h2 id="">Business</h2>
+        </div>
+        <div class="">
+        </div>
+        <div id="business-articles" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card-group">
+                <div class="card-body"  aria-expanded="false">
+                  <div class="container" id="sites">
+                    <div class="row">
+                        <!--CleanTechnica site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>CleanTechnica</h4></span>
+                        <div class="card-body" id="articles">
+                         <!--Site-->
+                         <div  *ngFor="let item of businessAr[5]; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                          </div>
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  <!--Zacks Site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Zacks</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--artical -->
+                        <div  *ngFor="let item of businessAr[11]; index as i; first as isFirst;">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2" >
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--MarketWatch Site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>MarketWatch</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--artical -->
+                        <div *ngFor="let item of businessAr[7]; index as i; first as isFirst;">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--BusinessInsider site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>BusinessInsider</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                      <div *ngFor="let item of businessAr[10]; index as i; first as isFirst;">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+
+                   <!--CNBC Site-->
+                   <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>CNBC</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div *ngFor="let item of businessAr[0]; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+
+                   <!--Ibtimes Site-->
+                   <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>Ibtimes</h4></span>
+                      <div class="card-body" id="articles">
+                       <!--Site-->
+                       <div *ngFor="let item of businessAr[6]; index as i; first as isFirst; ">
+                        <div class="row" id="blue-line">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                           </div>
+                      </div>
+                    </div>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item">
+              <div class="card-group">
+                <div class="card-body"  aria-expanded="false">
+                  <div class="container" id="sites">
+                    <div class="row">
+                          <!--Fool site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Fool</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div  *ngFor="let item of businessAr[3]; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Entrepreneur Site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Entrepreneur</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                          <div *ngFor="let item of businessAr[8]; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Bloomberg Site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Bloomberg</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                          <div *ngFor="let item of businessAr[4]; index as i; first as isFirst; ">
+                            <div class="row" id="blue-line">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Forbes site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="web-name"><h4>Forbes</h4></span>
+                        <div class="card-body" id="articles">
+                         <!--Site-->
+                         <div *ngFor="let item of businessAr[2]; index as i; first as isFirst; ">
+                          <div class="row" id="blue-line">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--FTN Site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                       <span class="card-title" id="web-name"><h4>Financial Times</h4></span>
+                         <div class="card-body" id="articles">
+                            <!--Site-->
+                            <div *ngFor="let item of businessAr[1]; index as i; first as isFirst; ">
+                              <div class="row" id="blue-line">
+                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                   <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                               <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                            </div>
+                           </div>
+                          </div>
+                        </div>
+                       </div>
+                      </div>
+
+                         <!--TheStreet site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="web-name"><h4>TheStreet</h4></span>
+                      <div class="card-body" id="articles">
+                              <div *ngFor="let item of businessAr[12]; index as i; first as isFirst; ">
+                                <div class="row" id="blue-line">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                     <img id="article-images" src={{item?.imageUrl}}/>
+                                   </div>
+                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                 </div>
+                                </div>
+                             </div>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <a class="carousel-control-prev" id="control" href="#business-articles" role="button" data-slide="prev">
+              <span class="btn btn-dark carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" id="control" href="#business-articles" role="button" data-slide="next">
+              <span class="btn btn-dark carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+
+            <ol class="carousel-indicators" id="step">
+              <li data-target="#business-articles" data-slide-to="0" class="active"></li>
+              <li data-target="#business-articles" data-slide-to="1"></li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

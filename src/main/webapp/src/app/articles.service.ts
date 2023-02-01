@@ -2,101 +2,97 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Articles } from './articles';
+import sites from '../assets/json/sites.json';
 
-export enum ArticleSites {
-    //News sites
-    Theguardian = "Theguardian",
-    Time = "Time",
-    WallStreetJournal ="WallStreetJournal",
-    CNN = "CNN",
-    Theblaze ="Theblaze",
-    Ynetnews = "Ynetnews",
-    BBCnews = "BBCnews",
-    JerusalemNews = "JerusalemNews",
-    NBC = "NBC",
-    Covid19 = "Covid19",
-    ABCnews = "ABCnews",
-
-
-    //Business sites
-    CNBC = "CNBC",
-    FT = "FT",
-    Forbes ="Forbes",
-    Fool = "Fool",
-    Bloomberg ="Bloomberg",
-    CleanTechnica = "CleanTechnica",
-    IBtimes = "IBtimes",
-    MarketWatch = "MarketWatch",
-    Entrepreneur = "Entrepreneur",
-    YahooFinance = "YahooFinance",
-    BusinessInsider = "BusinessInsider",
-    Zacks = "Zacks",
-
-    //Sports sites
-    MLB = "MLB",
-	Syracuse ="Syracuse",
-	DeadSpin ="DeadSpin",
-	YardBarker ="YardBarker",
-	Cbssports = "Cbssports",
-	SportsIllustrated = "SportsIllustrated",
-	ESPN = "ESPN",
-	Yahoo = "Yahoo",
-	Fansided = "Fansided",
-	Sbnation ="Sbnation",
-	Sportingnews= "Sportingnews",
-
-	NewYorkTimes = "NewYorkTimes",
-
-    //Technology sites
-    Sciencedaily = "Sciencedaily",
-	Gizmodo = "Gizmodo",
-	Engadget = "Engadget",
-	Theverge = "Theverge",
-	Axios = "Axios",
-	Wired = "Wired",
-	Arstechnica = "Arstechnica",
-	Thenextweb = "Thenextweb",
-	Bitcoin = "Bitcoin",
-	Techcrunch = "Techcrunch",
-	Apple = "Apple",
-	TechRadar = "TechRadar",
-
-
-    //Travel sites
-	Traveldailynews = "Traveldailynews",
-	Travelandtourworld= "Travelandtourworld",
-	Skift= "Skift",
-	Phocuswire= "Phocuswire",
-	Travelpulse= "Travelpulse",
-	Ttgmedia= "Ttgmedia",
-	Ttnworldwide= "Ttnworldwide",
-	Eturbonews= "Eturbonews",
-	Visitseattle= "Visitseattle",
-	TravelWeekly= "TravelWeekly",
-	Businesstravelnews= "Businesstravelnews",
-	LonelyPlanet= "LonelyPlanet"
-
-}
 @Injectable()
 export class ArticleService {
+
+  public articles =  Array(14).fill([[]]);
+  public data:any  = [];
+  public articlesData:any  = [];
+
+  private types = ["news","business","sport","technology","travel"];
 
   constructor(private http:HttpClient) { }
 
   private getRequest:any;
 
-  public getAllArticles() : Observable<Articles> {
-    this.getRequest = "/whatsnew/articles/getNewsArticles";
+  public getContextArticlesTwo(type:string) : Promise<any[]> {
+    var array:any = this.articles.map(() => Object.values([]));
+    var arrayMap:any = this.articles.map(() => Object.values([]));
+
+    return new Promise((resolve, reject) => {
+      try {
+        array = this.getAllArticlesData().subscribe((data:Articles) => {
+          let index = this.types.indexOf(type);
+          this.data = Array.from(Object.keys(data),(k) =>data[k as keyof Articles]);
+
+          this.articlesData[index] = this.data[index];
+
+          this.articlesData[index].map((x:any) => {
+            var num = sites[index][type][x.newsType];
+            arrayMap[num].push(x);
+
+            if(index == 0 && arrayMap[0] !== undefined) array = arrayMap.map((x:any) => x);
+            if(index == 1 && arrayMap[1] !== undefined) array = arrayMap.map((x:any) => x);
+            if(index == 2 && arrayMap[2] !== undefined) array = arrayMap.map((x:any) => x);
+            if(index == 3 && arrayMap[3] !== undefined) array = arrayMap.map((x:any) => x);
+            if(index == 4 && arrayMap[4] !== undefined) array = arrayMap.map((x:any) => x);
+          })
+
+          resolve(array);
+        })
+      } catch(err) {
+        reject(err);
+      }
+    })
+  }
+
+  public getNewYorkArticles(type:string) : Promise<any[]> {
+    var array:any = Array(2).fill([[]]);
+    var arrayMap:any = Array(2).fill([[]]);
+
+    return new Promise((resolve,reject) => {
+      try{
+        array = this.getNewYorkData().subscribe((data:Articles) => {
+          let types = ["news","sport"];
+          let index = types.indexOf(type);
+
+          this.data = Array.from(Object.keys(data),(k) =>data[k as keyof Articles]);
+
+          this.articlesData = this.data;
+
+          if(type === "news") arrayMap[index] = this.articlesData.slice(0,5);
+          if(type === "sport") arrayMap[index] = this.articlesData.slice(6);
+
+          if(index == 0 && arrayMap[index] !== undefined) array = arrayMap.map((x:any) => x);
+          if(index == 1 && arrayMap[index] !== undefined) array = arrayMap.map((x:any) => x);
+
+          resolve(array[index]);
+
+         });
+      }catch(err) {
+        reject(err);
+      }
+    })
+
+   }
+
+  private getAllArticlesData() : Observable<Articles> {
+    this.getRequest = "http://localhost:8080/whatsnew/articles/getNewsArticles";
     var header = new HttpHeaders();
     header.append('Content-Type','application/json' );
 
     return this.http.get<Articles>(this.getRequest,{headers: header});
   }
 
-  public getNewYorkArticles() : Observable<Articles> {
-    this.getRequest = "/whatsnew/articles/getNewYorkTimesNewsArticles";
+  private getNewYorkData() : Observable<Articles> {
+    this.getRequest = "http://localhost:8080/whatsnew/articles/getNewYorkTimesNewsArticles";
     var header = new HttpHeaders();
     header.append('Content-Type','application/json' );
 
     return this.http.get<Articles>(this.getRequest,{headers: header});
   }
+
+
 }
