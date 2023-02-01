@@ -7,10 +7,9 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerOptions" aria-controls="headerOptions" aria-expanded="false" aria-label="Toggle navigation">
    <span class="navbar-toggler-icon"></span>
    </button>
+   <a href="#"><img id="logo" src="assets/images/WhatsNewLogo.jpeg"/></a>
     <div class="collapse navbar-collapse" id="headerOptions">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-          <a href="#"><img id="logo" src="assets/images/WhatsNewLogo.jpeg"/></a>
-        </div>
+
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <a routerLink="news" class="btn btn-light" id="header-category"><i class="far fa-newspaper" id="header-icon"></i>News</a>
           </div>
@@ -26,6 +25,22 @@
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
           <a routerLink="travel" class="btn btn-light" id="header-category"><i class="fas fa-globe" id="header-icon"></i>Travel</a>
         </div>
+
+
+
+
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 dropdown show">
+
+          <a class="header-categoryy btn dropdown-toggle" href="#" role="button" id="userSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div><i class="fas fa-user" id="header-icon"></i></div>User
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="userSettings" id="show-content">
+            <a class="dropdown-item" routerLink="user/register" >Register</a>
+            <a class="dropdown-item" routerLink="user/login">Login</a>
+          </div>
+        </div>
+
     </div>
   </nav>
     </div>

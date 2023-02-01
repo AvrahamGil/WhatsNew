@@ -10,6 +10,7 @@ import { SportComponent } from './sport/sport.component';
 import { TechnologyComponent } from './technology/technology.component';
 import { TravelComponent } from './travel/travel.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SportComponent,
     TechnologyComponent,
     TravelComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
