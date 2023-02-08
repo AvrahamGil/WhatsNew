@@ -25,7 +25,7 @@ public class UserDaoMongo extends IUserDao {
 
 			if(users == null) return null;
 			
-			System.out.println("User" + user.getUserId() + "added successfully");
+			System.out.println("User " + user.getUserId() + " added successfully");
 			
 			return user;
 			
@@ -63,7 +63,7 @@ public class UserDaoMongo extends IUserDao {
 
 			if(result == null) return false;
 			
-			System.out.println("User" + user.getUserId() + "details updated successfully");
+			System.out.println("User " + user.getUserId() + " details updated successfully");
 			
 			return true;
 			

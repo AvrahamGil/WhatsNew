@@ -1,9 +1,8 @@
-
-
 export class Users {
-    userId:string | undefined;
     email:string | undefined;
+    userName:string | undefined;
     password:string | undefined;
+    confirmPassword:string | undefined;
     fullName:string | undefined;
     country:string | undefined;
 }

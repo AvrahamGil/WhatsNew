@@ -266,15 +266,18 @@
        -webkit-filter: grayscale(0%);
    }
 
+
 }
 
 @media (min-width:550px) and (max-width:850px) {
 
+    #not-found-image {
+        margin:0% 40%;
+    }
 
-
-        #page-number {
+    #page-number {
             margin-bottom: 1%;
-        }
+    }
 
    #categories-link  {
        text-align: center;

@@ -10,7 +10,13 @@ import { SportComponent } from './sport/sport.component';
 import { TechnologyComponent } from './technology/technology.component';
 import { TravelComponent } from './travel/travel.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Users } from './users';
 import { UserComponent } from './user/user.component';
+import { LoginDetails } from './login-details';
 
 @NgModule({
   declarations: [
@@ -21,14 +27,19 @@ import { UserComponent } from './user/user.component';
     TechnologyComponent,
     TravelComponent,
     NotFoundComponent,
+    RegisterComponent,
+    LoginComponent,
+    WelcomeComponent,
     UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ArticleService],
+  providers: [ArticleService,Users,LoginDetails],
   bootstrap: [AppComponent]
 })
 

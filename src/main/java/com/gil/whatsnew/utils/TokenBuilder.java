@@ -7,6 +7,7 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
@@ -20,6 +21,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.bind.DatatypeConverter;
 
 import com.auth0.jwt.JWT;
@@ -67,6 +71,36 @@ public class TokenBuilder {
 		}
 	}
 
+	public static String generateCSRFToken() throws ApplicationException{
+		try {
+			SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+			byte[] data = new byte[16];
+			secureRandom.nextBytes(data);
+			
+			return Base64.getEncoder().encodeToString(data);
+			
+		}catch(Exception e) {
+			throw new ApplicationException(ErrorType.General_Error, "Generated CSRF token failed" , false);
+		}
+	}
+	
+	public static boolean verifyCSRFToken(HttpServletRequest request) throws ApplicationException{
+		String csrf = "";
+
+		for (Cookie cookie : request.getCookies()) {
+			if (cookie.getName().equals("csrf")) {
+				csrf = cookie.getValue();
+			}
+		}
+		
+		String csrfField = request.getParameter("token");
+		
+		if(csrfField != null && csrf != null) {
+			if(csrf.equals(csrfField)) return true;
+		}
+		
+		return false;
+	}
 	public static boolean verifyToken(String token, String email, String password)
 			throws ApplicationException {
 		long min = ((System.currentTimeMillis() / (1000*60)) % 60) + 15;

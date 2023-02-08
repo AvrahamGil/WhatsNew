@@ -12,7 +12,7 @@ public enum ErrorType {
 	Email_Already_Exist("Email already exist, please check your email"),
 	User_Already_Exist("User already exist, please check your details"),
 	User_Details("Get user detail failed, check if you are logged in"),
-	Create_User_Failed("Please check your details"),
+	Create_User_Failed("Please check your details and try again"),
 	Read_Json_Failed("Cannot read json file, please check file path and try again"),
 	Domains_Failed("Domains failed, check domains correctly or file path");
 	
