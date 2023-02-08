@@ -1,0 +1,50 @@
+<div class="sign-up card-group">
+    <div class="card-body"  aria-expanded="false">
+      <div class="container" id="register">
+        <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+            <div class="card mb-3 box-shadow" id="register-form">
+              <span class="card-title" ><h4>Register</h4></span>
+              <div class="inputs card-body">
+              <form [formGroup]="user" (ngSubmit)="register()" >
+                <div>
+                  <p class="form-note">All fields are required</p>
+                  <div >
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Full Name</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Full Name" minlength="3" maxlength="25" formGroupName="fullName" formControlName="fullName" required/>
+                    </div>
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">User Name</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="User Name" minlength="3" maxlength="25"formGroupName="userName" formControlName="userName" required/>
+                    </div>
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Email</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Email" minlength="3" maxlength="45"formGroupName="email" formControlName="email" required/>
+                    </div>
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Password</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" placeholder="Password" minlength="3" maxlength="25"formGroupName="password" formControlName="password" required/>
+                    </div>
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Confirm Password</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" placeholder="Confirm Password" minlength="3" maxlength="25"formGroupName="confirmPassword" formControlName="confirmPassword" required/>
+                    </div>
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Country</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Country" minlength="3" maxlength="40"formGroupName="country" formControlName="country" required/>
+                    </div>
+                  </div>
+                  <input class="sign-up-btn btn btn-light" type="submit"  id="sign-up"/>
+
+                  <p class="form-error" id="message">{{message}}</p>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

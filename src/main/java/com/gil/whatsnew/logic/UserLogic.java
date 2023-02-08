@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.utils.SessionUtils;
+import com.gil.whatsnew.utils.TokenBuilder;
 
 
 @Service
@@ -28,6 +31,8 @@ public class UserLogic {
 	private String redirectToo = "https://whatsnew.me";
 	
 	private final String emailRegex = "^[\\w\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+	
+	private final String specialChar = "~`!#$%^&*(){}[]+-_=/><:\"\\?;";
 
 	private final int max = 25;
 
@@ -46,7 +51,7 @@ public class UserLogic {
 			
 			for(int i=1; i<= userString.length -1; i++) {
 				
-				detailsCorrect = userString[i].matches(emailRegex) == true ? userDao.isUserExist("email",user.getEmail()) == true ? false : true : true;
+				detailsCorrect = userString[i].matches(emailRegex) == true && !userString[i].contains(specialChar) ? userDao.isUserExist("email",user.getEmail()) == true ? false : true : true;
 				detailsCorrect = userString[i].matches(emailRegex) == false ? userString[i].length() < max : detailsCorrect;
 		
 				if(detailsCorrect != true) break;
@@ -72,6 +77,8 @@ public class UserLogic {
 		try {
 			boolean isCorrect = false;
 			
+			if(email == null || password == null) return null;
+			
 			isCorrect = email.matches(emailRegex) && password.length() < max ? true : false;
 
 			if(!isCorrect) return null;
@@ -81,6 +88,8 @@ public class UserLogic {
 			if(user == null) return null;
 			
 			session = SessionUtils.getSession(request,user.getEmail(),user.getPassword());
+			
+			if(!TokenBuilder.verifyCSRFToken(request)) return null;
 			
 			if(session == null) return null;
 			
@@ -154,4 +163,20 @@ public class UserLogic {
 			throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(),false);
 		}
 	}
+	
+	public String generateCSRFToken(HttpServletRequest request, HttpServletResponse response) throws ApplicationException{
+		try {
+			String token = TokenBuilder.generateCSRFToken();
+			
+			Cookie cookie = new Cookie("csrf", token);
+			response.addCookie(cookie);
+			
+			return token;
+			
+		}catch(Exception e) {
+			throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(),false);
+		}
+	}
+	
+	
 }

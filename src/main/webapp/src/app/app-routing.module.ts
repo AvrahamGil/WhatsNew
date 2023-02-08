@@ -1,19 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BusinessComponent } from './business/business.component';
+import { LoginComponent } from './login/login.component';
 import { NewsComponent } from './news/news.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RegisterComponent } from './register/register.component';
 import { SportComponent } from './sport/sport.component';
 import { TechnologyComponent } from './technology/technology.component';
 import { TravelComponent } from './travel/travel.component';
+import { UserComponent } from './user/user.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  {path:"news" , component: NewsComponent},
-  {path:"business" , component: BusinessComponent},
-  {path:"sport" , component: SportComponent},
-  {path:"technology" , component: TechnologyComponent},
-  {path:"travel" , component: TravelComponent},
-  {path:"404" , component: NotFoundComponent}
+  {path:"" , component: WelcomeComponent},
+  {path:"articles/news" , component: NewsComponent},
+  {path:"articles/business" , component: BusinessComponent},
+  {path:"articles/sport" , component: SportComponent},
+  {path:"articles/technology" , component: TechnologyComponent},
+  {path:"articles/travel" , component: TravelComponent},
+  {path:"user" , component: UserComponent,children:[
+    {path:'register' , component:RegisterComponent},
+    {path:'login' , component:LoginComponent}
+  ]},
+  {path:"**" , component: NotFoundComponent}
 ]
 
 @NgModule({

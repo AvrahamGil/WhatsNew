@@ -1,0 +1,103 @@
+#register {
+    text-align: center;
+    margin:0% 25%;
+}
+
+.sign-up {
+    background-image: url("../../assets/images/signUp.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#register-form {
+    text-align: center;
+    line-height: 2.0;
+    background-color: #0a0a0a;
+    width:80%;
+    padding: 0% 0%;
+}
+
+::placeholder {
+    color:#fff;
+}
+
+
+#register-form  span {
+    font-family: 'Heebo';
+    background-color: #336ca6;
+    text-align:center;
+    font-size:1.2rem;
+    font-weight: bold;
+}
+
+.inputs {
+    overflow-y: auto;
+    font-weight: bold;
+    overflow:auto;
+    padding: 0% 20%;
+
+}
+
+.sign-up-btn {
+    margin: 5% 30%
+}
+
+.input-name {
+    color: #fff;
+    padding: 0% 10%;
+    text-align: left;
+}
+
+.input-field {
+    background-color:#0a0a0a;
+    color:#fff;
+    border-color:#367CD2;
+    text-align: left;
+
+}
+
+input:invalid {
+    border-color: #ef1818;
+  }
+  input:valid {
+    border-color: #367CD2 !important;
+
+  }
+
+  input:required {
+    border-color: #e42727;
+    border-width: 5px;
+  }
+
+  .form-note {
+    color:#fff;
+  }
+
+  .form-error {
+    color:#f01e1e;
+  }
+
+  .form-message {
+    color:#367CD2;
+  }
+
+  .fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.1s;
+    }
+
+    @keyframes fadeInOpacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+
+
