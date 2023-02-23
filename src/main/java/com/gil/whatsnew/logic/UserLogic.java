@@ -1,6 +1,8 @@
 package com.gil.whatsnew.logic;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
 
 import java.util.UUID;
@@ -10,16 +12,15 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.gil.whatsnew.bean.User;
 import com.gil.whatsnew.dao.UserDaoMongo;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
-import com.gil.whatsnew.utils.SessionUtils;
-import com.gil.whatsnew.utils.TokenBuilder;
+import com.gil.whatsnew.utils.Authentication;
 
 
 @Service
@@ -27,6 +28,9 @@ public class UserLogic {
 
 	@Autowired
 	private UserDaoMongo userDao;
+	
+	@Autowired
+	private Authentication authentication;
 	
 	private String redirectToo = "https://whatsnew.me";
 	
@@ -38,13 +42,18 @@ public class UserLogic {
 
 	private HttpSession session;
 	
-	public void register(User user) throws ApplicationException {
+	public void register(HttpServletRequest request,User user) throws ApplicationException {
 		
 		boolean detailsCorrect = true;
+		boolean isCorrect = true;
 		
-		String uuIdString = UUID.randomUUID().toString();
+		String uuid = UUID.nameUUIDFromBytes(user.getEmail().getBytes()).toString();
 		
-		if(user.getEmail() == null || user.getFullName() == null || user.getPassword() == null || user.getCountry() == null) throw new ApplicationException(ErrorType.Create_User_Failed,ErrorType.Create_User_Failed.getMessage(),false);
+		if(user.getEmail() == null || user.getFullName() == null || user.getPassword() == null || user.getCountry() == null) isCorrect = false;
+		
+		if(!authentication.verifyCaptcha(request)) isCorrect = false;
+		
+		if(!isCorrect) throw new ApplicationException(ErrorType.Create_User_Failed,ErrorType.Create_User_Failed.getMessage(),false);
 		
 		try {
 			String[] userString = user.toString().split(",");
@@ -54,51 +63,57 @@ public class UserLogic {
 				detailsCorrect = userString[i].matches(emailRegex) == true && !userString[i].contains(specialChar) ? userDao.isUserExist("email",user.getEmail()) == true ? false : true : true;
 				detailsCorrect = userString[i].matches(emailRegex) == false ? userString[i].length() < max : detailsCorrect;
 		
-				if(detailsCorrect != true) break;
+				if(detailsCorrect != true) isCorrect = false;
 			}
 			
-			if(detailsCorrect != true) throw new ApplicationException(ErrorType.Create_User_Failed,ErrorType.Create_User_Failed.getMessage(),false); 
-				
-			while(userDao.isUserExist("userId",uuIdString) != false) uuIdString = UUID.randomUUID().toString();
-
-			user.setUserId(uuIdString);
+			if(!isCorrect) throw new ApplicationException(ErrorType.Create_User_Failed,ErrorType.Create_User_Failed.getMessage(),false);  
+			
+			
+			user.setUserId(uuid);
 			
 			User userAdded = userDao.addUser(user);
 			
-			if(userAdded == null) throw new ApplicationException(ErrorType.Create_User_Failed,ErrorType.Create_User_Failed.getMessage(),false);
+			if(userAdded == null) isCorrect = false;
 			
+			if(!isCorrect) throw new ApplicationException(ErrorType.Create_User_Failed,ErrorType.Create_User_Failed.getMessage(),false);
 			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
 	}
 	
-	public HttpSession validateLoginDetails(String email, String password ,HttpServletRequest request) throws ApplicationException{
+	public ResponseEntity<Object> validateLoginDetails(HttpServletRequest request,String email, String password) throws ApplicationException{
+		boolean detailsCorrect = true;
+		boolean isCorrect = true;
+		ResponseEntity<Object> res = null;
+		
 		try {
-			boolean isCorrect = false;
+			if(email == null || password == null) isCorrect = false;
 			
-			if(email == null || password == null) return null;
-			
-			isCorrect = email.matches(emailRegex) && password.length() < max ? true : false;
+			detailsCorrect = email.matches(emailRegex) && password.length() < max ? true : false;
 
-			if(!isCorrect) return null;
+			if(!detailsCorrect) isCorrect = false;
 			
-			User user = userDao.getUserDetails(email);
+			if(!isCorrect) throw new ApplicationException(ErrorType.Login_Failed,ErrorType.Login_Failed.getMessage(),false);
 			
-			if(user == null) return null;
+			if(userDao.getUserDetails(email) == null) isCorrect = false;
 			
-			session = SessionUtils.getSession(request,user.getEmail(),user.getPassword());
+			if(!isCorrect) throw new ApplicationException(ErrorType.User_Not_Exist,ErrorType.User_Not_Exist.getMessage(),false);
 			
-			if(!TokenBuilder.verifyCSRFToken(request)) return null;
+			if(!authentication.verifyCaptcha(request)) isCorrect = false;
 			
-			if(session == null) return null;
+			if(!authentication.verifyCSRFToken(request)) isCorrect = false;
 			
-			return session;
+			if(!isCorrect) throw new ApplicationException(ErrorType.Login_Failed,ErrorType.Login_Failed.getMessage(),false);
+			
+			res = authentication.getConnection(email,password);
+			
+			return res;
 			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
-		return null;
+		return res;
 	}
 	
 	public void editUser(User user) throws ApplicationException {
@@ -153,7 +168,7 @@ public class UserLogic {
 		
 		try {
 			if(request != null) {
-				if(request.getSession(false) != null || !session.getAttribute("token").toString().equals(null)) {
+				if(request.getSession(false) != null || !session.getAttribute("X-TOKEN").toString().equals(null)) {
 					requestDispatcher = request.getRequestDispatcher(redirectToo);
 					session.invalidate();
 					request = null;
@@ -166,9 +181,9 @@ public class UserLogic {
 	
 	public String generateCSRFToken(HttpServletRequest request, HttpServletResponse response) throws ApplicationException{
 		try {
-			String token = TokenBuilder.generateCSRFToken();
+			String token = authentication.generateCSRFToken();
 			
-			Cookie cookie = new Cookie("csrf", token);
+			Cookie cookie = new Cookie("X-CSRFTOKEN", token);
 			response.addCookie(cookie);
 			
 			return token;

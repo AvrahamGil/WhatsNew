@@ -1,3 +1,8 @@
+<SCRIPT type="text/javascript">
+  function onHuman(response) {
+    document.getElementById('captcha').value = response;
+  }
+</SCRIPT>
 <div class="sign-in card-group">
     <div class="card-body"  aria-expanded="false">
       <div class="container" id="login">
@@ -6,7 +11,8 @@
             <div class="card mb-3 box-shadow" id="login-form">
               <span class="card-title" ><h4>Login</h4></span>
               <div class="inputs card-body">
-              <form [formGroup]="user" (ngSubmit)="login()" >
+              <form method="POST" [formGroup]="user" (ngSubmit)="login()" >
+
                 <div>
                   <p class="form-note">Login page</p>
                   <div >
@@ -16,12 +22,15 @@
                     <div>
                       <input class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" placeholder="Password" minlength="3" maxlength="25"formGroupName="password" formControlName="password" required/>
                     </div>
+
+                    <re-captcha class="captcha" theme="dark" id="recaptcha" name="recaptcha" formControlName="recaptcha" required ></re-captcha>
+
                     <div>
                       <input class="token col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text"  formGroupName="token" formControlName="token" value="{{field}}"/>
                     </div>
                   </div>
                   <div>
-                    <input class="sign-in-btn btn btn-light" type="submit" placeholder="Sign Ip" id="sign-in" />
+                    <input class="sign-in-btn btn btn-light" type="submit" placeholder="Sign Ip" id="sign-in" value="Sign In"/>
                   </div>
 
                   <p class="form-error" id="message">{{message}}</p>

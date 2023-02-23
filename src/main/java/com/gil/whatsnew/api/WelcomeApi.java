@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,10 +18,10 @@ import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.logic.UserLogic;
-import com.gil.whatsnew.utils.TokenBuilder;
+import com.gil.whatsnew.utils.Authentication;
 
 @RestController
-@RequestMapping("/welcomeapi")
+@RequestMapping("/welcome")
 public class WelcomeApi {
 
 	@Autowired
@@ -28,7 +30,7 @@ public class WelcomeApi {
 	@RequestMapping(value="/register" , method = RequestMethod.POST)
 	public void createUser(@RequestBody User user , HttpServletRequest request) throws Exception {		
 		try {
-			if(user != null) userLogic.register(user);
+			if(user != null) userLogic.register(request,user);
 			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
@@ -36,19 +38,22 @@ public class WelcomeApi {
 	}
 	
 	@RequestMapping(value = "/login" , method=RequestMethod.POST)
-	public void login(@RequestParam String token,@RequestBody Login loginDetail,HttpServletRequest request) throws ApplicationException {
+	public ResponseEntity<Object> login(@RequestBody Login loginDetail,HttpServletRequest request,HttpServletResponse response) throws ApplicationException {
 		try {
-			if(loginDetail != null) {
-				if(userLogic.validateLoginDetails(loginDetail.getEmail(), loginDetail.getPassword(), request) == null) {
-					throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
-				}
+			ResponseEntity<Object> res = userLogic.validateLoginDetails(request,loginDetail.getEmail(), loginDetail.getPassword()); 
+			if(res == null) {
+				throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
 			}
+			
+			return new ResponseEntity<Object>(res, HttpStatus.OK);
+			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
+		return new ResponseEntity<Object>(null, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/token" , method=RequestMethod.GET)
+	@RequestMapping(value = "/csrftoken" , method=RequestMethod.GET)
 	public String generateCSRFToekn(HttpServletRequest request, HttpServletResponse response) throws ApplicationException {
 		try {
 			return userLogic.generateCSRFToken(request,response);

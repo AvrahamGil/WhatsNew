@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ArticleService } from '../articles.service';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-technology',
@@ -13,15 +14,16 @@ export class TechnologyComponent {
   public articles =  Array(14).fill([[]]);
   public data:any  = [];
 
-  constructor(public articlesService: ArticleService) {}
+  constructor(public welcome: WelcomeComponent) {}
 
   ngOnInit() {
-    this.initData();
+    this.getArticles();
   }
 
-  public initData() {
-    this.articlesService.getContextArticlesTwo("technology").then((articles:any) => {
-      this.technologyAr = articles;
+  private getArticles() {
+    this.welcome.getArticles("technology").then((articles) => {
+        this.technologyAr = articles;
     });
   }
+
 }

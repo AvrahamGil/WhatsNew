@@ -12,6 +12,8 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
@@ -25,11 +27,13 @@ import org.springframework.stereotype.Service;
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.bean.Multimedia;
 import com.gil.whatsnew.bean.NewYorkTimesApi;
+import com.gil.whatsnew.bean.UserArticles;
 import com.gil.whatsnew.dao.ArticleDaoMongo;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.utils.StringPaths;
+import com.gil.whatsnew.utils.Authentication;
 import com.gil.whatsnew.utils.JsonUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -81,7 +85,7 @@ public class ArticleLogic {
 
 	public List<List<Article>> getListOfNewsArticles() throws ApplicationException {
 		List<List<Article>> articles = new ArrayList<List<Article>>();
-
+		
 		try {
 			for (String category : categories) {
 				articles.add(articleDaoMongo.getAllArticles(category));
@@ -247,6 +251,65 @@ public class ArticleLogic {
 		}
 
 	}
+	
+	public void addIntoFavorit(String title, HttpServletRequest request) throws ApplicationException{
+		UserArticles details = null;
+		
+		try {
+			if(title == null) 
+				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
+
+			String requestUuId = request.getAttribute("X-UUID").toString();
+			String token = request.getAttribute("X-TOKEN").toString();
+			
+			String uuid = UUID.fromString(token).toString();
+			
+			if(uuid == null || !requestUuId.matches(uuid)) 
+				throw new ApplicationException(ErrorType.User_Details,ErrorType.User_Details.getMessage(), false);
+			
+			details = new UserArticles();
+			details.setTitle(title);
+			details.setUserId(requestUuId);
+			
+			boolean liked = articleDaoMongo.isArticleFavorated(title, requestUuId);
+			
+			if(liked)
+				throw new ApplicationException(ErrorType.Article_Already_Liked,ErrorType.Article_Already_Liked.getMessage(), false);
+			
+			articleDaoMongo.addFavoritArticle(details);
+			
+		} catch(ApplicationException e) {
+			ExceptionHandler.generatedLogicExceptions(e);
+		}
+	}
+	
+	public List<Article>getFavoritArticles(HttpServletRequest request) throws ApplicationException{
+		List<UserArticles>details;
+		List<Article>articles = new ArrayList<Article>();
+		
+		try {
+			String uuId = request.getAttribute("X-UUID").toString();
+			
+			if(uuId == null) 
+				throw new ApplicationException(ErrorType.User_Details,ErrorType.User_Details.getMessage(), false);
+			
+			details = articleDaoMongo.getFavoritArticles(uuId);
+			
+			for(UserArticles article : details) {
+				articles.add(articleDaoMongo.getArticleDetails(article.getTitle()));
+			}
+			
+			if(articles.isEmpty())
+				return null;
+			
+			return articles;
+			
+		} catch(ApplicationException e) {
+			ExceptionHandler.generatedLogicExceptions(e);
+		}
+		return null;
+	}
+	
 	public List<String> addingSources(List<String> types, String category) throws ApplicationException {
 		String site = "";
 
@@ -269,6 +332,8 @@ public class ArticleLogic {
 		}
 		return types;
 	}
+	
+
 	private List<Article> generatedArticleList(HttpResponse response) throws ApplicationException {
 
 		Gson gson = new Gson();

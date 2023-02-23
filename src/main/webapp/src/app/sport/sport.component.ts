@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ArticleService } from '../articles.service';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-sport',
@@ -11,19 +12,20 @@ export class SportComponent {
   public sportAr:any  = [];
   public newYorkTimesAr:any = [];
 
-  constructor(public articlesService: ArticleService) {}
+  constructor(public welcome: WelcomeComponent) {}
 
   ngOnInit() {
-    this.initData();
+    this.getArticles();
   }
 
-  public initData() {
-    this.articlesService.getContextArticlesTwo("sport").then((articles:any) => {
-      this.sportAr = articles;
+  private getArticles() {
+    this.welcome.getArticles("sport").then((articles) => {
+        this.sportAr = articles;
     });
 
-    this.articlesService.getNewYorkArticles("sport").then((articles:any) => {
-      this.newYorkTimesAr = articles;
-    });
-}
+    this.welcome.getArticles("sportNewYork").then((articles) => {
+        this.newYorkTimesAr = articles;
+    })
+  }
+
 }

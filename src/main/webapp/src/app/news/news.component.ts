@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ArticleService } from '../articles.service';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-news',
@@ -8,25 +8,23 @@ import { ArticleService } from '../articles.service';
 })
 export class NewsComponent implements OnInit{
 
-  public newsAr:any  = [];
+  public newsAr:any = [];
+
   public newYorkTimesAr:any = [];
 
-  constructor(public articlesService: ArticleService) {}
+  constructor(public welcome: WelcomeComponent) {}
 
   ngOnInit() {
-    this.initData();
+    this.getArticles();
   }
 
-  public initData() {
-    this.articlesService.getContextArticlesTwo("news").then((articles:any) => {
+  private getArticles() {
+  this.welcome.getArticles("news").then((articles) => {
       this.newsAr = articles;
-    });
+  });
 
-
-    this.articlesService.getNewYorkArticles("news").then((articles:any) => {
+  this.welcome.getArticles("newsNewYork").then((articles) => {
       this.newYorkTimesAr = articles;
-    });
-
+  })
   }
-
 }

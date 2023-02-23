@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import $ from 'jquery';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,10 @@ import $ from 'jquery';
 
 export class AppComponent {
 
+  header = "header";
+
   constructor(){ }
+
 
   ngOnInit() {
   $("#scrollTop").click(() =>{
@@ -26,11 +29,13 @@ export class AppComponent {
             $('body').css('padding-top', '0');
           }
       });
-    }
+    };
+
+    const input = document.getElementById('login') as HTMLElement
+    input?.setAttribute('disabled', '');
   }
 
   public scrollTo(el:string) {
     document.getElementById(el)?.scrollIntoView();
   }
-
 }

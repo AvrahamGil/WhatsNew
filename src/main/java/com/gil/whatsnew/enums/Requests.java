@@ -2,12 +2,12 @@ package com.gil.whatsnew.enums;
 
 public enum Requests {
 
-	RapidHost("RapidHost"),
-	RapidKey("RapidKey"),
+	RapidHost("x-rapidapi-host"),
+	RapidKey("x-rapidapi-key"),
 	NewYorkApi("NewYorkApi"),
 	RapidApi("RapidApi"),
 	RapidKeyValue("RapidKeyValue"),
-	
+	Captcha("Captcha"),
 	ContextRapidHostValue("ContextRapidHostValue");
 	
 	String strings;

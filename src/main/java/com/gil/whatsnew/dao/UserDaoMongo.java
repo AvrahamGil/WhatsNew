@@ -3,20 +3,19 @@ package com.gil.whatsnew.dao;
 import java.util.List;
 
 
-
-
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
+
 import com.gil.whatsnew.bean.User;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
-import com.gil.whatsnew.interfaces.IUserDao;
+import com.gil.whatsnew.interfaces.UserDao;
 import com.mongodb.client.result.UpdateResult;
 
 @Repository
-public class UserDaoMongo extends IUserDao {
+public class UserDaoMongo extends UserDao {
 	
 	@Override
 	public User addUser(User user) throws ApplicationException {
@@ -104,7 +103,4 @@ public class UserDaoMongo extends IUserDao {
 			throw new ApplicationException(ErrorType.Get_List_Failed,ErrorType.Get_List_Failed.getMessage(),false);
 		}
 	}
-	
-	
-
 }

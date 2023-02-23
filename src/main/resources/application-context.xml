@@ -50,6 +50,7 @@
 	<bean id="utils" class="com.gil.whatsnew.utils.Utils"></bean>
 	<bean id="timer" class="com.gil.whatsnew.utils.Timer"></bean>
 	<bean id="paths" class="com.gil.whatsnew.utils.Paths"></bean>
+	<bean id="authentication" class="com.gil.whatsnew.utils.Authentication"></bean>
 
 	<!-- Api -->
 	<bean id="articleApi" class="com.gil.whatsnew.api.ArticleApi"></bean>
@@ -64,6 +65,7 @@
 	<bean id="updateArticlesListener" class="com.gil.whatsnew.listener.UpdateArticlesListener"></bean>
 	<bean id="eventPublisher" class="com.gil.whatsnew.listener.EventPublisher"></bean>
 	<bean id="appListener" class="com.gil.whatsnew.listener.AppListener"></bean>
+	<bean id="error" class="com.gil.whatsnew.listener.ErrorApi"></bean>
 	
 	<!-- Exception -->
 	<bean id="customErrorResponse" class="com.gil.whatsnew.bean.CusomErrorResponse"></bean>

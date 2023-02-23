@@ -19,8 +19,8 @@ const routes: Routes = [
   {path:"articles/technology" , component: TechnologyComponent},
   {path:"articles/travel" , component: TravelComponent},
   {path:"user" , component: UserComponent,children:[
-    {path:'register' , component:RegisterComponent},
-    {path:'login' , component:LoginComponent}
+    {path:'login' , component:LoginComponent},
+    {path:'register' , component:RegisterComponent}
   ]},
   {path:"**" , component: NotFoundComponent}
 ]

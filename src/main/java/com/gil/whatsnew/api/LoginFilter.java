@@ -23,7 +23,6 @@ import com.gil.whatsnew.utils.StringPaths;
 public class LoginFilter implements Filter{
 
 	private String redirectToo = "https://whatsnew.me";
-	private final String filter = "Filtering";
 	private HttpServletRequest req;
 	private HttpServletResponse res;
 	private HttpSession session;
@@ -39,7 +38,7 @@ public class LoginFilter implements Filter{
 		try {
 			session = req.getSession(false);
 			
-			boolean isLoggedIn = (session != null && session.getAttribute("token") != null);
+			boolean isLoggedIn = (session != null && session.getAttribute("X-TOKEN") != null);
 			 
 			String path = req.getRequestURI().substring(req.getContextPath().length());
 
