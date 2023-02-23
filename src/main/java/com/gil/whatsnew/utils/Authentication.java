@@ -45,7 +45,7 @@ public class Authentication {
 	private static final String email = "email";
 	private static final String password = "password";
 	
-	public static final String secret = "6LdiMn8kAAAAAN1OYdhRrBqlbivw1EyCK6FW-MrM";
+	public static final String secret = "secret";
 	
 	@Autowired
 	private BaseRequest baseRequest;
