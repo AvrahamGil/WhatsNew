@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { LoginDetails } from '../login-details';
 import { LoginService } from '../login.service';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -152,5 +151,5 @@ export class LoginComponent {
 }
 
 export const env = {
-  siteKey: '6LdiMn8kAAAAAJfVBuBt98ZbrqCtvziO4GCHOn7c',
+  siteKey: 'sitekey',
 }
