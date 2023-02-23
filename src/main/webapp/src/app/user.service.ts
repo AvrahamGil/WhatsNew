@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { param } from 'jquery';
 import { Observable, throwError } from 'rxjs';
 import { LoginDetails } from './login-details';
 import { Users } from './users';
@@ -31,10 +32,22 @@ export class UserService {
 
     return new Promise((resolve,reject) => {
       try{
-        this.login(details).subscribe((data:any) => resolve(data),(error) => {reject(error)});
+        this.login(details).subscribe((data:any) => resolve(data),(error) => {console.log(error)});
 
-      }catch(err) {
-        throw new Error("One or more details are incorrect");
+      }catch(err:any) {
+        reject(err);
+      }
+    })
+
+   }
+
+   public logoutUser(details:LoginDetails) : Promise<any[]> {
+    return new Promise((resolve,reject) => {
+      try{
+        this.logout(details).subscribe((data:any) => resolve(data),(error) => {console.log(error)});
+
+      }catch(err:any) {
+        reject(err);
       }
     })
 
@@ -53,25 +66,31 @@ export class UserService {
    }
 
   private register(user:Users) : Observable<Users> {
-    this.postRequest = "http://localhost:8080/whatsnew/welcomeapi/register";
+    this.postRequest = "http://localhost:8080/whatsnew/welcome/register";
+    var header = new HttpHeaders().set('recaptcha-response', user.captcha).set('Content-Type','application/json');
+
+    return this.http.post<Users>(this.postRequest,user,{headers:header}).pipe((err) => err);
+  }
+
+  private logout(user:LoginDetails) : Observable<Users> {
+    this.postRequest = "http://localhost:8080/whatsnew/rest/api//user";
+
     var header = new HttpHeaders();
     header.append('Content-Type','application/json' );
 
-    return this.http.post<Users>(this.postRequest,user).pipe((err) => err);
+    return this.http.post<Users>(this.postRequest,user,{headers:header}).pipe((err) => err);
   }
 
   private login(user:LoginDetails) : Observable<Users> {
-    this.postRequest = "http://localhost:8080/whatsnew/welcomeapi/login";
-    var header = new HttpHeaders();
-    const params = new HttpParams()
-    .append('token', user.token)
-    header.append('Content-Type','application/json' );
+    this.postRequest = "http://localhost:8080/whatsnew/welcome/login";
 
-    return this.http.post<Users>(this.postRequest,user,{params:params}).pipe((err) => err);
+    const header = new HttpHeaders().set('X-CSRFTOKEN' , user.token).set('recaptcha-response', user.captcha);
+
+    return this.http.post<Users>(this.postRequest,user,{headers:header}).pipe((err) => err);
   }
 
   private getCSRFToken()  {
-    this.getRequest = "http://localhost:8080/whatsnew/welcomeapi/token";
+    this.getRequest = "http://localhost:8080/whatsnew/welcome/csrftoken";
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
 
     return this.http.get(this.getRequest,{headers:headers,responseType:'text'}).pipe((err) => err);

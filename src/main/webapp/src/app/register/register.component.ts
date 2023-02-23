@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit{
 
    user:FormGroup;
    message:string = "";
+   siteKey:any = "";
    speicalChar:string = "~`!#$%^&*()_+-=|\\/}]{[\/:;?/>.<,-";
 
 
@@ -26,14 +27,15 @@ export class RegisterComponent implements OnInit{
       email: new FormControl(),
       password: new FormControl(),
       confirmPassword: new FormControl(),
-      country: new FormControl()
+      country: new FormControl(),
+      recaptcha: new FormControl(),
     });
 
     router = new Router;
   }
 
   ngOnInit() {
-
+    this.siteKey = "6LdiMn8kAAAAAJfVBuBt98ZbrqCtvziO4GCHOn7c";
   }
 
 
@@ -56,12 +58,13 @@ export class RegisterComponent implements OnInit{
       if(!this.validateDetails("password",this.user.controls['password'].value,this.user.controls['confirmPassword'].value)) throw new Error("Passwords must be match").message;
       if(!this.validateDetails("country",this.user.controls['country'].value)) throw new Error("Country feild cannot be empty").message;
 
-
       this.users.fullName = this.user.controls['fullName'].value;
       this.users.userName = this.user.controls['userName'].value;
       this.users.email = this.user.controls['email'].value;
       this.users.password = this.user.controls['password'].value;
       this.users.country = this.user.controls['country'].value;
+
+      this.users.captcha = grecaptcha.getResponse();
 
       this.sendRequest(this.users).then(async () => {
         this.message = "User registered successfully";
@@ -69,7 +72,7 @@ export class RegisterComponent implements OnInit{
         element.style.color = "#367CD2";
 
         await this.delay(2000);
-        this.router.navigate(['user/login'])
+        this.router.navigate(['/'])
       })
 
     } catch(error:any) {

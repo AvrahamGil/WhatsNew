@@ -35,7 +35,9 @@
                       <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Country" minlength="3" maxlength="40"formGroupName="country" formControlName="country" required/>
                     </div>
                   </div>
-                  <input class="sign-up-btn btn btn-light" type="submit"  id="sign-up"/>
+                  <re-captcha class="captcha" theme="dark" id="recaptcha" name="recaptcha" formControlName="recaptcha" required ></re-captcha>
+
+                  <input class="sign-up-btn btn btn-light" type="submit"  id="sign-up" value="Sign Up"/>
 
                   <p class="form-error" id="message">{{message}}</p>
                 </div>

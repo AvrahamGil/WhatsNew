@@ -5,4 +5,5 @@ export class Users {
     confirmPassword:string | undefined;
     fullName:string | undefined;
     country:string | undefined;
+    captcha!:any;
 }

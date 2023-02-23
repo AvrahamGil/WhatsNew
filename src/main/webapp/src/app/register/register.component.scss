@@ -58,45 +58,56 @@
 
 input:invalid {
     border-color: #ef1818;
-  }
-  input:valid {
+}
+
+input:valid {
     border-color: #367CD2 !important;
 
-  }
+}
 
-  input:required {
+input:required {
     border-color: #e42727;
     border-width: 5px;
-  }
+}
 
-  .form-note {
+.captcha {
+    display: inline-block;
+}
+
+.g-recaptcha {
+    margin-right: 280px;
+}
+
+.form-note {
     color:#fff;
-  }
+}
 
-  .form-error {
+.form-error {
     color:#f01e1e;
-  }
+}
 
-  .form-message {
+.form-message {
     color:#367CD2;
-  }
+ }
 
-  .fade-in {
+.fade-in {
     opacity: 1;
     animation-name: fadeInOpacity;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-duration: 0.1s;
-    }
+}
 
-    @keyframes fadeInOpacity {
-        0% {
+@keyframes fadeInOpacity {
+    0% {
             opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
     }
+    100% {
+            opacity: 1;
+    }
+}
+
+
 
 
 

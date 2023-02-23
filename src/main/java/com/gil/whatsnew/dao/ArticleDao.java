@@ -18,6 +18,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.bean.NewYorkTimesApi;
+import com.gil.whatsnew.bean.UserArticles;
 import com.gil.whatsnew.enums.Keys;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
@@ -147,6 +148,36 @@ public class ArticleDao implements IArticlesDao {
 
 	private void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+
+
+
+	@Override
+	public boolean isArticleFavorated(String articleId, String userId) throws ApplicationException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public List<UserArticles> getFavoritArticles(String userId) throws ApplicationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void addFavoritArticle(UserArticles details) throws ApplicationException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Article getArticleDetails(String type) throws ApplicationException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

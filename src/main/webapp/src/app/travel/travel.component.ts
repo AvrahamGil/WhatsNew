@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ArticleService } from '../articles.service';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-travel',
@@ -10,15 +11,15 @@ export class TravelComponent {
 
   public travelAr:any  = [];
 
-  constructor(public articlesService: ArticleService) {}
+  constructor(public welcome: WelcomeComponent) {}
 
   ngOnInit() {
-    this.initData();
+    this.getArticles();
   }
 
-  public initData() {
-    this.articlesService.getContextArticlesTwo("travel").then((articles:any) => {
-      this.travelAr = articles;
+  private getArticles() {
+    this.welcome.getArticles("travel").then((articles) => {
+        this.travelAr = articles;
     });
   }
 }

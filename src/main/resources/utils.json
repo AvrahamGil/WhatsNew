@@ -43,5 +43,10 @@
 		"package" : "com.gil.whatsnew",
 		"connection" : "mongodb://localhost:27017/?maxPoolSize=20&w=majority"
 		}
+},
+{
+		"caotcha": {
+			"googleUrl" : "https://www.google.com/recaptcha/api/siteverify"
+		}
 }
 ]

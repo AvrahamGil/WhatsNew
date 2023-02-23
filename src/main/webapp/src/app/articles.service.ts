@@ -55,15 +55,15 @@ export class ArticleService {
     return new Promise((resolve,reject) => {
       try{
         array = this.getNewYorkData().subscribe((data:Articles) => {
-          let types = ["news","sport"];
+          let types = ["newsNewYork","sportNewYork"];
           let index = types.indexOf(type);
 
           this.data = Array.from(Object.keys(data),(k) =>data[k as keyof Articles]);
 
           this.articlesData = this.data;
 
-          if(type === "news") arrayMap[index] = this.articlesData.slice(0,5);
-          if(type === "sport") arrayMap[index] = this.articlesData.slice(6);
+          if(type === "newsNewYork") arrayMap[index] = this.articlesData.slice(0,5);
+          if(type === "sportNewYork") arrayMap[index] = this.articlesData.slice(6);
 
           if(index == 0 && arrayMap[index] !== undefined) array = arrayMap.map((x:any) => x);
           if(index == 1 && arrayMap[index] !== undefined) array = arrayMap.map((x:any) => x);

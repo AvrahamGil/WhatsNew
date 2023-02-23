@@ -15,8 +15,14 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Users } from './users';
-import { UserComponent } from './user/user.component';
 import { LoginDetails } from './login-details';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from 'ng-recaptcha';
+import { env } from '../app/login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginService } from './login.service';
+import { UserComponent } from './user/user.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -30,6 +36,7 @@ import { LoginDetails } from './login-details';
     RegisterComponent,
     LoginComponent,
     WelcomeComponent,
+    HeaderComponent,
     UserComponent
   ],
   imports: [
@@ -37,9 +44,17 @@ import { LoginDetails } from './login-details';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
-  providers: [ArticleService,Users,LoginDetails],
+  providers: [
+    {provide: ArticleService},{provide:Users},{provide:LoginService},{provide:LoginDetails},{provide:WelcomeComponent},{ provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: env.siteKey,
+      } as RecaptchaSettings,}
+  ],
   bootstrap: [AppComponent]
 })
 

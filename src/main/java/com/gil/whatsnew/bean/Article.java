@@ -14,7 +14,6 @@ public class Article {
 	private String title;
 	private String url;
 	private String description;
-	private String body;
 	private String keyword;
 	private String language;
 	private boolean isSafe;
@@ -29,13 +28,6 @@ public class Article {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getBody() {
-		return body;
-	}
-	public void setBody(String body) {
-		this.body = body;
 	}
 	public String getKeyword() {
 		return keyword;
@@ -112,7 +104,6 @@ public class Article {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((image == null) ? 0 : image.hashCode());
@@ -135,11 +126,6 @@ public class Article {
 		if (getClass() != obj.getClass())
 			return false;
 		Article other = (Article) obj;
-		if (body == null) {
-			if (other.body != null)
-				return false;
-		} else if (!body.equals(other.body))
-			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -192,10 +178,11 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", title=" + title + ", url=" + url + ", description=" + description + ", body="
-				+ body + ", keyword=" + keyword + ", language=" + language + ", isSafe=" + isSafe + ", image=" + image
-				+ ", imageUrl=" + imageUrl + ", newsType=" + newsType + ", type=" + type + "]";
+		return "Article [id=" + id + ", title=" + title + ", url=" + url + ", description=" + description + ", keyword="
+				+ keyword + ", language=" + language + ", isSafe=" + isSafe + ", image=" + image + ", imageUrl="
+				+ imageUrl + ", newsType=" + newsType + ", type=" + type + "]";
 	}
+
 
 	
 }
