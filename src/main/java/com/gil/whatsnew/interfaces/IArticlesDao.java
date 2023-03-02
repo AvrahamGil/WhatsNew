@@ -14,6 +14,8 @@ public interface IArticlesDao {
 
 	public void addArticle(Article articles,NewYorkTimesApi newYorkArticles,String type) throws ApplicationException;
 	
+	public boolean updateArticle(Article articles,NewYorkTimesApi newYorkArticles) throws ApplicationException;
+	
 	public void deleteArticle(String type) throws ApplicationException;
 		
 	public List<Article> getAllArticles(String type) throws ApplicationException;

@@ -2,18 +2,21 @@ package com.gil.whatsnew.api;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.gil.whatsnew.bean.Login;
 import com.gil.whatsnew.bean.User;
+import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.logic.UserLogic;
@@ -31,16 +34,23 @@ public class UserApi {
 	private Authentication authentication;
 	
 	@RequestMapping(value = "/logout" , method=RequestMethod.POST)
-	public void logOut(@RequestBody Login loginDetail,HttpServletRequest request, HttpServletResponse response) throws ApplicationException {
+	public ResponseEntity<Object> logOut(@RequestBody Login loginDetail,HttpServletRequest request, HttpServletResponse response) throws ApplicationException {
 
 		try {
-			if(authentication.verifyCookies(request)) {
-				userLogic.logout(loginDetail.getEmail(),loginDetail.getPassword(), request);
-			}
+			if(!authentication.verifyCookies(request)) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
+			
+			ResponseEntity<Object> res = userLogic.logout(request);
+				
+			if(res == null) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
+				
+			return new ResponseEntity<Object>(res, HttpStatus.OK);
+			
 			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
+		
+		return new ResponseEntity<Object>(null, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/editDetails" , method = RequestMethod.PUT)

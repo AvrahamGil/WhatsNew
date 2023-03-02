@@ -1,6 +1,8 @@
 package com.gil.whatsnew.bean;
 
 
+import java.util.Objects;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -21,6 +23,7 @@ public class Article {
 	private String imageUrl;
 	private String newsType;
 	private String type;
+	private boolean isLiked;
 	
 	public String getId() {
 		return id;
@@ -100,21 +103,18 @@ public class Article {
 		this.type = type;
 	}
 
+	public boolean isLiked() {
+		return isLiked;
+	}
+
+	public void setLiked(boolean isLiked) {
+		this.isLiked = isLiked;
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
-		result = prime * result + (isSafe ? 1231 : 1237);
-		result = prime * result + ((keyword == null) ? 0 : keyword.hashCode());
-		result = prime * result + ((language == null) ? 0 : language.hashCode());
-		result = prime * result + ((newsType == null) ? 0 : newsType.hashCode());
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + ((url == null) ? 0 : url.hashCode());
-		return result;
+		return Objects.hash(description, id, image, imageUrl, isLiked, isSafe, keyword, language, newsType, title, type,
+				url);
 	}
 
 	@Override
@@ -126,62 +126,21 @@ public class Article {
 		if (getClass() != obj.getClass())
 			return false;
 		Article other = (Article) obj;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
-		if (imageUrl == null) {
-			if (other.imageUrl != null)
-				return false;
-		} else if (!imageUrl.equals(other.imageUrl))
-			return false;
-		if (isSafe != other.isSafe)
-			return false;
-		if (keyword == null) {
-			if (other.keyword != null)
-				return false;
-		} else if (!keyword.equals(other.keyword))
-			return false;
-		if (language == null) {
-			if (other.language != null)
-				return false;
-		} else if (!language.equals(other.language))
-			return false;
-		if (newsType == null) {
-			if (other.newsType != null)
-				return false;
-		} else if (!newsType.equals(other.newsType))
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
-		if (url == null) {
-			if (other.url != null)
-				return false;
-		} else if (!url.equals(other.url))
-			return false;
-		return true;
+		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
+				&& Objects.equals(image, other.image) && Objects.equals(imageUrl, other.imageUrl)
+				&& isLiked == other.isLiked && isSafe == other.isSafe && Objects.equals(keyword, other.keyword)
+				&& Objects.equals(language, other.language) && Objects.equals(newsType, other.newsType)
+				&& Objects.equals(title, other.title) && Objects.equals(type, other.type)
+				&& Objects.equals(url, other.url);
 	}
 
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", title=" + title + ", url=" + url + ", description=" + description + ", keyword="
 				+ keyword + ", language=" + language + ", isSafe=" + isSafe + ", image=" + image + ", imageUrl="
-				+ imageUrl + ", newsType=" + newsType + ", type=" + type + "]";
+				+ imageUrl + ", newsType=" + newsType + ", type=" + type + ", isLiked=" + isLiked + "]";
 	}
+
 
 
 	

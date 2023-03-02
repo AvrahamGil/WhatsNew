@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.bean.UserArticles;
@@ -17,6 +18,7 @@ import com.gil.whatsnew.bean.User;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.interfaces.IArticlesDao;
+import com.mongodb.client.result.UpdateResult;
 
 @Repository
 public class ArticleDaoMongo implements IArticlesDao{
@@ -38,6 +40,33 @@ public class ArticleDaoMongo implements IArticlesDao{
 			ExceptionHandler.generatedDaoExceptions(e);
 		}
 		logger.info("Article added");
+	}
+	
+	@Override
+	public boolean updateArticle(Article articles, NewYorkTimesApi newYorkArticles) throws ApplicationException {
+		Query query = new Query();
+		boolean updated = false;
+		try {
+			UpdateResult article = articles != null ? mongoTemplate.updateFirst(query.addCriteria(Criteria.where("id").is(articles.getId())),Update.update("isLiked", true),Article.class) : null;
+			UpdateResult newYorkArticle = newYorkArticles != null ? mongoTemplate.updateFirst(query.addCriteria(Criteria.where("id").is(newYorkArticles.getId())),Update.update("isLiked", true),NewYorkTimesApi.class) : null;
+
+			if(article != null) {
+				updated = article.wasAcknowledged() ? true : false;
+			}
+			
+			if(newYorkArticle != null) {
+				updated = newYorkArticle.wasAcknowledged() ? true : false;
+			}
+
+			return updated;
+			
+		} catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		logger.info("Article updated");
+		
+		return false;
+		
 	}
 	
 	@Override
@@ -112,7 +141,7 @@ public class ArticleDaoMongo implements IArticlesDao{
 	@Override
 	public void addFavoritArticle(UserArticles like) throws ApplicationException {
 		try {
-			mongoTemplate.save(like);
+			UserArticles article = like != null ? mongoTemplate.save(like) : null;
 		
 		} catch(Exception e) {
 			ExceptionHandler.generatedDaoExceptions(e);
@@ -124,11 +153,11 @@ public class ArticleDaoMongo implements IArticlesDao{
 	@Override
 	public boolean isArticleFavorated(String title, String userId) throws ApplicationException {
 		Query query = new Query();
-		query.addCriteria(Criteria.where(title).is(userId));
+		query.addCriteria(Criteria.where("userId").is(userId).and("title").is(title));
 	
 		try {
 			UserArticles articles = mongoTemplate.findOne(query, UserArticles.class);
-			
+		
 			if(articles != null) return true;
 			
 			return false;
@@ -153,6 +182,4 @@ public class ArticleDaoMongo implements IArticlesDao{
 			throw new ApplicationException(ErrorType.Get_List_Failed,ErrorType.Get_List_Failed.getMessage(),false);
 		}
 	}
-
-	
 }

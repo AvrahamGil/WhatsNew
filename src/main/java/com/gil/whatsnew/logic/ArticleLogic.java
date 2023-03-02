@@ -4,14 +4,15 @@ import java.io.IOException;
 
 
 
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpEntity;
@@ -22,8 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.bean.Multimedia;
 import com.gil.whatsnew.bean.NewYorkTimesApi;
@@ -33,7 +35,6 @@ import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.utils.StringPaths;
-import com.gil.whatsnew.utils.Authentication;
 import com.gil.whatsnew.utils.JsonUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -231,16 +232,19 @@ public class ArticleLogic {
 				otherArticle.setDescription(items.getJSONObject(counter).get("lead_paragraph").toString());
 				otherArticle.setUrl(items.getJSONObject(counter).get("web_url").toString());
 				
-				multimedia[counter].setUrl("https://www.nytimes.com/" + items.getJSONObject(counter).getJSONArray("multimedia")
+				if(items.getJSONObject(counter).getJSONArray("multimedia").length() != 0) {
+					multimedia[counter].setUrl("https://www.nytimes.com/" + items.getJSONObject(counter).getJSONArray("multimedia")
 							.getJSONObject(counter).get("url").toString());
-				multimedia[counter].setHeight( items.getJSONObject(counter).getJSONArray("multimedia")
+				
+					multimedia[counter].setHeight( items.getJSONObject(counter).getJSONArray("multimedia")
 						.getJSONObject(counter).get("height").toString());
-				multimedia[counter].setWidth( items.getJSONObject(counter).getJSONArray("multimedia")
+					multimedia[counter].setWidth( items.getJSONObject(counter).getJSONArray("multimedia")
 						.getJSONObject(counter).get("width").toString());
-				
-				otherArticle.setMultimedia(multimedia[counter]);
-				
-				newYorkTimesArticles.add(otherArticle);
+					
+					otherArticle.setMultimedia(multimedia[counter]);
+					
+					newYorkTimesArticles.add(otherArticle);
+				}
 				}
 			}
 
@@ -252,35 +256,54 @@ public class ArticleLogic {
 
 	}
 	
-	public void addIntoFavorit(String title, HttpServletRequest request) throws ApplicationException{
+	public ResponseEntity<Object> addIntoFavorit(Article articles,NewYorkTimesApi newYorkArticles, HttpServletRequest request) throws ApplicationException{
 		UserArticles details = null;
-		
-		try {
-			if(title == null) 
-				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
+		String scrf = "";
+		String title = "";
 
-			String requestUuId = request.getAttribute("X-UUID").toString();
-			String token = request.getAttribute("X-TOKEN").toString();
+		try {
+			if(articles == null && newYorkArticles == null ) 
+				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
 			
-			String uuid = UUID.fromString(token).toString();
+			Cookie[] cookies = request.getCookies();
+
+			if(cookies == null)
+				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
 			
-			if(uuid == null || !requestUuId.matches(uuid)) 
-				throw new ApplicationException(ErrorType.User_Details,ErrorType.User_Details.getMessage(), false);
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("X-CSRFTOKEN")) {
+					scrf = cookie.getValue();
+				}
+			}
+
+			if(newYorkArticles == null) title = articles.getTitle();
+			if(articles == null) title = newYorkArticles.getTitle();
 			
 			details = new UserArticles();
-			details.setTitle(title);
-			details.setUserId(requestUuId);
 			
-			boolean liked = articleDaoMongo.isArticleFavorated(title, requestUuId);
+			details.setTitle(title);
+			details.setUserId(scrf);
+			
+			boolean liked = articleDaoMongo.isArticleFavorated(title, scrf);
 			
 			if(liked)
 				throw new ApplicationException(ErrorType.Article_Already_Liked,ErrorType.Article_Already_Liked.getMessage(), false);
 			
 			articleDaoMongo.addFavoritArticle(details);
 			
+			boolean updated = articleDaoMongo.updateArticle(articles, newYorkArticles);
+			
+			if(!updated) 
+				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
+
+			ResponseEntity<Object> res = new ResponseEntity<Object>(cookies, HttpStatus.OK);
+			
+			return res;
+			
 		} catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
+		return null;
 	}
 	
 	public List<Article>getFavoritArticles(HttpServletRequest request) throws ApplicationException{

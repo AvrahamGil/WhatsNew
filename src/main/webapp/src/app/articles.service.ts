@@ -16,8 +16,9 @@ export class ArticleService {
   constructor(private http:HttpClient) { }
 
   private getRequest:any;
+  private postRequest:any;
 
-  public getContextArticlesTwo(type:string) : Promise<any[]> {
+  public getContextArticles(type:string) : Promise<any[]> {
     var array:any = this.articles.map(() => Object.values([]));
     var arrayMap:any = this.articles.map(() => Object.values([]));
 
@@ -25,6 +26,7 @@ export class ArticleService {
       try {
         array = this.getAllArticlesData().subscribe((data:Articles) => {
           let index = this.types.indexOf(type);
+          if(index === -1) index = this.types.indexOf("news");
           this.data = Array.from(Object.keys(data),(k) =>data[k as keyof Articles]);
 
           this.articlesData[index] = this.data[index];
@@ -77,6 +79,46 @@ export class ArticleService {
     })
 
    }
+
+   public likeArticle(article:Articles,csrf:string) : Promise<any[]> {
+    return new Promise((resolve,reject) => {
+      try {
+        this.liked(article,csrf).subscribe((response:any) => {
+          resolve(response);
+        })
+      }catch(err) {
+        reject(err)
+      }
+    })
+   }
+
+   public nylikeArticle(article:Articles,csrf:string) : Promise<any[]> {
+    return new Promise((resolve,reject) => {
+      try {
+        this.nyliked(article,csrf).subscribe((response:any) => {
+          resolve(response);
+        })
+      }catch(err) {
+        reject(err)
+      }
+    })
+   }
+
+   private liked(article:Articles,csrf:string) : Observable<Articles> {
+    this.postRequest = "http://localhost:8080/whatsnew/articles/liked";
+
+    const header = new HttpHeaders().set('X-CSRFTOKEN' , csrf)
+
+    return this.http.post<Articles>(this.postRequest,article,{headers:header}).pipe((err) => err);
+  }
+
+  private nyliked(article:Articles,csrf:string) : Observable<Articles> {
+    this.postRequest = "http://localhost:8080/whatsnew/articles/nyliked";
+
+    const header = new HttpHeaders().set('X-CSRFTOKEN' , csrf)
+
+    return this.http.post<Articles>(this.postRequest,article,{headers:header}).pipe((err) => err);
+  }
 
   private getAllArticlesData() : Observable<Articles> {
     this.getRequest = "http://localhost:8080/whatsnew/articles/getNewsArticles";

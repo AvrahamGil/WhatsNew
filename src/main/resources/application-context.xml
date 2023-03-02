@@ -28,9 +28,8 @@
 	<bean id="newYorkTimesApi" class="com.gil.whatsnew.bean.NewYorkTimesApi"></bean>
 	<bean id="multimedia" class="com.gil.whatsnew.bean.Multimedia"></bean>
 
-	
+
 	<!-- Dao -->
-	<bean id="articleDao" class="com.gil.whatsnew.dao.ArticleDao"></bean>
 	<bean id="articleDaoMongo" class="com.gil.whatsnew.dao.ArticleDaoMongo"></bean>
 	<bean id="userDaoMongo" class="com.gil.whatsnew.bean.UserDaoMongo"></bean>
 	

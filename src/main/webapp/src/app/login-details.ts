@@ -3,5 +3,5 @@ export class LoginDetails {
     password!:string ;
     captcha!:any;
     token!: string;
-
+    csrf!:string;
 }

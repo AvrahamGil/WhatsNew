@@ -7,7 +7,7 @@ public enum Requests {
 	NewYorkApi("NewYorkApi"),
 	RapidApi("RapidApi"),
 	RapidKeyValue("RapidKeyValue"),
-	Captcha("Captcha"),
+	Captcha("https://www.google.com/recaptcha/api/siteverify"),
 	ContextRapidHostValue("ContextRapidHostValue");
 	
 	String strings;

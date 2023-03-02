@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { LoginDetails } from '../login-details';
 import { LoginService } from '../login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent {
     this.getCSRFToken();
   }
 
-  constructor(private userSerivce:UserService,private fb: FormBuilder, private users:LoginDetails,private isLogigng:LoginService,private router: Router) {
+  constructor(private userSerivce:UserService,private fb: FormBuilder, private users:LoginDetails,private isLogigng:LoginService,private router: Router,public cookieService:CookieService) {
     this.user = this.fb.group({
       email: new FormControl(),
       password: new FormControl(),
@@ -63,31 +64,23 @@ export class LoginComponent {
       this.loginRequest(this.users).then((response:any) => {
           this.message = "User login successfully";
           this.isLogigng.isLogging = true;
+          this.isLogigng.csrf = response.body[0].value;
           this.isLogigng.jwt = response.body[1].value;
-          localStorage.setItem('loging',this.isLogigng.jwt);
+
+          this.cookieService.set('X-TOKEN',this.isLogigng.jwt);
+          this.cookieService.set('X-CSRFTOKEN',this.isLogigng.csrf);
+
+          localStorage.setItem('X-TOKEN',this.isLogigng.jwt);
+          localStorage.setItem('X-CSRF',this.isLogigng.csrf);
+          localStorage.setItem('name',this.users.email);
 
           const element:any = document.getElementById("message");
           element.style.color = "#367CD2";
 
-          this.router.navigate([''])
-      }).catch((error) => {this.message = error;})
-
-
-    } catch(error:any) {
-      this.message = error;
-    }
-  }
-
-  public logout() {
-    try {
-      this.logoutRequest(this.users).then(async () => {
-          this.isLogigng.isLogging = false;
-          localStorage.setItem('loging',this.isLogigng.isLogging.toString());
-          const element:any = document.getElementById("message");
-          element.style.color = "#367CD2";
-
-          this.router.navigate([''])
-      }).catch((error) => {this.message = error;})
+          this.router.navigate(['']).then(() =>{
+            window.location.href = window.location.protocol + '//' + window.location.host + '';
+          });
+      }).catch((error) => {this.message = error; this.cookieService.deleteAll()})
 
 
     } catch(error:any) {
@@ -109,22 +102,7 @@ export class LoginComponent {
     return new Promise((resolve,reject) => {
       try{
          this.userSerivce.loginUser(details).then((response) => {
-          console.log("First response?" + response);
             resolve(response)
-         }).catch((error) => {
-          this.message = error.message;
-         })
-        }catch(err:any) {
-          reject(err);
-        }
-    })
-  }
-
-  private logoutRequest(details:LoginDetails) {
-    return new Promise((resolve,reject) => {
-      try{
-         this.userSerivce.logoutUser(details).then((x) => {
-            resolve(x)
          }).catch((error) => {
           this.message = error.message;
          })
@@ -151,5 +129,5 @@ export class LoginComponent {
 }
 
 export const env = {
-  siteKey: 'sitekey',
+  siteKey: 'siteKey',
 }
