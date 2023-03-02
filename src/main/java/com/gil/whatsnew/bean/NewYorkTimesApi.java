@@ -1,5 +1,7 @@
 package com.gil.whatsnew.bean;
 
+import java.util.Objects;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -21,6 +23,7 @@ public class NewYorkTimesApi {
 	
 	private String newsType = "NewYorkTimes";
 
+	private boolean isLiked;
 	
 	public String getId() {
 		return id;
@@ -70,16 +73,17 @@ public class NewYorkTimesApi {
 		this.newsType = newsType;
 	}
 
+	public boolean isLiked() {
+		return isLiked;
+	}
+
+	public void setLiked(boolean isLiked) {
+		this.isLiked = isLiked;
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((multimedia == null) ? 0 : multimedia.hashCode());
-		result = prime * result + ((newsType == null) ? 0 : newsType.hashCode());
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + ((url == null) ? 0 : url.hashCode());
-		return result;
+		return Objects.hash(description, id, isLiked, multimedia, newsType, title, url);
 	}
 
 	@Override
@@ -91,37 +95,17 @@ public class NewYorkTimesApi {
 		if (getClass() != obj.getClass())
 			return false;
 		NewYorkTimesApi other = (NewYorkTimesApi) obj;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (multimedia == null) {
-			if (other.multimedia != null)
-				return false;
-		} else if (!multimedia.equals(other.multimedia))
-			return false;
-		if (newsType == null) {
-			if (other.newsType != null)
-				return false;
-		} else if (!newsType.equals(other.newsType))
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
-		if (url == null) {
-			if (other.url != null)
-				return false;
-		} else if (!url.equals(other.url))
-			return false;
-		return true;
+		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
+				&& isLiked == other.isLiked && Objects.equals(multimedia, other.multimedia)
+				&& Objects.equals(newsType, other.newsType) && Objects.equals(title, other.title)
+				&& Objects.equals(url, other.url);
 	}
 
 	@Override
 	public String toString() {
-		return "NewYorkTimesApi [title=" + title + ", description=" + description + ", url=" + url + ", multimedia="
-				+ multimedia + ", newsType=" + newsType + "]";
+		return "NewYorkTimesApi [id=" + id + ", title=" + title + ", description=" + description + ", url=" + url
+				+ ", multimedia=" + multimedia + ", newsType=" + newsType + ", isLiked=" + isLiked + "]";
 	}
+
+
 }

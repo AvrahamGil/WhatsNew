@@ -40,11 +40,10 @@ public class WelcomeApi {
 	@RequestMapping(value = "/login" , method=RequestMethod.POST)
 	public ResponseEntity<Object> login(@RequestBody Login loginDetail,HttpServletRequest request,HttpServletResponse response) throws ApplicationException {
 		try {
-			ResponseEntity<Object> res = userLogic.validateLoginDetails(request,loginDetail.getEmail(), loginDetail.getPassword()); 
-			if(res == null) {
-				throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
-			}
+			ResponseEntity<Object> res = userLogic.validateLoginDetails(request,loginDetail.getEmail(), loginDetail.getPassword());
 			
+			if(res == null) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
+
 			return new ResponseEntity<Object>(res, HttpStatus.OK);
 			
 		}catch(ApplicationException e) {

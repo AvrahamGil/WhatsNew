@@ -10,13 +10,12 @@ export class WelcomeComponent {
 
   private types:Array<string> = ['news','business','sport','technology','travel','newsNewYork','sportNewYork'];
 
-  constructor(public articlesService: ArticleService) {}
+  constructor(private articlesService: ArticleService) {}
 
-  ngOnInit() {
-    this.init(this.types);
-  }
 
   public getArticles(type:string) : Promise<any> {
+    if(localStorage.getItem(type) !== null) localStorage.removeItem(type);
+
     return new Promise((resolve,reject) => {
       this.init(type).then((articles) => {
         resolve(articles);
@@ -34,7 +33,7 @@ export class WelcomeComponent {
               resolve(JSON.parse(localStorage.getItem(type)!))
             });
           } else {
-            this.articlesService.getContextArticlesTwo(type).then((articles:any) => {
+            this.articlesService.getContextArticles(type).then((articles:any) => {
               localStorage.setItem(type,JSON.stringify(articles));
               resolve(JSON.parse(localStorage.getItem(type)!))
             });

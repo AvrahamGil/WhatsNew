@@ -73,10 +73,9 @@ export class UserService {
   }
 
   private logout(user:LoginDetails) : Observable<Users> {
-    this.postRequest = "http://localhost:8080/whatsnew/rest/api//user";
+    this.postRequest = "http://localhost:8080/whatsnew/rest/api/user/logout";
 
-    var header = new HttpHeaders();
-    header.append('Content-Type','application/json' );
+    const header = new HttpHeaders().set('X-CSRFTOKEN' , user.csrf);
 
     return this.http.post<Users>(this.postRequest,user,{headers:header}).pipe((err) => err);
   }

@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit{
 
 
 
-  constructor(private userSerivce:UserService,public fb: FormBuilder, public users:Users,private router: Router) {
+  constructor(private userSerivce:UserService,public fb: FormBuilder, private users:Users,private router: Router) {
     this.user = new FormGroup({
       fullName: new FormControl(),
       userName: new FormControl(),

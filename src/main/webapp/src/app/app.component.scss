@@ -134,6 +134,21 @@
     text-align: left;
 }
 
+.likedbtn {
+    background-color:transparent;
+    border-color:transparent;
+}
+
+.liked {
+    color:red;
+    border-color:none;
+}
+
+.unliked {
+    color:gray;
+    border-color:none;
+}
+
 .article-description {
     padding-right: 25%;
     color:#fff;

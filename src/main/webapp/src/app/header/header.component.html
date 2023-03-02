@@ -33,8 +33,9 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="userSettings" id="show-content">
-              <a  class="dropdown-item" href="#/user/register" >Register</a>
-            <a class="dropdown-item login" href="#/user/login">Login</a>
+              <a *ngIf="!isLoging" class="dropdown-item" href="#/user/register" >Register</a>
+              <a *ngIf="!isLoging" class="dropdown-item login" href="#/user/login">Sign in</a>
+              <a *ngIf="isLoging" class="dropdown-item login" href="#" (click)="logOut()">Sign out</a>
             </div>
           </div>
 

@@ -50,12 +50,16 @@ import { CookieService } from 'ngx-cookie-service';
     RecaptchaFormsModule,
   ],
   providers: [
-    {provide: ArticleService},{provide:Users},{provide:LoginService},{provide:LoginDetails},{provide:WelcomeComponent},{ provide: RECAPTCHA_SETTINGS,
+    {provide: ArticleService},{provide:Users},{provide:LoginComponent},{provide:LoginDetails},{provide:WelcomeComponent},{ provide: RECAPTCHA_SETTINGS,
       useValue: {
         siteKey: env.siteKey,
-      } as RecaptchaSettings,}
+      } as RecaptchaSettings,},
+      {provide:CookieService}
   ],
   bootstrap: [AppComponent]
 })
 
+
 export class AppModule { }
+
+

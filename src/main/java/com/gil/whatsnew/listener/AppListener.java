@@ -21,7 +21,7 @@ public class AppListener implements ApplicationListener<AppEvent> {
 	@Autowired
 	private ArticleLogic articleLogic;
 
-	private final String[] categories = { "news", "business", "sport", "technology", "travel" };
+	private final String[] categories = {"news","business","sport", "technology", "travel" };
 
 	@Override
 	public void onApplicationEvent(AppEvent event) {
