@@ -66,12 +66,23 @@ export class LoginComponent {
           this.isLogigng.isLogging = true;
           this.isLogigng.csrf = response.body[0].value;
           this.isLogigng.jwt = response.body[1].value;
+          this.isLogigng.uuid = response.body[2].value;
 
           this.cookieService.set('X-TOKEN',this.isLogigng.jwt);
           this.cookieService.set('X-CSRFTOKEN',this.isLogigng.csrf);
+          this.cookieService.set('X-UUID',this.isLogigng.uuid);
+
+          localStorage.removeItem('news');
+          localStorage.removeItem('newsNewYork');
+          localStorage.removeItem('business');
+          localStorage.removeItem('sport');
+          localStorage.removeItem('sportNewYork');
+          localStorage.removeItem('technology');
+          localStorage.removeItem('travel');
 
           localStorage.setItem('X-TOKEN',this.isLogigng.jwt);
           localStorage.setItem('X-CSRF',this.isLogigng.csrf);
+
           localStorage.setItem('name',this.users.email);
 
           const element:any = document.getElementById("message");
@@ -129,5 +140,5 @@ export class LoginComponent {
 }
 
 export const env = {
-  siteKey: 'siteKey',
+  siteKey: 'sitekey',
 }

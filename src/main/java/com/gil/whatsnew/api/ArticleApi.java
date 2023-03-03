@@ -37,16 +37,24 @@ public class ArticleApi {
 	private Authentication authentication;
 	
 	@RequestMapping(value="/getNewsArticles" , method = RequestMethod.GET)
-	public List<List<Article>>getNewsArticles() throws ApplicationException {	
-		List<List<Article>>articles = article.getListOfNewsArticles();
+	public List<List<Article>>getNewsArticles(HttpServletRequest request) throws ApplicationException {	
+		if(request.getHeader("X-CSRFTOKEN").length() > 0) {
+			if(!authentication.verifyCookies(request)) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
+		}
+		
+		List<List<Article>>articles = article.getListOfNewsArticles(request);
 		if(articles != null) return articles;
 		
 		return null;
 	}
 	
 	@RequestMapping(value="/getNewYorkTimesNewsArticles" , method = RequestMethod.GET)
-	public List<NewYorkTimesApi> getNewYorkTimesNewsArticles() throws ApplicationException {
-		List<NewYorkTimesApi>articles = article.getListOfNewYorkTimesArticles();
+	public List<NewYorkTimesApi> getNewYorkTimesNewsArticles(HttpServletRequest request) throws ApplicationException {
+		if(request.getHeader("X-CSRFTOKEN").length() > 0) {
+			if(!authentication.verifyCookies(request)) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
+		}
+		
+		List<NewYorkTimesApi>articles = article.getListOfNewYorkTimesArticles(request);
 		if(articles != null) return articles;
 		
 		return null;

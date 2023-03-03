@@ -55,7 +55,7 @@ public class Timer implements Runnable {
 					displayMinutes++;
 				}
 
-				articles = articleLogic.getListOfNewsArticles();
+				articles = articleLogic.getListOfNewsArticles(null);
 
 				if (articles.get(0) == null || firstTime == true)
 					displayMinutes = refresh;

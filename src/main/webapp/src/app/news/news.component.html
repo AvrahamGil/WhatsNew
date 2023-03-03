@@ -22,7 +22,7 @@
                           <div *ngFor="let item of newsAr[4]; index as i ">
                             <div class="row" id="blue-line">
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'Ynet',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'Ynet',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                 <img id="article-images" src={{item?.imageUrl}}/>
                               </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -44,7 +44,7 @@
                             <div  *ngFor="let item of newsAr[9]; index as i; first as isFirst; ">
                               <div class="row" id="blue-line">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'COVID-19',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'COVID-19',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                   <img id="article-images" src={{item?.imageUrl}}/>
                                 </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -66,7 +66,7 @@
                         <div  *ngFor="let item of newsAr[2]; index as i; first as isFirst; ">
                           <div class="row" id="blue-line">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'TWSJ',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'TWSJ',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                               <img id="article-images" src={{item?.imageUrl}}/>
                             </div>
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -88,7 +88,7 @@
                             <div  *ngFor="let item of newYorkTimesAr; index as i; first as isFirst; ">
                               <div class="row" id="blue-line">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedNyArticle(item,'NYT',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedNyArticle(item,'NYT',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                   <img id="article-images" src={{item?.multimedia.url}} />
                                 </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -110,7 +110,7 @@
                             <div  *ngFor="let item of newsAr[7]; index as i; first as isFirst; ">
                               <div class="row" id="blue-line">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'BBC',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'BBC',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                   <img id="article-images" src={{item?.imageUrl}}/>
                                 </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -132,7 +132,7 @@
                           <div  *ngFor="let item of newsAr[1]; index as i; first as isFirst; ">
                             <div class="row" id="blue-line">
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'Time',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'Time',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                 <img id="article-images" src="{{item?.imageUrl}}"/>
                               </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -165,7 +165,7 @@
                           <div  *ngFor="let item of newsAr[3]; index as i; first as isFirst; ">
                             <div class="row" id="blue-line">
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'CNN',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'CNN',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                 <img id="article-images" src={{item?.imageUrl}}/>
                               </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -187,7 +187,7 @@
                           <div  *ngFor="let item of newsAr[5]; index as i; first as isFirst; ">
                             <div class="row" id="blue-line">
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'The Guardian',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" class="fa-heart fa-lg unliked" id="elementIcon" name="icone"></i></button>
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'The Guardian',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" class="fa-heart fa-lg unliked"  name="icone"></i></button>
                                 <img id="article-images" src={{item?.imageUrl}}/>
                               </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -210,7 +210,7 @@
                           <div  *ngFor="let item of newsAr[0]; index as i; first as isFirst; ">
                             <div class="row" id="blue-line">
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'The Blaze',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'The Blaze',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                 <img id="article-images" src={{item?.imageUrl}}/>
                               </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -232,7 +232,7 @@
                               <div  *ngFor="let item of newsAr[6]; index as i; first as isFirst; ">
                                 <div class="row" id="blue-line">
                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'ABC News',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'ABC News',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                     <img id="article-images" src={{item?.imageUrl}}/>
                                   </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -254,7 +254,7 @@
                                   <div  *ngFor="let item of newsAr[11]; index as i; first as isFirst; ">
                                     <div class="row" id="blue-line">
                                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                        <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'JPOST',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                        <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'JPOST',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                         <img id="article-images" src={{item?.imageUrl}}/>
                                       </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -276,7 +276,7 @@
                               <div  *ngFor="let item of newsAr[10]; index as i; first as isFirst; ">
                                 <div class="row" id="blue-line">
                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'NBC',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" id="elementIcon" name="icone"></i></button>
+                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'NBC',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                     <img id="article-images" src={{item?.imageUrl}}/>
                                   </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">

@@ -2,9 +2,6 @@ package com.gil.whatsnew.logic;
 
 import java.io.IOException;
 
-
-
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -84,12 +81,42 @@ public class ArticleLogic {
 		}
 	}
 
-	public List<List<Article>> getListOfNewsArticles() throws ApplicationException {
+	public List<List<Article>> getListOfNewsArticles(HttpServletRequest request) throws ApplicationException {
 		List<List<Article>> articles = new ArrayList<List<Article>>();
-		
+		List<UserArticles> userArticles = new ArrayList<UserArticles>();
+
 		try {
 			for (String category : categories) {
 				articles.add(articleDaoMongo.getAllArticles(category));
+			}
+
+			if (request != null) {
+				String uuid = "";
+				Cookie[] cookies = request.getCookies();
+
+				if (cookies == null)
+					return articles;
+
+				for (Cookie cookie : cookies) {
+					if (cookie.getName().equals("X-UUID")) {
+						uuid = cookie.getValue();
+					}
+				}
+
+				if (uuid != null && uuid.length() > 0)
+					userArticles = articleDaoMongo.getFavoritArticles(uuid);
+
+				if (userArticles != null) {
+					for (List<Article> list : articles) {
+						for (UserArticles userArticle : userArticles) {
+							for (Article article : list) {
+								if (article.getTitle().contains(userArticle.getTitle())) {
+									article.setLiked(true);
+								}
+							}
+						}
+					}
+				}
 			}
 
 			return articles;
@@ -100,21 +127,23 @@ public class ArticleLogic {
 		return articles;
 	}
 
-	public List<NewYorkTimesApi> getListOfNewYorkTimesArticles() throws ApplicationException {
+	public List<NewYorkTimesApi> getListOfNewYorkTimesArticles(HttpServletRequest request) throws ApplicationException {
 		List<NewYorkTimesApi> newYorkTimesArticles = new ArrayList<NewYorkTimesApi>();
+		List<UserArticles> userArticles = new ArrayList<UserArticles>();
 
 		try {
 			for (String category : newYorkTimes) {
 				List<NewYorkTimesApi> articles = articleDaoMongo.getNewYorkTimesArticles(category, "NewYorkTimes");
-				
-				if(articles == null) return null;
-				
-				for(NewYorkTimesApi article : articles) {
-					if(article.getMultimedia() != null) {
+
+				if (articles == null)
+					return null;
+
+				for (NewYorkTimesApi article : articles) {
+					if (article.getMultimedia() != null) {
 						newYorkTimesArticles.add(article);
 					}
 				}
-				
+
 				if (newYorkTimesArticles.size() != 0) {
 					return newYorkTimesArticles;
 				}
@@ -123,26 +152,54 @@ public class ArticleLogic {
 			if (newYorkTimesArticles.isEmpty())
 				return null;
 
+			if (request != null) {
+				String uuid = "";
+				Cookie[] cookies = request.getCookies();
+
+				if (cookies == null)
+					return newYorkTimesArticles;
+
+				for (Cookie cookie : cookies) {
+					if (cookie.getName().equals("X-UUID")) {
+						uuid = cookie.getValue();
+					}
+				}
+
+				if (uuid != null && uuid.length() > 0)
+					userArticles = articleDaoMongo.getFavoritArticles(uuid);
+
+				if (userArticles != null) {
+					for (NewYorkTimesApi article : newYorkTimesArticles) {
+						for (UserArticles userArticle : userArticles) {
+							if (article.getTitle().contains(userArticle.getTitle())) {
+								article.setLiked(true);
+							}
+						}
+					}
+				}
+			}
+
 			return newYorkTimesArticles;
 
 		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
-		} 
+		}
 		return null;
 	}
 
 	public void deleteArticles(List<String> types) throws ApplicationException {
 		boolean isEmpty = false;
-		
+
 		try {
-			isEmpty = types.isEmpty() || getListOfNewsArticles().isEmpty() ? true : false;
-			
-			if(isEmpty) throw new ApplicationException(ErrorType.Domains_Failed,ErrorType.Domains_Failed.getMessage(),false); 
-							
-			for(String type : types) {
+			isEmpty = types.isEmpty() || getListOfNewsArticles(null).isEmpty() ? true : false;
+
+			if (isEmpty)
+				throw new ApplicationException(ErrorType.Domains_Failed, ErrorType.Domains_Failed.getMessage(), false);
+
+			for (String type : types) {
 				articleDaoMongo.deleteArticle(type);
 			}
-			
+
 		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
@@ -154,7 +211,7 @@ public class ArticleLogic {
 
 		try {
 			for (String type : types) {
- 				articles = getApiArticles(type);
+				articles = getApiArticles(type);
 
 				for (Article article : articles) {
 					if (!uniqueArticles.contains(article)) {
@@ -206,14 +263,14 @@ public class ArticleLogic {
 
 			return articles;
 		} catch (ApplicationException | InterruptedException e) {
-			throw new ApplicationException(ErrorType.Api_Failed,ErrorType.Api_Failed.getMessage(), false);
+			throw new ApplicationException(ErrorType.Api_Failed, ErrorType.Api_Failed.getMessage(), false);
 		}
 
 	}
 
 	public Set<NewYorkTimesApi> getNewYorkApiArticles(String type) throws ApplicationException {
 		NewYorkTimesApi otherArticle = null;
-		
+
 		try {
 			HttpResponse response = request.getNewYorkTimesArticles(type);
 			JSONArray items = (JSONArray) JsonUtils.stringToJson(response);
@@ -222,117 +279,118 @@ public class ArticleLogic {
 			Set<NewYorkTimesApi> newYorkTimesArticles = new HashSet<NewYorkTimesApi>();
 
 			for (int counter = 0; counter < items.length(); counter++) {
-				if(items.getJSONObject(counter).get("web_url").toString().contains(type)) {
-				
-				otherArticle = new NewYorkTimesApi();
-				multimedia[counter] = new Multimedia();
-				
-				otherArticle.setId(UUID.randomUUID().toString());
-				otherArticle.setTitle(items.getJSONObject(counter).get("abstract").toString());
-				otherArticle.setDescription(items.getJSONObject(counter).get("lead_paragraph").toString());
-				otherArticle.setUrl(items.getJSONObject(counter).get("web_url").toString());
-				
-				if(items.getJSONObject(counter).getJSONArray("multimedia").length() != 0) {
-					multimedia[counter].setUrl("https://www.nytimes.com/" + items.getJSONObject(counter).getJSONArray("multimedia")
-							.getJSONObject(counter).get("url").toString());
-				
-					multimedia[counter].setHeight( items.getJSONObject(counter).getJSONArray("multimedia")
-						.getJSONObject(counter).get("height").toString());
-					multimedia[counter].setWidth( items.getJSONObject(counter).getJSONArray("multimedia")
-						.getJSONObject(counter).get("width").toString());
-					
-					otherArticle.setMultimedia(multimedia[counter]);
-					
-					newYorkTimesArticles.add(otherArticle);
-				}
+				if (items.getJSONObject(counter).get("web_url").toString().contains(type)) {
+
+					otherArticle = new NewYorkTimesApi();
+					multimedia[counter] = new Multimedia();
+
+					otherArticle.setId(UUID.randomUUID().toString());
+					otherArticle.setTitle(items.getJSONObject(counter).get("abstract").toString());
+					otherArticle.setDescription(items.getJSONObject(counter).get("lead_paragraph").toString());
+					otherArticle.setUrl(items.getJSONObject(counter).get("web_url").toString());
+
+					if (items.getJSONObject(counter).getJSONArray("multimedia").length() != 0) {
+						multimedia[counter].setUrl("https://www.nytimes.com/" + items.getJSONObject(counter)
+								.getJSONArray("multimedia").getJSONObject(counter).get("url").toString());
+
+						multimedia[counter].setHeight(items.getJSONObject(counter).getJSONArray("multimedia")
+								.getJSONObject(counter).get("height").toString());
+						multimedia[counter].setWidth(items.getJSONObject(counter).getJSONArray("multimedia")
+								.getJSONObject(counter).get("width").toString());
+
+						otherArticle.setMultimedia(multimedia[counter]);
+
+						newYorkTimesArticles.add(otherArticle);
+					}
 				}
 			}
 
 			return newYorkTimesArticles;
-			
-		} catch (ParseException | IOException | JSONException | org.json.simple.parser.ParseException  e) {
-			throw new ApplicationException(ErrorType.Api_Failed,ErrorType.Api_Failed.getMessage(), false);
+
+		} catch (ParseException | IOException | JSONException | org.json.simple.parser.ParseException e) {
+			throw new ApplicationException(ErrorType.Api_Failed, ErrorType.Api_Failed.getMessage(), false);
 		}
 
 	}
-	
-	public ResponseEntity<Object> addIntoFavorit(Article articles,NewYorkTimesApi newYorkArticles, HttpServletRequest request) throws ApplicationException{
+
+	public ResponseEntity<Object> addIntoFavorit(Article articles, NewYorkTimesApi newYorkArticles,
+			HttpServletRequest request) throws ApplicationException {
 		UserArticles details = null;
-		String scrf = "";
+		String uuid = "";
 		String title = "";
+		String randomId = UUID.randomUUID().toString();
 
 		try {
-			if(articles == null && newYorkArticles == null ) 
-				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
-			
+			if (articles == null && newYorkArticles == null)
+				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);
+
 			Cookie[] cookies = request.getCookies();
 
-			if(cookies == null)
-				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
-			
+			if (cookies == null)
+				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);
+
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("X-CSRFTOKEN")) {
-					scrf = cookie.getValue();
+				if (cookie.getName().equals("X-UUID")) {
+					uuid = cookie.getValue();
 				}
 			}
 
-			if(newYorkArticles == null) title = articles.getTitle();
-			if(articles == null) title = newYorkArticles.getTitle();
-			
+			if (newYorkArticles == null)
+				title = articles.getTitle();
+			if (articles == null)
+				title = newYorkArticles.getTitle();
+
 			details = new UserArticles();
-			
+
+			details.setId(randomId);
 			details.setTitle(title);
-			details.setUserId(scrf);
-			
-			boolean liked = articleDaoMongo.isArticleFavorated(title, scrf);
-			
-			if(liked)
-				throw new ApplicationException(ErrorType.Article_Already_Liked,ErrorType.Article_Already_Liked.getMessage(), false);
-			
+			details.setUserId(uuid);
+
+			boolean liked = articleDaoMongo.isArticleFavorated(title, uuid);
+
+			if (liked)
+				throw new ApplicationException(ErrorType.Article_Already_Liked,
+						ErrorType.Article_Already_Liked.getMessage(), false);
+
 			articleDaoMongo.addFavoritArticle(details);
-			
-			boolean updated = articleDaoMongo.updateArticle(articles, newYorkArticles);
-			
-			if(!updated) 
-				throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(), false);
 
 			ResponseEntity<Object> res = new ResponseEntity<Object>(cookies, HttpStatus.OK);
-			
+
 			return res;
-			
-		} catch(ApplicationException e) {
+
+		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
 		return null;
 	}
-	
-	public List<Article>getFavoritArticles(HttpServletRequest request) throws ApplicationException{
-		List<UserArticles>details;
-		List<Article>articles = new ArrayList<Article>();
-		
+
+	public List<Article> getFavoritArticles(HttpServletRequest request) throws ApplicationException {
+		List<UserArticles> details;
+		List<Article> articles = new ArrayList<Article>();
+
 		try {
 			String uuId = request.getAttribute("X-UUID").toString();
-			
-			if(uuId == null) 
-				throw new ApplicationException(ErrorType.User_Details,ErrorType.User_Details.getMessage(), false);
-			
+
+			if (uuId == null)
+				throw new ApplicationException(ErrorType.User_Details, ErrorType.User_Details.getMessage(), false);
+
 			details = articleDaoMongo.getFavoritArticles(uuId);
-			
-			for(UserArticles article : details) {
+
+			for (UserArticles article : details) {
 				articles.add(articleDaoMongo.getArticleDetails(article.getTitle()));
 			}
-			
-			if(articles.isEmpty())
+
+			if (articles.isEmpty())
 				return null;
-			
+
 			return articles;
-			
-		} catch(ApplicationException e) {
+
+		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
 		return null;
 	}
-	
+
 	public List<String> addingSources(List<String> types, String category) throws ApplicationException {
 		String site = "";
 
@@ -340,9 +398,9 @@ public class ArticleLogic {
 			try {
 				for (int i = 1; i <= maxDomains; i++) {
 					String stringI = String.valueOf(i);
-					
+
 					site = JsonUtils.readJsonFile(category, stringI, StringPaths.getPath(path));
-					
+
 					if (site != "")
 						types.add(site);
 				}
@@ -355,7 +413,6 @@ public class ArticleLogic {
 		}
 		return types;
 	}
-	
 
 	private List<Article> generatedArticleList(HttpResponse response) throws ApplicationException {
 
@@ -377,7 +434,7 @@ public class ArticleLogic {
 
 			return tempArticles;
 
-		} catch (ParseException | IOException  e) {
+		} catch (ParseException | IOException e) {
 			throw new ApplicationException(ErrorType.Get_List_Failed, ErrorType.Get_List_Failed.getMessage(), false);
 		}
 
