@@ -18,13 +18,13 @@ export class ArticleService {
   private getRequest:any;
   private postRequest:any;
 
-  public getContextArticles(type:string) : Promise<any[]> {
+  public getContextArticles(type:string,csrf:string) : Promise<any[]> {
     var array:any = this.articles.map(() => Object.values([]));
     var arrayMap:any = this.articles.map(() => Object.values([]));
 
     return new Promise((resolve, reject) => {
       try {
-        array = this.getAllArticlesData().subscribe((data:Articles) => {
+        array = this.getAllArticlesData(csrf).subscribe((data:Articles) => {
           let index = this.types.indexOf(type);
           if(index === -1) index = this.types.indexOf("news");
           this.data = Array.from(Object.keys(data),(k) =>data[k as keyof Articles]);
@@ -50,13 +50,13 @@ export class ArticleService {
     })
   }
 
-  public getNewYorkArticles(type:string) : Promise<any[]> {
+  public getNewYorkArticles(type:string,csrf:string) : Promise<any[]> {
     var array:any = Array(2).fill([[]]);
     var arrayMap:any = Array(2).fill([[]]);
 
     return new Promise((resolve,reject) => {
       try{
-        array = this.getNewYorkData().subscribe((data:Articles) => {
+        array = this.getNewYorkData(csrf).subscribe((data:Articles) => {
           let types = ["newsNewYork","sportNewYork"];
           let index = types.indexOf(type);
 
@@ -120,18 +120,18 @@ export class ArticleService {
     return this.http.post<Articles>(this.postRequest,article,{headers:header}).pipe((err) => err);
   }
 
-  private getAllArticlesData() : Observable<Articles> {
+  private getAllArticlesData(csrf:string) : Observable<Articles> {
     this.getRequest = "http://localhost:8080/whatsnew/articles/getNewsArticles";
-    var header = new HttpHeaders();
-    header.append('Content-Type','application/json' );
+
+    const header = new HttpHeaders().set('X-CSRFTOKEN' , csrf).set('Content-Type', 'application/json');
 
     return this.http.get<Articles>(this.getRequest,{headers: header});
   }
 
-  private getNewYorkData() : Observable<Articles> {
+  private getNewYorkData(csrf:string) : Observable<Articles> {
     this.getRequest = "http://localhost:8080/whatsnew/articles/getNewYorkTimesNewsArticles";
-    var header = new HttpHeaders();
-    header.append('Content-Type','application/json' );
+
+    const header = new HttpHeaders().set('X-CSRFTOKEN' , csrf).set('Content-Type', 'application/json');
 
     return this.http.get<Articles>(this.getRequest,{headers: header});
   }

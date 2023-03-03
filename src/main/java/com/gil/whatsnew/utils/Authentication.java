@@ -39,9 +39,8 @@ public class Authentication {
 	private static RSAPrivateKey privateKey;
 	private static RSAPublicKey publicKey;
 
-	private static final String email = "email";
-	private static final String password = "password";
-	private static final String uuid = "uuid";
+	private static String email = "email";
+	private static String password = "password";
 
 	private static final String secret = "secret";
 
@@ -56,7 +55,7 @@ public class Authentication {
 
 		random = new Random();
 		int number = random.nextInt(8);
-		String uuid = UUID.nameUUIDFromBytes(email.getBytes()).toString();
+		
 		
 		try {
 			algorithmRSA();
@@ -67,7 +66,7 @@ public class Authentication {
 
 			PrivateKey prvKey2 = kf.generatePrivate(headerSpec);
 
-			String token = Jwts.builder().claim("email", new String(email)).claim("password", password).claim("uuid", uuid)
+			String token = Jwts.builder().claim("email", new String(email)).claim("password", password)
 					.setIssuer("159.89.12.15").signWith(SignatureAlgorithm.RS256, prvKey2)
 					.compact();
 
@@ -84,7 +83,7 @@ public class Authentication {
 		}
 	}
 
-	public boolean verifyJwtToken(String token) throws ApplicationException {
+	public boolean verifyJwtToken(String token,String uuid) throws ApplicationException {
 		try {
 			String[] parts = token.split("[.]");
 
@@ -92,16 +91,12 @@ public class Authentication {
 			
 			String newToken = parts[0] + "." + parts[1] + "." + parts[2];
 			
-			String emailValue = JWT.decode(newToken).getClaim(email).asString();
-			String passwordValue = JWT.decode(newToken).getClaim(password).asString();
+			email = JWT.decode(newToken).getClaim("email").asString();
+			password = JWT.decode(newToken).getClaim("password").asString();
 			
-			String expectedUuid = UUID.nameUUIDFromBytes(emailValue.getBytes()).toString();
-			
-			String uuidValue = JWT.decode(newToken).getClaim(uuid).asString();
-			
-			if (emailValue != null && passwordValue != null && uuidValue.equals(expectedUuid)) {
-				JWTVerifier verifier = JWT.require(algorithmRSA()).withClaim(email, emailValue)
-						.withClaim(password, passwordValue).withClaim(uuid, uuidValue).withIssuer("159.89.12.15").build();
+			if (email != null && password != null) {
+				JWTVerifier verifier = JWT.require(algorithmRSA()).withClaim("email", email)
+						.withClaim("password", password).withIssuer("159.89.12.15").build();
 
 				verifier.verify(newToken);
 
@@ -192,18 +187,22 @@ public class Authentication {
 		try {
 			String token = generateCSRFToken();
 			String jwtToken = generatedJwtToken(email, password);
-
+			String uuid = UUID.nameUUIDFromBytes(email.getBytes()).toString();
+			
 			Cookie csrfCookie = new Cookie("X-CSRFTOKEN", token);
 			csrfCookie.setMaxAge(15 * 60);
 
 			Cookie jwtCookie = new Cookie("X-TOKEN", jwtToken);
 			jwtCookie.setMaxAge(15 * 60);
 
-
+			Cookie uuidtCookie = new Cookie("X-UUID", uuid);
+			uuidtCookie.setMaxAge(15 * 60);
+			
 			Cookie[] cookies = new Cookie[3];
 			
 			cookies[0] = csrfCookie;
 			cookies[1] = jwtCookie;
+			cookies[2] = uuidtCookie;
 
 			ResponseEntity<Object> res = new ResponseEntity<Object>(cookies, HttpStatus.OK);
 
@@ -219,14 +218,15 @@ public class Authentication {
 	public boolean verifyCookies(HttpServletRequest request) throws ApplicationException {
 		boolean tokenVerified = false;
 		boolean csrfVerified = false;
-
+		boolean uuidVerified = false;
+		
 		Cookie[] cookies = request.getCookies();
 
 		if(cookies == null) return false;
 		
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equals("X-TOKEN")) {
-				tokenVerified = verifyJwtToken(cookie.getValue()) ? true : false;
+				tokenVerified = verifyJwtToken(cookie.getValue(),null) ? true : false;
 			}
 
 			if (cookie.getName().equals("X-CSRFTOKEN")) {
@@ -236,9 +236,13 @@ public class Authentication {
 				
 				if(csrfVerified) cookie.setValue(newToken);
 			}
+			if(cookie.getName().equals("X-UUID")) {
+				String expectedUuid = UUID.nameUUIDFromBytes(email.getBytes()).toString();
+				uuidVerified = expectedUuid.equals(cookie.getValue()) ? true : false;
+			}
 		}
 
-		if (!tokenVerified || !csrfVerified)
+		if (!tokenVerified || !csrfVerified || !uuidVerified)
 			return false;
 
 		return true;

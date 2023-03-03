@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { ArticleService } from '../articles.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class WelcomeComponent {
 
   private types:Array<string> = ['news','business','sport','technology','travel','newsNewYork','sportNewYork'];
 
-  constructor(private articlesService: ArticleService) {}
+  constructor(private articlesService: ArticleService,public cookieService:CookieService) {}
 
 
   public getArticles(type:string) : Promise<any> {
@@ -26,20 +27,22 @@ export class WelcomeComponent {
 
   private init(type:any) : Promise<any> {
     return new Promise((resolve,reject) => {
+      const csrf:any = this.cookieService.get('X-CSRFTOKEN');
+
       try {
           if(type  === 'newsNewYork' || type === 'sportNewYork') {
-            this.articlesService.getNewYorkArticles(type).then((articles:any) => {
+            this.articlesService.getNewYorkArticles(type,csrf).then((articles:any) => {
               localStorage.setItem(type,JSON.stringify(articles));
               resolve(JSON.parse(localStorage.getItem(type)!))
             });
           } else {
-            this.articlesService.getContextArticles(type).then((articles:any) => {
+            this.articlesService.getContextArticles(type,csrf).then((articles:any) => {
               localStorage.setItem(type,JSON.stringify(articles));
               resolve(JSON.parse(localStorage.getItem(type)!))
             });
           }
       }catch(error) {
-        reject('Something went wrong...')
+        reject('Please login again')
       }
     })
 

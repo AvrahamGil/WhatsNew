@@ -171,8 +171,11 @@ public class ArticleDaoMongo implements IArticlesDao{
 
 	@Override
 	public List<UserArticles> getFavoritArticles(String userId) throws ApplicationException {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("userId").is(userId));
+		
 		try {
-			List<UserArticles> articles = mongoTemplate.findAll(UserArticles.class);
+			List<UserArticles> articles = mongoTemplate.find(query,UserArticles.class);
 			
 			if(!articles.isEmpty()) return articles;
 			
