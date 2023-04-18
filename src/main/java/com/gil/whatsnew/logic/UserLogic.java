@@ -1,6 +1,9 @@
 package com.gil.whatsnew.logic;
 
+import java.io.IOException;
+
 import java.util.ArrayList;
+
 
 import java.util.List;
 
@@ -10,13 +13,18 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.gil.whatsnew.bean.ContactMe;
 import com.gil.whatsnew.bean.User;
-import com.gil.whatsnew.dao.UserDaoMongo;
+import com.gil.whatsnew.dao.UserDao;
+import com.gil.whatsnew.enums.Cookies;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
@@ -26,7 +34,7 @@ import com.gil.whatsnew.utils.Authentication;
 public class UserLogic {
 
 	@Autowired
-	private UserDaoMongo userDao;
+	private UserDao userDao;
 
 	@Autowired
 	private Authentication authentication;
@@ -37,15 +45,15 @@ public class UserLogic {
 
 	private final String specialChar = "~`!#$%^&*(){}[]+-_=/><:\"\\?;";
 
-	private final int max = 25;
+	private String[] imageExtensions = {".jpg",".png","jpe","jpeg"};
+	
+	private final int max = 15;
 
-	private HttpSession session;
-
-	public void register(HttpServletRequest request, User user) throws ApplicationException {
+	public ResponseEntity<Object> register(HttpServletRequest request,HttpServletResponse response ,User user) throws ApplicationException {
 
 		boolean detailsCorrect = true;
 		boolean isCorrect = true;
-
+		ResponseEntity<Object> res;
 		String uuid = UUID.nameUUIDFromBytes(user.getEmail().getBytes()).toString();
 
 		if (user.getEmail() == null || user.getFullName() == null || user.getPassword() == null
@@ -67,13 +75,16 @@ public class UserLogic {
 				detailsCorrect = userString[i].matches(emailRegex) == true && !userString[i].contains(specialChar)
 						? userDao.isUserExist("email", user.getEmail()) == true ? false : true
 						: true;
-				detailsCorrect = userString[i].matches(emailRegex) == false ? userString[i].length() < max
+				detailsCorrect = userString[i].matches(emailRegex) == false ? userString[i].length() <= max && 2 <= userString[i].length()
 						: detailsCorrect;
 
 				if (detailsCorrect != true)
 					isCorrect = false;
 			}
 
+			if(authentication.isCountryExist(user.getCountry()) == false)
+				isCorrect = false;
+			
 			if (!isCorrect)
 				throw new ApplicationException(ErrorType.Create_User_Failed, ErrorType.Create_User_Failed.getMessage(),
 						false);
@@ -88,17 +99,22 @@ public class UserLogic {
 			if (!isCorrect)
 				throw new ApplicationException(ErrorType.Create_User_Failed, ErrorType.Create_User_Failed.getMessage(),
 						false);
-
+			
+			res = authentication.getConnection(userAdded, 5, response);
+			
+			return res;
+			
 		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
+		return null;
 	}
 
-	public ResponseEntity<Object> validateLoginDetails(HttpServletRequest request, String email, String password)
+	public ResponseEntity<Object> validateDetails(HttpServletRequest request,HttpServletResponse response ,String email, String password)
 			throws ApplicationException {
+		ResponseEntity<Object> res;
 		boolean detailsCorrect = true;
 		boolean isCorrect = true;
-		ResponseEntity<Object> res = null;
 
 		try {
 			if (email == null || password == null)
@@ -110,13 +126,15 @@ public class UserLogic {
 				isCorrect = false;
 
 			if (!isCorrect)
-				throw new ApplicationException(ErrorType.Login_Failed, ErrorType.Login_Failed.getMessage(), false);
+				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;
 
-			if (userDao.getUserDetails(email) == null)
+			User user = userDao.getUserDetails(email,password);
+			
+			if (user == null)
 				isCorrect = false;
 
 			if (!isCorrect)
-				throw new ApplicationException(ErrorType.User_Not_Exist, ErrorType.User_Not_Exist.getMessage(), false);
+				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;
 
 			if (!authentication.verifyCaptcha(request))
 				isCorrect = false;
@@ -125,16 +143,16 @@ public class UserLogic {
 				isCorrect = false;
 
 			if (!isCorrect)
-				throw new ApplicationException(ErrorType.Login_Failed, ErrorType.Login_Failed.getMessage(), false);
+				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;
 
-			res = authentication.getConnection(email, password);
-
+			res = authentication.getConnection(user,15,response);
+			
 			return res;
 
 		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
-		return res;
+		return null;
 	}
 
 	public void editUser(User user) throws ApplicationException {
@@ -147,7 +165,7 @@ public class UserLogic {
 			if (!detailsChanged)
 				throw new ApplicationException(ErrorType.Update_Failed, ErrorType.Update_Failed.getMessage(), false);
 
-			User userDb = userDao.getUserDetails(user.getEmail()) != null ? user : null;
+			User userDb = userDao.getUserDetails(user.getEmail(),user.getPassword()) != null ? user : null;
 
 			if (userDb == null)
 				detailsChanged = false;
@@ -165,6 +183,46 @@ public class UserLogic {
 		}
 	}
 
+	public boolean saveMessage(String firstName,String lastName, String email, String country, String message) throws ApplicationException {
+		boolean detailsProve = true;
+		int none = 0;
+		String[] details = new String[5];
+		details[0] = firstName;
+		details[1] = lastName;
+		details[2] = email;
+		details[3] = country;
+		details[4] = message;
+		
+	
+		try {
+			for(String detail : details) {
+				if(detail.length() == none) return false;
+				
+				if(detail.contains(specialChar)) detailsProve = false;
+				
+				if(details[2] == detail) {
+					if(detail.contains(emailRegex)) detailsProve = false;
+				}
+				
+				if(details[3] == detail) {
+					if(!authentication.isCountryExist(country)) detailsProve = false;
+				}
+			}
+			
+			if(!detailsProve)
+				throw new ApplicationException(ErrorType.Update_Failed, ErrorType.Update_Failed.getMessage(), false);
+			
+			ContactMe contact = new ContactMe(firstName,lastName,email,country,message);
+			userDao.addMessage(contact);
+			
+			return true;
+			
+		}catch(ApplicationException e) {
+			ExceptionHandler.generatedLogicExceptions(e);
+		}
+		
+		return false;
+	}
 	public List<String> listOfUsers() throws ApplicationException {
 		List<String> details = new ArrayList<String>();
 		boolean usersExist = true;
@@ -199,7 +257,7 @@ public class UserLogic {
 			Cookie[] cookies = request.getCookies();
 
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("X-TOKEN")) {
+				if (cookie.getName().equals(Cookies.XTOKEN.getName())) {
 					if (cookie.getValue().length() != 0) {
 						requestDispatcher = request.getRequestDispatcher(redirectToo);
 						cookie.setValue("empty");
@@ -207,7 +265,7 @@ public class UserLogic {
 					}
 				}
 
-				if (cookie.getName().equals("X-CSRFTOKEN")) {
+				if (cookie.getName().equals(Cookies.XCSRFTOKEN.getName())) {
 					if (cookie.getValue().length() != 0) {
 						requestDispatcher = request.getRequestDispatcher(redirectToo);
 						cookie.setValue("empty");
@@ -216,8 +274,9 @@ public class UserLogic {
 				}
 			}
 
-			ResponseEntity<Object> res = new ResponseEntity<Object>(cookies, HttpStatus.OK);
 
+			ResponseEntity<Object> res = new ResponseEntity<Object>(null,HttpStatus.OK);
+			
 			return res;
 
 		} catch (Exception e) {
@@ -230,7 +289,7 @@ public class UserLogic {
 		try {
 			String token = authentication.generateCSRFToken();
 
-			Cookie cookie = new Cookie("X-CSRFTOKEN", token);
+			Cookie cookie = new Cookie(Cookies.XCSRFTOKEN.getName(), token);
 			response.addCookie(cookie);
 
 			return token;
@@ -240,4 +299,53 @@ public class UserLogic {
 		}
 	}
 
+	public User store(MultipartFile file,String email,String userId) throws ApplicationException {
+		
+		boolean isImage = true;
+		boolean isNameEndingWithExtension = false;
+		
+		byte[] maxBytes = new byte[3000000];
+				
+		try {
+			if(file.getBytes().length > maxBytes.length) isImage = false;
+			
+			if(!isImage) throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(),
+					false);
+			
+			for(String extension : imageExtensions) {
+				if(file.getOriginalFilename().endsWith(extension)) {
+					isNameEndingWithExtension = true;
+				}
+			}
+			
+			if(!isNameEndingWithExtension) isImage = false;
+			
+			User user = userDao.getUser(email, userId);
+			
+			if(!isImage) throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(),
+					false);
+			
+			if(user.isWithImage()) user.setImage(null);
+
+			user.setImage(file.getBytes());
+			
+			userDao.editDetails(user);
+			
+			user.setUserId(null);
+			user.setPassword(null);
+
+			return user;
+			
+		}catch(IOException e) {
+			 throw new ApplicationException(ErrorType.General_Error,ErrorType.General_Error.getMessage(),
+						false);
+		} catch(MaxUploadSizeExceededException e) {
+			throw new ApplicationException(ErrorType.Maximum_Size,ErrorType.Maximum_Size.getMessage(),
+					false);
+		}
+	}
+	
+	public Resource loadAsResource(String filename) {
+		return null;
+	}
 }

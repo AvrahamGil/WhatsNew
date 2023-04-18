@@ -3,16 +3,16 @@ package com.gil.whatsnew.api;
 import java.util.ArrayList;
 
 
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.gil.whatsnew.bean.Login;
 import com.gil.whatsnew.bean.User;
@@ -34,7 +34,7 @@ public class UserApi {
 	private Authentication authentication;
 	
 	@RequestMapping(value = "/logout" , method=RequestMethod.POST)
-	public ResponseEntity<Object> logOut(@RequestBody Login loginDetail,HttpServletRequest request, HttpServletResponse response) throws ApplicationException {
+	public ResponseEntity<Object> logOut(HttpServletRequest request) throws ApplicationException {
 
 		try {
 			if(!authentication.verifyCookies(request)) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
@@ -43,8 +43,7 @@ public class UserApi {
 				
 			if(res == null) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
 				
-			return new ResponseEntity<Object>(res, HttpStatus.OK);
-			
+			return res;
 			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
@@ -53,8 +52,26 @@ public class UserApi {
 		return new ResponseEntity<Object>(null, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/verify" , method=RequestMethod.POST)
+	public boolean isVerified(HttpServletRequest request) throws ApplicationException {
+		
+		boolean verifired = false;
+		
+		try {
+			if(request == null)  verifired = false;
+			
+			if(authentication.verifyCookies(request)) verifired = true;
+				
+			return verifired;
+			
+		}catch(ApplicationException e) {
+			ExceptionHandler.generatedLogicExceptions(e);
+		}
+		return false;
+	}
+	
 	@RequestMapping(value="/editDetails" , method = RequestMethod.PUT)
-	public void update(@RequestBody User user,@RequestBody Login loginDetail,HttpServletRequest request , HttpServletResponse response) throws ApplicationException {
+	public void update(@RequestBody User user,@RequestBody Login loginDetail,HttpServletRequest request) throws ApplicationException {
 		
 		try {
 			if(authentication.verifyCookies(request)) {
@@ -68,7 +85,7 @@ public class UserApi {
 	}
 	
 	@RequestMapping(value="/users" , method = RequestMethod.GET)
-	public List<String> userList(@RequestBody Login loginDetail,HttpServletRequest request, HttpServletResponse response) throws ApplicationException {
+	public List<String> userList(@RequestBody Login loginDetail,HttpServletRequest request) throws ApplicationException {
 
 		List<String>users = new ArrayList<String>();
 		
@@ -76,6 +93,25 @@ public class UserApi {
 			if(authentication.verifyCookies(request)) {
 				users = userLogic.listOfUsers();
 			}
+
+			if(!users.isEmpty()) return users;
+			
+		}catch(ApplicationException e) {
+			ExceptionHandler.generatedLogicExceptions(e);
+		}
+		return null;
+	}
+	
+	@RequestMapping(value="/contact" , method = RequestMethod.GET)
+	public List<String> contactMe(@RequestParam("firstName")String firstName,@RequestParam("lastName")String lastName,@RequestParam("email")String email,@RequestParam("country")String country,
+			@RequestParam("message")String message) throws ApplicationException {
+
+		List<String>users = new ArrayList<String>();
+		
+		try {
+
+			users = userLogic.listOfUsers();
+
 
 			if(!users.isEmpty()) return users;
 			

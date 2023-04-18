@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { ArticleService } from '../articles.service';
-import { LoginService } from '../login.service';
+import { ArticleService } from '../services/articles.service';
+import { ErrorHandlerService } from '../services/errorhandlerservice.service';
+import { LoginService } from '../services/login.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
@@ -18,7 +19,7 @@ export class TechnologyComponent {
   public sites:Array<{name:string,value:number}> = [];
   public isLoging:boolean = false;
 
-  constructor(private welcome: WelcomeComponent,private articleService:ArticleService,private loginService: LoginService,public cookieService:CookieService) {}
+  constructor(private welcome: WelcomeComponent,private articleService:ArticleService,private loginService: LoginService,public cookieService:CookieService,private errorHandlerService:ErrorHandlerService) {}
 
   ngOnInit() {
     this.getArticles();
@@ -26,9 +27,9 @@ export class TechnologyComponent {
   }
 
   public likedArticle(item:any,type:string,index:number) {
-    const csrf = localStorage.getItem('X-CSRF')!
-    this.articleService.likeArticle(item,csrf).then(() => {
-      localStorage.setItem('X-CSRF',this.cookieService.get('X-CSRFTOKEN'));
+    const csrf = localStorage.getItem('X-CSRF-TOKEN')!
+    this.articleService.likeArticle(item.id,csrf).then(() => {
+      localStorage.setItem('X-CSRF-TOKEN',this.cookieService.get('X-CSRF-TOKEN'));
 
       const engadet:number = 0
       const theVerge:number = engadet + this.technologyAr[2].length
@@ -60,7 +61,12 @@ export class TechnologyComponent {
 
       this.sites.find((site) => {
         if(site.name === type) {
-          document.getElementsByName('icone')[index+site.value]?.setAttribute("class","fas fa-heart fa-lg liked");
+          var element:HTMLElement = document.getElementsByName('icone')[index+site.value];
+          if(element.getAttribute("class")?.includes("unliked")) {
+            element.setAttribute("class","fas fa-heart fa-lg liked");
+          } else {
+            element.setAttribute("class","fas fa-heart fa-lg unliked");
+          }
         }
       });
 
@@ -68,9 +74,13 @@ export class TechnologyComponent {
   }
 
   private getArticles() {
-    this.welcome.getArticles("technology").then((articles) => {
+    try {
+      this.welcome.getArticles("technology").then((articles) => {
         this.technologyAr = articles;
     });
+    }catch(error:any) {
+      this.errorHandlerService.handleError(error);
+    }
   }
 
 }

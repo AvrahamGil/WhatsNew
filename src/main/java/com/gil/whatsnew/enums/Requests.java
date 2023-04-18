@@ -4,11 +4,10 @@ public enum Requests {
 
 	RapidHost("x-rapidapi-host"),
 	RapidKey("x-rapidapi-key"),
-	NewYorkApi("NewYorkApi"),
-	RapidApi("RapidApi"),
-	RapidKeyValue("RapidKeyValue"),
+	RapidApi("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&autoCorrect=false&pageNumber=1&q="),
+	RapidKeyValue("{Your-Rapid-API-Key}"),
 	Captcha("https://www.google.com/recaptcha/api/siteverify"),
-	ContextRapidHostValue("ContextRapidHostValue");
+	ContextRapidHostValue("contextualwebsearch-websearch-v1.p.rapidapi.com");
 	
 	String strings;
 	
