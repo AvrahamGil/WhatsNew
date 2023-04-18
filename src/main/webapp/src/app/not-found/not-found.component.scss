@@ -1,18 +1,20 @@
+#not-found-image {
+    max-width: 30%;
+    height: 25em;
+    border-radius: 100%;
+    border:2px solid #F55B2A;
+    margin-left:35%;
+    background-image: url("../../assets/images/questionMark.jpg");
+}
+
 #not-found-content {
-    margin-top:3%;
     font-weight: bold;
 }
 
 .not-found-title {
     text-align: center;
-    margin-left:25%;
+    color:#F55B2A;
 
-    margin-bottom: 40%;
     line-height: normal;
 }
 
-#not-found-image {
-    background-image: url("../../assets/images/questionMarkSmall.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}

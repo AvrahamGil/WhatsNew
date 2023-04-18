@@ -55,11 +55,11 @@ public class Timer implements Runnable {
 					displayMinutes++;
 				}
 
-				articles = articleLogic.getListOfNewsArticles(null);
-
-				if (articles.get(0) == null || firstTime == true)
+				
+				if (firstTime == true || articleLogic.getListOfNewsArticles(null).get(0) == null) {
 					displayMinutes = refresh;
-
+				}
+					
 				timeToUpdateArticles = displayMinutes == refresh ? true : false;
 
 				if (timeToUpdateArticles) {
@@ -78,7 +78,7 @@ public class Timer implements Runnable {
 
 	private void generateArticlesFromStock() throws ApplicationException {
 		System.out.println("Generating articles from stock");
-		eventPublisher.articleEvent();
+		//eventPublisher.articleEvent();
 		System.out.println("Finish");
 	}
 }

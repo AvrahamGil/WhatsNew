@@ -42,18 +42,6 @@ public class BaseRequest {
 		return null;
 	}
 
-	public HttpResponse getNewYorkTimesArticles(String type) throws ClientProtocolException, IOException {
-		client = new DefaultHttpClient();
-
-		getRequestUrl = Requests.NewYorkApi.getValue() + type;
-		httpGet = new HttpGet(getRequestUrl);
-
-		HttpResponse response = client.execute(httpGet);
-
-		return response;
-
-	}
-
 	public boolean verifiedCaptcha(String secret, String gRecaptchaResponse)
 			throws IOException {
 

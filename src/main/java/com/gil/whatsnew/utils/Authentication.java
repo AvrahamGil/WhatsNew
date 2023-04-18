@@ -1,6 +1,7 @@
 package com.gil.whatsnew.utils;
 
 import java.io.IOException;
+
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -13,19 +14,32 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.JWTVerifier;
+import com.gil.whatsnew.bean.ErrorLog;
+import com.gil.whatsnew.bean.User;
+import com.gil.whatsnew.enums.Cookies;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
@@ -39,24 +53,15 @@ public class Authentication {
 	private static RSAPrivateKey privateKey;
 	private static RSAPublicKey publicKey;
 
-	private static String email = "email";
-	private static String password = "password";
+	private static final String secret = "6LdiMn8kAAAAAN1OYdhRrBqlbivw1EyCK6FW-MrM";
 
-	private static final String secret = "secret";
-
-	private static final char[] letters = {'L','E','T','T','E','R','S'};
-	
-	private Random random;
+	private static String[] countries;
 	
 	@Autowired
 	private BaseRequest baseRequest;
 
-	public String generatedJwtToken(String email, String password) throws ApplicationException {
+	public String generatedJwtToken(String email,String uuid) throws ApplicationException {
 
-		random = new Random();
-		int number = random.nextInt(8);
-		
-		
 		try {
 			algorithmRSA();
 			
@@ -66,16 +71,11 @@ public class Authentication {
 
 			PrivateKey prvKey2 = kf.generatePrivate(headerSpec);
 
-			String token = Jwts.builder().claim("email", new String(email)).claim("password", password)
+			String token = Jwts.builder().claim("email", new String(email)).claim("id", uuid)
 					.setIssuer("159.89.12.15").signWith(SignatureAlgorithm.RS256, prvKey2)
 					.compact();
 
-			String[] parts = token.split("[.]");
-			
-			parts[1] = letters[number] + parts[1];
-			
-			token = parts[0] + "." + parts[1] + "." + parts[2];
-			
+
 			return token;
 
 		} catch (NoSuchAlgorithmException | JWTCreationException | InvalidKeySpecException exception) {
@@ -83,27 +83,26 @@ public class Authentication {
 		}
 	}
 
-	public boolean verifyJwtToken(String token,String uuid) throws ApplicationException {
+	public String[] verifyJwtToken(String token) throws ApplicationException {
+
+		String[] details = new String[2];
+		
 		try {
-			String[] parts = token.split("[.]");
-
-			parts[1] = parts[1].substring(1, parts[1].length());
-			
-			String newToken = parts[0] + "." + parts[1] + "." + parts[2];
-			
-			email = JWT.decode(newToken).getClaim("email").asString();
-			password = JWT.decode(newToken).getClaim("password").asString();
-			
-			if (email != null && password != null) {
-				JWTVerifier verifier = JWT.require(algorithmRSA()).withClaim("email", email)
-						.withClaim("password", password).withIssuer("159.89.12.15").build();
-
-				verifier.verify(newToken);
-
-				return true;
+			if(token.startsWith("X-TOKEN=")) {
+				String[] values = token.split(";");
+				token = values[0].substring(8,values[0].length());
 			}
+			
+			details[0] = JWT.decode(token).getClaim("email").asString();
+			
+			details[1] = JWT.decode(token).getClaim("id").asString();
+			
+			JWTVerifier verifier = JWT.require(algorithmRSA()).withClaim("email", details[0]).withClaim("id", details[1])
+					.withIssuer("159.89.12.15").build();
 
-			return false;
+			verifier.verify(token);
+				
+			return details;
 
 		} catch (NoSuchAlgorithmException | JWTVerificationException exception) {
 			throw new ApplicationException(ErrorType.General_Error, "Authentication failed", false);
@@ -128,7 +127,7 @@ public class Authentication {
 		
 		String csrfCookieValue = "";
 
-		String csrfToken = request.getHeader("X-CSRFTOKEN");
+		String csrfToken = request.getHeader(Cookies.XCSRFTOKEN.getName());
 
 		if(csrfToken == null) return false;
 		
@@ -137,7 +136,7 @@ public class Authentication {
 		if(cookies == null) return false;
 		
 		for(Cookie cookie : cookies) {
-			if(cookie.getName().equals("X-CSRFTOKEN") && !cookieFilled) {
+			if(cookie.getName().equals(Cookies.XCSRFTOKEN.getName()) && !cookieFilled) {
 				csrfCookieValue = cookie.getValue();
 				cookieFilled = true;
 			}
@@ -166,7 +165,7 @@ public class Authentication {
 		boolean responseCorrect = false;
 
 		try {
-			String googleResponse = request.getHeader("recaptcha-response");
+			String googleResponse = request.getHeader(Cookies.RECAPTCHA.getName());
 
 			responseCorrect = googleResponse == null || "".equals(googleResponse) ? false : true;
 
@@ -182,30 +181,44 @@ public class Authentication {
 		}
 	}
 
-	public ResponseEntity<Object> getConnection(String email, String password) throws ApplicationException {
+	public ResponseEntity<Object> getConnection(User user,int seconds,HttpServletResponse response) throws ApplicationException {
 
 		try {
-			String token = generateCSRFToken();
-			String jwtToken = generatedJwtToken(email, password);
-			String uuid = UUID.nameUUIDFromBytes(email.getBytes()).toString();
+			String csrf = generateCSRFToken();
+			String uuid = UUID.nameUUIDFromBytes(user.getEmail().getBytes()).toString();
+			String jwtToken = generatedJwtToken(user.getEmail(),uuid);
 			
-			Cookie csrfCookie = new Cookie("X-CSRFTOKEN", token);
-			csrfCookie.setMaxAge(15 * 60);
 
-			Cookie jwtCookie = new Cookie("X-TOKEN", jwtToken);
-			jwtCookie.setMaxAge(15 * 60);
-
-			Cookie uuidtCookie = new Cookie("X-UUID", uuid);
-			uuidtCookie.setMaxAge(15 * 60);
+			user.setUserId(null);
+			user.setPassword(null);
 			
-			Cookie[] cookies = new Cookie[3];
+			ResponseCookie csrfCookie = ResponseCookie.from(Cookies.XCSRFTOKEN.getName(), csrf)
+		            .httpOnly(true)
+		            .sameSite("None")
+		            .secure(true)
+		            .path("/")
+		            .maxAge(Math.toIntExact(seconds * 60))
+		            .build();
 			
-			cookies[0] = csrfCookie;
-			cookies[1] = jwtCookie;
-			cookies[2] = uuidtCookie;
+			ResponseCookie jwtCookie = ResponseCookie.from(Cookies.XTOKEN.getName(), jwtToken)
+		            .httpOnly(true)
+		            .sameSite("None")
+		            .secure(true)
+		            .path("/")
+		            .maxAge(Math.toIntExact(seconds * 60))
+		            .build();
+			
 
-			ResponseEntity<Object> res = new ResponseEntity<Object>(cookies, HttpStatus.OK);
+			HttpHeaders headers =new HttpHeaders();
+			headers.add(Cookies.XCSRFTOKEN.getName(), csrfCookie.toString());
+			headers.add(Cookies.XTOKEN.getName(), jwtCookie.toString());
 
+		    response.addHeader("Set-Cookie", csrfCookie.toString());
+		    response.addHeader("Set-Cookie", jwtCookie.toString());
+
+		    
+		    ResponseEntity<Object> res = new ResponseEntity<Object>(user,headers,HttpStatus.OK);
+		    
 			return res;
 
 		} catch (ApplicationException e) {
@@ -216,39 +229,57 @@ public class Authentication {
 	}
 
 	public boolean verifyCookies(HttpServletRequest request) throws ApplicationException {
-		boolean tokenVerified = false;
+		String[] details = new String[2];
 		boolean csrfVerified = false;
-		boolean uuidVerified = false;
-		
+		boolean tokenVerified = false;
+
 		Cookie[] cookies = request.getCookies();
 
 		if(cookies == null) return false;
 		
 		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("X-TOKEN")) {
-				tokenVerified = verifyJwtToken(cookie.getValue(),null) ? true : false;
+			if (cookie.getName().equals(Cookies.XTOKEN.getName())) {
+				details = verifyJwtToken(cookie.getValue());
+				tokenVerified = details != null  ? true : false;
 			}
 
-			if (cookie.getName().equals("X-CSRFTOKEN")) {
+			if (cookie.getName().equals(Cookies.XCSRFTOKEN.getName())) {
 				csrfVerified = verifyCSRFToken(request) ? true : false;
 				
 				String newToken = generateCSRFToken();
 				
 				if(csrfVerified) cookie.setValue(newToken);
 			}
-			if(cookie.getName().equals("X-UUID")) {
-				String expectedUuid = UUID.nameUUIDFromBytes(email.getBytes()).toString();
-				uuidVerified = expectedUuid.equals(cookie.getValue()) ? true : false;
-			}
 		}
 
-		if (!tokenVerified || !csrfVerified || !uuidVerified)
+		if (!tokenVerified || !csrfVerified)
 			return false;
 
+		
 		return true;
 
 	}
 
+	
+	public boolean isCountryExist(String countryValue) {
+		countries = Locale.getISOCountries();
+			
+		for(String country : countries) {
+			if(country.equals(countryValue)) {
+				return true;
+			}	
+		}
+		return false;
+	}
+
+	public void errorLogFile(ErrorLog errorLog) throws ApplicationException {
+		try {
+			JsonUtils.writeIntoJsonFile("errorLog", errorLog, StringPaths.getLogs("errorLog"));
+		}catch(ApplicationException e) {
+			ExceptionHandler.generatedLogicExceptions(e);
+		}
+	}
+	
 	private Algorithm algorithmRSA() throws NoSuchAlgorithmException {
 		KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
 

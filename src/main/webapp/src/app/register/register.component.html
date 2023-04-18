@@ -1,3 +1,12 @@
+
+<section class="section">
+  <div>
+    <br>
+  </div>
+    <h2 class="category-content category-header">Sign Up</h2>
+</section>
+
+
 <div class="sign-up card-group">
     <div class="card-body"  aria-expanded="false">
       <div class="container" id="register">
@@ -8,36 +17,43 @@
               <div class="inputs card-body">
               <form [formGroup]="user" (ngSubmit)="register()" >
                 <div>
-                  <p class="form-note">All fields are required</p>
                   <div >
                     <div>
                       <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Full Name</label>
-                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Full Name" minlength="3" maxlength="25" formGroupName="fullName" formControlName="fullName" required/>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" minlength="1" maxlength="25" formGroupName="fullName" formControlName="fullName" required/>
                     </div>
                     <div>
                       <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">User Name</label>
-                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="User Name" minlength="3" maxlength="25"formGroupName="userName" formControlName="userName" required/>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" minlength="3" maxlength="25"formGroupName="userName" formControlName="userName" required/>
                     </div>
                     <div>
                       <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Email</label>
-                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Email" minlength="3" maxlength="45"formGroupName="email" formControlName="email" required/>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text"  minlength="3" maxlength="45"formGroupName="email" formControlName="email" required/>
                     </div>
                     <div>
                       <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Password</label>
-                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" placeholder="Password" minlength="3" maxlength="25"formGroupName="password" formControlName="password" required/>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password"  minlength="3" maxlength="25"formGroupName="password" formControlName="password" required/>
                     </div>
                     <div>
                       <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Confirm Password</label>
-                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" placeholder="Confirm Password" minlength="3" maxlength="25"formGroupName="confirmPassword" formControlName="confirmPassword" required/>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" minlength="3" maxlength="25"formGroupName="confirmPassword" formControlName="confirmPassword" required/>
                     </div>
                     <div>
-                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Country</label>
-                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Country" minlength="3" maxlength="40"formGroupName="country" formControlName="country" required/>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Upload Image (Optional)</label>
+                      <input  class="col-lg-6 col-md-12 col-sm-12 col-xs-2" (change)="onFileSelected($event)" type="file"name="file" accept="image/jpeg, image/png, image/jpg" formGroupName="upload" formControlName="upload" required/>
+                    </div>
+                    <div>
+                      <label class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-name">Select Country</label>
+                      <select class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" formGroupName="country" formControlName="country" required name="country" id="country">
+                        <option class="col-lg-6 col-md-12 col-sm-12 col-xs-2" *ngFor="let country of countries" [ngValue]="country">{{country.name}} ({{country.code}})</option>
+                    </select>
                     </div>
                   </div>
-                  <re-captcha class="captcha" theme="dark" id="recaptcha" name="recaptcha" formControlName="recaptcha" required ></re-captcha>
+                  <re-captcha class="captcha" theme="light" id="recaptcha" name="recaptcha" formControlName="recaptcha" required ></re-captcha>
 
                   <input class="sign-up-btn btn btn-light" type="submit"  id="sign-up" value="Sign Up"/>
+
+                  <p class="suggestion">Already on What'sNew? <a href="#/user/login">Sign in</a></p>
 
                   <p class="form-error" id="message">{{message}}</p>
                 </div>

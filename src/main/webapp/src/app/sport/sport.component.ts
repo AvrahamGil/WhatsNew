@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { ArticleService } from '../articles.service';
-import { LoginService } from '../login.service';
+import { ArticleService } from '../services/articles.service';
+import { ErrorHandlerService } from '../services/errorhandlerservice.service';
+import { LoginService } from '../services/login.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
@@ -17,7 +18,7 @@ export class SportComponent {
 
   public isLoging:boolean = false;
 
-  constructor(private welcome: WelcomeComponent,private articleService:ArticleService,private loginService: LoginService,public cookieService:CookieService) {}
+  constructor(private welcome: WelcomeComponent,private articleService:ArticleService,private loginService: LoginService,public cookieService:CookieService,private errorHandlerService:ErrorHandlerService) {}
 
   ngOnInit() {
     this.getArticles();
@@ -25,14 +26,13 @@ export class SportComponent {
   }
 
   public likedArticle(item:any,type:string,index:number) {
-    const csrf = localStorage.getItem('X-CSRF')!
-    this.articleService.likeArticle(item,csrf).then(() => {
-      localStorage.setItem('X-CSRF',this.cookieService.get('X-CSRFTOKEN'));
+    const csrf = localStorage.getItem('X-CSRF-TOKEN')!
+    this.articleService.likeArticle(item.id,csrf).then(() => {
+      localStorage.setItem('X-CSRF-TOKEN',this.cookieService.get('X-CSRF-TOKEN'));
       document.getElementById('elementIcon')?.setAttribute("class","fas fa-heart fa-lg liked");
 
 
-      const nyt:number = 0
-      const yardBarker:number = nyt + this.sportAr[3].length
+      const yardBarker:number = 0;
       const sbnation:number = yardBarker + this.sportAr[9].length
       const fansided:number = sbnation + this.sportAr[8].length
       const yahoo:number = fansided + this.sportAr[7].length
@@ -60,39 +60,30 @@ export class SportComponent {
 
       this.sites.find((site) => {
         if(site.name === type) {
-          document.getElementsByName('icone')[index+site.value]?.setAttribute("class","fas fa-heart fa-lg liked");
+          var element:HTMLElement = document.getElementsByName('icone')[index+site.value];
+          if(element.getAttribute("class")?.includes("unliked")) {
+            element.setAttribute("class","fas fa-heart fa-lg liked");
+          } else {
+            element.setAttribute("class","fas fa-heart fa-lg unliked");
+          }
         }
       });
 
 
-    });
-  }
-
-  public likedNyArticle(item:any,type:string,index:number) {
-    const csrf = localStorage.getItem('X-CSRF')!
-    this.articleService.nylikeArticle(item,csrf).then(() => {
-      localStorage.setItem('X-CSRF',this.cookieService.get('X-CSRFTOKEN'));
-
-      this.sites = [
-        {name:"NYT",value:this.sportAr[4].length + this.sportAr[9].length + this.sportAr[2].length}
-      ];
-
-      this.sites.find((site) => {
-        if(site.name === type) {
-          document.getElementsByName('icone')[index+site.value]?.setAttribute("class","fas fa-heart fa-lg liked");
-        }
-      });
     });
   }
 
   private getArticles() {
-    this.welcome.getArticles("sport").then((articles) => {
+    try {
+      this.welcome.getArticles("sport").then((articles) => {
         this.sportAr = articles;
+    }).catch((error) => {
+      return error;
     });
+    }catch(error : any) {
+      this.errorHandlerService.handleError(error);
+    }
 
-    this.welcome.getArticles("sportNewYork").then((articles) => {
-        this.newYorkTimesAr = articles;
-    })
   }
 
 }

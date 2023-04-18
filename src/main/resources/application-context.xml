@@ -25,9 +25,7 @@
 	<bean id="user" class="com.gil.whatsnew.bean.User"></bean>
 	<bean id="image" class="com.gil.whatsnew.bean.Image"></bean>
 	<bean id="contextApi" class="com.gil.whatsnew.bean.ContextApi"></bean>
-	<bean id="newYorkTimesApi" class="com.gil.whatsnew.bean.NewYorkTimesApi"></bean>
-	<bean id="multimedia" class="com.gil.whatsnew.bean.Multimedia"></bean>
-
+	
 
 	<!-- Dao -->
 	<bean id="articleDaoMongo" class="com.gil.whatsnew.dao.ArticleDaoMongo"></bean>
@@ -43,7 +41,7 @@
 	<bean id="userLogic" class="com.gil.whatsnew.logic.UserLogic"></bean>
 	<bean id="baseRequest" class="com.gil.whatsnew.logic.BaseRequest"></bean>
 	<bean id="userAuth" class="com.gil.whatsnew.logic.UserAuthentication"></bean>
-	
+
 	
 	<!-- Utils -->
 	<bean id="utils" class="com.gil.whatsnew.utils.Utils"></bean>
@@ -55,10 +53,12 @@
 	<bean id="articleApi" class="com.gil.whatsnew.api.ArticleApi"></bean>
 	<bean id="userApi" class="com.gil.whatsnew.api.UserApi"></bean>
 	<bean id="loginFilter" class="com.gil.whatsnew.api.LoginFilter"></bean>
-
+	<bean id="fileUpload" class="com.gil.whatsnew.api.FileUploadApi"></bean>
+	
 
 	<!-- Configuration -->
 	<bean id="utilsConfiguration" class="com.gil.whatsnew.config.UtilsConfiguration"></bean>
+
 	
 		<!-- Listener -->
 	<bean id="updateArticlesListener" class="com.gil.whatsnew.listener.UpdateArticlesListener"></bean>
@@ -68,23 +68,7 @@
 	
 	<!-- Exception -->
 	<bean id="customErrorResponse" class="com.gil.whatsnew.bean.CusomErrorResponse"></bean>
-	
-	<!-- Hibernate 5 SessionFactory Bean definition -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.gil.whatsnew"/>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-			</props>
-		</property>
-	</bean>
-	
-       <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    
+	    
 	</beans>
 	
 	

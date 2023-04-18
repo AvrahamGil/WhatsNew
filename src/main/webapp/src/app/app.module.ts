@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ArticleService } from './articles.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NewsComponent } from './news/news.component';
 import { BusinessComponent } from './business/business.component';
 import { SportComponent } from './sport/sport.component';
@@ -14,15 +13,19 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Users } from './users';
-import { LoginDetails } from './login-details';
+import { Users } from './models/users';
+import { LoginDetails } from './models/login-details';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from 'ng-recaptcha';
 import { env } from '../app/login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { LoginService } from './login.service';
 import { UserComponent } from './user/user.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ArticleService } from './services/articles.service';
+import { HttpErrorInterceptor } from './services/httperrorinterceptor.service';
+import { ErrorHandlerService } from './services/errorhandlerservice.service';
+import { ValidateService } from './services/validate.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { CookieService } from 'ngx-cookie-service';
     LoginComponent,
     WelcomeComponent,
     HeaderComponent,
-    UserComponent
+    UserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,11 +54,13 @@ import { CookieService } from 'ngx-cookie-service';
     RecaptchaFormsModule,
   ],
   providers: [
-    {provide: ArticleService},{provide:Users},{provide:LoginComponent},{provide:LoginDetails},{provide:WelcomeComponent},{ provide: RECAPTCHA_SETTINGS,
+    {provide: ArticleService},{provide:Users},{provide:LoginComponent},{provide:LoginDetails},{provide:WelcomeComponent},{provide:ValidateService},{ provide: RECAPTCHA_SETTINGS,
       useValue: {
         siteKey: env.siteKey,
-      } as RecaptchaSettings,},
-      {provide:CookieService}
+      } as RecaptchaSettings,},{ provide: HTTP_INTERCEPTORS,
+        useClass: HttpErrorInterceptor,
+        multi: true},
+      {provide: ErrorHandler, useClass: ErrorHandlerService}
   ],
   bootstrap: [AppComponent]
 })

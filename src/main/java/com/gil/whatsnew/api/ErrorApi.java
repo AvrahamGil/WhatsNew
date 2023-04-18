@@ -1,6 +1,7 @@
 package com.gil.whatsnew.api;
 
 import javax.servlet.RequestDispatcher;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;

@@ -1,27 +1,15 @@
-<app-header [header]="header"></app-header>
+<div *ngIf="isLoging" id="expiredAlert" class="alert alert-danger hide " role="alert">
+  Session Expired, Please Sign In Again.
+</div>
 
-<button class=" btn-primary btn-sm"id="scrollTop" type="button"><i class="fas fa-angle-up size-4x" id="scrollTopIcon"></i></button>
+<app-header [header]="header"></app-header>
 
 <router-outlet></router-outlet>
 
+<div class="vector"><br></div>
 
-<!--Summary-->
-  <div id="summary">
-      <div class="container" >
-          <div class="row" id="content">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2">
-              <img  id="slogan" src="assets/images/header.jpg">
-                </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-2" id="summaryContent">
-                    <h3>The site is for learning purposes only.</h3>
-                      <p> Hi,<br>  I'm a fullstack developer.
-                        <br> Looking for my next challenge,
-                        <br>Email - gil@whatsnew.me</p>
-                </div>
-              </div>
-        </div>
-    </div>
 
+<app-footer [footer]="footer"></app-footer>
 
 
 

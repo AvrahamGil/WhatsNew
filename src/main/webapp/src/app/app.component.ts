@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import * as $ from 'jquery';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { LoginService } from './services/login.service';
+import { WelcomeComponent } from './welcome/welcome.component';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -10,32 +12,36 @@ import * as $ from 'jquery';
 export class AppComponent {
 
   header = "header";
+  footer="footer";
+  private types:Array<string> = ['news','business','sport','technology','travel'];
+  isLoging:boolean = false;
 
-  constructor(){ }
 
+  public newsAr:any = [];
+
+  @ViewChild('helloModal') helloEl?: ElementRef;
+  modal?: bootstrap.Modal;
+  ngAfterViewInit() {
+    this.modal = new bootstrap.Modal(this.helloEl?.nativeElement, {});
+  }
+
+  trigger() {
+    this.modal?.toggle();
+  }
+
+  constructor(private loginService: LoginService,private welcome:WelcomeComponent){ }
 
   ngOnInit() {
-  $("#scrollTop").click(() =>{
-    $("html").scrollTop(0);
+    this.isLoging = this.loginService.isUserLoging();
+    this.getArticles();
+  }
+
+  private getArticles() {
+    this.types.forEach((types) => {
+
+    })
+    this.welcome.getArticles("news").then((articles) => {
+        this.newsAr = articles;
     });
-
-    if ($(window).width.length > 992) {
-      $(window).scroll(() => {
-         if ($(this).scrollTop.length > 40) {
-            $('#header').addClass("fixed-top");
-            $('body').css('padding-top', $('#header').outerHeight() + 'px');
-          }else{
-            $('#header').removeClass("fixed-top");
-            $('body').css('padding-top', '0');
-          }
-      });
-    };
-
-    const input = document.getElementById('login') as HTMLElement
-    input?.setAttribute('disabled', '');
-  }
-
-  public scrollTo(el:string) {
-    document.getElementById(el)?.scrollIntoView();
-  }
+    }
 }

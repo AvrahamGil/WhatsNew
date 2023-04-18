@@ -14,17 +14,27 @@ public class User {
 	private String password;
 	private String fullName;
 	private String country;
+	private byte[] image;
+	private boolean withImage;
 	
 	public User() {
 		
 	}
 	
-	public User(String email, String password, String fullName, String country) {
+	public User(String userId, String email, String password, String fullName, String country, byte[] image,
+			boolean withImage) {
+		this.userId = userId;
 		this.email = email;
 		this.password = password;
 		this.fullName = fullName;
 		this.country = country;
+		this.image = image;
+		this.withImage = withImage;
 	}
+
+
+
+
 
 	public String getUserId() {
 		return userId;
@@ -67,8 +77,26 @@ public class User {
 		this.country = country;
 	}
 
+	
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	
+	public boolean isWithImage() {
+		return withImage;
+	}
+
+	public void setWithImage(boolean withImage) {
+		this.withImage = withImage;
+	}
+
 	@Override
 	public String toString() { 
-		return userId + "," + email + "," + password + "," + fullName  + "," + country;
+		return userId + "," + email + "," + password + "," + fullName  + "," + country + "," + image;
 	}
 }

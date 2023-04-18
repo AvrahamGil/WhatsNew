@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { ArticleService } from '../articles.service';
-import { LoginService } from '../login.service';
+import { ArticleService } from '../services/articles.service';
+import { ErrorHandlerService } from '../services/errorhandlerservice.service';
+import { LoginService } from '../services/login.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
@@ -15,7 +16,7 @@ export class BusinessComponent {
   public isLoging:boolean = false;
   public sites:Array<{name:string,value:number}> = [];
 
-  constructor(private welcome: WelcomeComponent,private articleService:ArticleService,private loginService: LoginService,public cookieService:CookieService) {}
+  constructor(private welcome: WelcomeComponent,private articleService:ArticleService,private loginService: LoginService,public cookieService:CookieService,private errorHandlerService:ErrorHandlerService) {}
 
   ngOnInit() {
     this.getArticles();
@@ -23,22 +24,22 @@ export class BusinessComponent {
   }
 
   public likedArticle(item:any,type:string,index:number) {
-    const csrf = localStorage.getItem('X-CSRF')!
-    this.articleService.likeArticle(item,csrf).then(() => {
-      localStorage.setItem('X-CSRF',this.cookieService.get('X-CSRFTOKEN'));
+    const csrf = localStorage.getItem('X-CSRF-TOKEN')!
+    this.articleService.likeArticle(item.id,csrf).then(() => {
+      localStorage.setItem('X-CSRF-TOKEN',this.cookieService.get('X-CSRF-TOKEN'));
 
       const cleanTechnica:number = 0
-      const zacks:number = cleanTechnica + this.businessAr[11].length
-      const marketWatch:number = zacks + this.businessAr[7].length
-      const businessInsider:number = marketWatch + this.businessAr[10].length
-      const cnbc:number = businessInsider + this.businessAr[0].length
-      const ibtimes:number = cnbc + this.businessAr[6].length
-      const fool:number = ibtimes + this.businessAr[3].length
+      const zacks:number = cleanTechnica + this.businessAr[11].length;
+      const marketWatch:number = zacks + this.businessAr[7].length;
+      const businessInsider:number = marketWatch + this.businessAr[10].length;
+      const cnbc:number = businessInsider + this.businessAr[0].length;
+      const ibtimes:number = cnbc + this.businessAr[6].length;
+      const fool:number = ibtimes + this.businessAr[3].length;
       const entrepreneur:number = fool + this.businessAr[8].length;
-      const bloomberg:number = entrepreneur + this.businessAr[4].length
-      const forbes:number = bloomberg + this.businessAr[2].length
-      const financialTimes:number = forbes + this.businessAr[1].length
-      const theStreet:number = financialTimes + this.businessAr[12].length
+      const bloomberg:number = entrepreneur + this.businessAr[4].length;
+      const forbes:number = bloomberg + this.businessAr[2].length;
+      const financialTimes:number = forbes + this.businessAr[1].length;
+      const theStreet:number = financialTimes + this.businessAr[12].length;
 
       this.sites = [
         {name:"cleanTechnica",value: cleanTechnica},
@@ -57,15 +58,25 @@ export class BusinessComponent {
 
       this.sites.find((site) => {
         if(site.name === type) {
-          document.getElementsByName('icone')[index+site.value]?.setAttribute("class","fas fa-heart fa-lg liked");
+          var element:HTMLElement = document.getElementsByName('icone')[index+site.value];
+          if(element.getAttribute("class")?.includes("unliked")) {
+            element.setAttribute("class","fas fa-heart fa-lg liked");
+          } else {
+            element.setAttribute("class","fas fa-heart fa-lg unliked");
+          }
         }
       });
     });
   }
 
   private getArticles() {
-    this.welcome.getArticles("business").then((articles) => {
+    try {
+      this.welcome.getArticles("business").then((articles) => {
         this.businessAr = articles;
     });
+    }catch(error:any) {
+      this.errorHandlerService.handleError(error);
+    }
+
   }
 }
