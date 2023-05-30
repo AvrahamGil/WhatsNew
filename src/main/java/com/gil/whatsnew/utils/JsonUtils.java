@@ -1,11 +1,9 @@
 package com.gil.whatsnew.utils;
 
 import java.io.FileReader;
-
-
-
-
+import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -18,6 +16,9 @@ import org.springframework.stereotype.Service;
 
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
 
 @Service
 public class JsonUtils {
@@ -42,6 +43,24 @@ public class JsonUtils {
 
 		}catch(IOException | ParseException e) {
 			throw new ApplicationException(ErrorType.Read_Json_Failed,ErrorType.Read_Json_Failed.getMessage(),false);
+		}
+	}
+	
+	public static void writeIntoJsonFile(String type, Object value, String path) throws ApplicationException {
+		Gson gson = new GsonBuilder().setDateFormat(LocalDate.now().toString()).create();
+		boolean isValidLog = true;
+		
+		try {
+			if(type.equals("errorLog")) {
+				if(value == null && path.isEmpty()) isValidLog = false;
+				if(value.toString().contains("!@#$%^&*()") || path.contains("!@#$%^&*()")) isValidLog = false;	
+					
+				if(!isValidLog) throw new ApplicationException(ErrorType.Write_Json_Failed,ErrorType.Write_Json_Failed.getMessage(),false);
+				
+				gson.toJson(value,new FileWriter(path));
+			}
+		} catch (JsonIOException | IOException e) {
+			throw new ApplicationException(ErrorType.Write_Json_Failed,ErrorType.Write_Json_Failed.getMessage(),false);
 		}
 	}
 	

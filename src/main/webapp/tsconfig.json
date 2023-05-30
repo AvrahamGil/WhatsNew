@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "esModuleInterop":true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -20,9 +21,7 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "allowSyntheticDefaultImports": true,
-    "types" :[
-      "jquery"
-    ],
+    "types" :[],
     "lib": [
       "ES2022",
       "dom"

@@ -1,0 +1,361 @@
+<section id="technology" class="section">
+  <div>
+    <br>
+  </div>
+
+  <div class="container-fruid">
+    <div class="category-content">
+
+      <h2 class="category-header">Technology</h2>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="articles">
+  <div>
+    <br>
+  </div>
+
+  <div class="articles-content">
+    <h2 class="articles-header">Articles</h2>
+  </div>
+
+  <div class="container-fruid">
+    <div class="category">
+      <div id="sources">
+        <div id="technology-articles" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card-group">
+                <div class="card-body"  aria-expanded="false">
+                  <div class="container" >
+                    <div class="row">
+                    <!--Engadet site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>Engadet</h4></span>
+                        <div class="card-body" id="articles">
+                        <div *ngFor="let item of technologyAr[2]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'engadet',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--TheVerge Site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>TheVerge</h4></span>
+                        <div class="card-body" id="articles">
+                        <div *ngFor="let item of technologyAr[3]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'theVerge',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                         <!--TechCrunc Site-->
+                         <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>TechCrunc</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of technologyAr[8]; index as i; first as isFirst; ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'techCrunc',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+                          <!--Gizmodo site-->
+                          <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                            <div class="card mb-3 box-shadow" id="article-body">
+                              <span class="card-title" id="source"><h4>Gizmodo</h4></span>
+                              <div class="card-body" id="articles">
+                             <!--Site-->
+                              <div *ngFor="let item of technologyAr[1]; index as i; first as isFirst; ">
+                                <div class="row" >
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'gizmodo',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                    <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                </div>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+
+                    <!--Thenextweb site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>Thenextweb</h4></span>
+                        <div class="card-body" id="articles">
+                        <div *ngFor="let item of technologyAr[7]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'thenextweb',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Arstechnica Site-->
+                       <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>Arstechnica</h4></span>
+                            <div class="card-body" id="articles">
+                            <div  *ngFor="let item of technologyAr[6]; index as i; first as isFirst; ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'arstechnica',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item">
+              <div class="card-group">
+                <div class="card-body"  aria-expanded="false">
+                  <div class="container" >
+                    <div class="row">
+                            <!--Apple Site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>Apple</h4></span>
+                        <div class="card-body" id="articles">
+                       <!--Site-->
+                        <div *ngFor="let item of technologyAr[9]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'apple',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                       <!--Bitcoin  site-->
+                       <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="source"><h4>Bitcoin</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div *ngFor="let item of technologyAr[11]; index as i; first as isFirst; ">
+                            <div class="row" >
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'bitcoin',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    <!--Axios Site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>Axios</h4></span>
+                        <div class="card-body" id="articles">
+                        <div  *ngFor="let item of technologyAr[4]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'axios',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Sciencedaily site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>ScienceDaily</h4></span>
+                        <div class="card-body" id="articles">
+                        <div *ngFor="let item of technologyAr[0]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'scienceDaily',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                      <!--Wire Site-->
+                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="source"><h4>Wire</h4></span>
+                          <div class="card-body" id="articles">
+                          <div *ngFor="let item of technologyAr[5]; index as i; first as isFirst; ">
+                            <div class="row" >
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'wire',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    <!--TechRadar site-->
+                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                      <div class="card mb-3 box-shadow" id="article-body">
+                        <span class="card-title" id="source"><h4>TechRadar</h4></span>
+                        <div class="card-body" id="articles">
+                        <div  *ngFor="let item of technologyAr[10]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'techRadar',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+          <a class="carousel-control-prev" id="control" href="#technology-articles" role="button" data-slide="prev">
+            <span class="btn btn-dark carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" id="control" href="#technology-articles" role="button" data-slide="next">
+            <span class="btn btn-dark carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+          <ul class="carousel-indicators" id="step">
+            <li data-target="#technology-articles" data-slide-to="0" class="active">
+            </li>
+            <li data-target="#technology-articles" data-slide-to="1"></li>
+          </ul>
+        </div>
+
+      </div>
+  </div>
+
+
+</div>
+</section>
+
+<section class="sources">
+  <div>
+    <br>
+  </div>
+
+  <input type="image" src="assets/images/Vector.png"class="vector"/><br>
+  <div class="container">
+    <div class="sources-content">
+
+      <p class="sources-text">Sources</p>
+
+      <div id="carouselSites" class="carousel slide">
+        <div class="carousel-inner" >
+            <div class="carousel-item active">
+              <img id="site" src="assets/icons/engadget.png">
+              <img id="site" src="assets/icons/techrunch.ico">
+              <img id="site" src="assets/icons/gizmodo.ico">
+              <img id="site" src="assets/icons/thenextweb.ico">
+              <img id="site" src="assets/icons/arstechina.ico">
+              <img id="site" src="assets/icons/axios.ico">
+              <img id="site" src="assets/icons/apple.ico">
+              <img id="site" src="assets/icons/wired.ico">
+              <img id="site" src="assets/icons/techradar.ico">
+            </div>
+            </div>
+              </div>
+        </div>
+  </div>
+
+
+
+
+</section>
+
+<input type="image" src="assets/images/Vector.png"class="vector"/><br>
