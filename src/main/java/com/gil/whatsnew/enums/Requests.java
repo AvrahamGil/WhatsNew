@@ -1,14 +1,12 @@
 package com.gil.whatsnew.enums;
 
 public enum Requests {
-
-	RapidHost("RapidHost"),
-	RapidKey("RapidKey"),
-	NewYorkApi("NewYorkApi"),
-	RapidApi("RapidApi"),
-	RapidKeyValue("RapidKeyValue"),
 	
-	ContextRapidHostValue("ContextRapidHostValue");
+	RapidHost("x-rapidapi-host"),
+	RapidKey("x-rapidapi-key"),
+	RapidApi("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&autoCorrect=false&pageNumber=1&q="),
+	RapidKeyValue("{Your-Rapid-API-Key}"),
+	ContextRapidHostValue("contextualwebsearch-websearch-v1.p.rapidapi.com");
 	
 	String strings;
 	

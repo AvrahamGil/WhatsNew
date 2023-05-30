@@ -1,0 +1,344 @@
+<section id="sport" class="section">
+  <div>
+    <br>
+  </div>
+
+  <div class="container-fruid">
+    <div class="category-content">
+
+      <h2 class="category-header">Sport</h2>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="articles">
+  <div>
+    <br>
+  </div>
+
+  <div class="articles-content">
+    <h2 class="articles-header">Articles</h2>
+  </div>
+
+  <div class="container-fruid">
+    <div class="category">
+      <div id="sources">
+        <div id="sports-articles" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card-group">
+                <div class="card-body"  aria-expanded="false">
+                  <div class="container" >
+                    <div class="row">
+                        <!--YardBarker site-->
+                        <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>YardBarker</h4></span>
+                            <div class="card-body" id="articles">
+                              <!--artical -->
+                              <div  *ngFor="let item of sportAr[3]; index as i; first as isFirst;">
+                                <div class="row" >
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2" >
+                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'yardBarker',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                    <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-126 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--Sport5 Site-->
+                        <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>Sbnation</h4></span>
+                            <div class="card-body" id="articles">
+                             <!--artical -->
+                              <div  *ngFor="let item of sportAr[9]; index as i; first as isFirst; ">
+                                <div class="row" >
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'sbnation',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                    <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>Fansided</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of sportAr[8]; index as i; first as isFirst; ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'fansided',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+
+                          <!--Yahoo Site-->
+                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="source"><h4>Yahoo</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--artical -->
+                            <div  *ngFor="let item of sportAr[7]; index as i; first as isFirst; ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'yahoo',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                <!--DeadSpin Site-->
+                <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                 <div class="card mb-3 box-shadow" id="article-body">
+                   <span class="card-title" id="source"><h4>DeadSpin</h4></span>
+                    <div class="card-body" id="articles">
+                    <!--Site-->
+                      <div  *ngFor="let item of sportAr[2]; index as i; first as isFirst; ">
+                        <div class="row" >
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                          <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'deadSpin',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                          <img id="article-images" src={{item?.imageUrl}}/>
+                        </div>
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                       <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                        <p class="article-description">{{item?.description}}</p>
+                              </div>
+                            </div>
+                          </div>
+                         </div>
+                        </div>
+                     </div>
+
+                     <!--SportsIllustratedArticles site-->
+              <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                <div class="card mb-3 box-shadow" id="article-body">
+                  <span class="card-title" id="source"><h4>Sports Illustrated</h4></span>
+                    <div class="card-body" id="articles">
+                      <!--Site-->
+                      <div  *ngFor="let item of sportAr[5]; index as i; first as isFirst; ">
+                        <div class="row" >
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'sportsIllustrated',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                        <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                        <p class="article-description">{{item?.description}}</p>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                 </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item">
+              <div class="card-group">
+                <div class="card-body"  aria-expanded="false">
+                  <div class="container" >
+                    <div class="row">
+                  <!--Walla Site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="source"><h4>Sporting News</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                        <div  *ngFor="let item of sportAr[10]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'sportingNews',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--ESPN Site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="source"><h4>ESPN</h4></span>
+                      <div class="card-body" id="articles">
+                               <!--Site-->
+                                <div *ngFor="let item of sportAr[6]; index as i; first as isFirst; ">
+                                  <div class="row" >
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                      <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'espn',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                      <img id="article-images" src={{item?.imageUrl}}/>
+                                    </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                    <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                      <p class="article-description">{{item?.description}}</p>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                  <!--CBS site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="source"><h4>CBS</h4></span>
+                      <div class="card-body" id="articles">
+                        <!--Site-->
+                        <div  *ngFor="let item of sportAr[4]; index as i; first as isFirst; ">
+                          <div class="row" >
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'cbs',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                              <img id="article-images" src={{item?.imageUrl}}/>
+                            </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                              <p class="article-description">{{item?.description}}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                      <!--MLB Site-->
+                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="source"><h4>MLB</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of sportAr[0]; index as i; first as isFirst; ">
+                            <div class="row" >
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'mlb',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                <img id="article-images" src={{item?.imageUrl}}/>
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                  <!--syracuse site-->
+                  <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
+                    <div class="card mb-3 box-shadow" id="article-body">
+                      <span class="card-title" id="source"><h4>Syracuse</h4></span>
+                      <div class="card-body" id="articles">
+                     <!--Site-->
+                      <div  *ngFor="let item of sportAr[1]; index as i; first as isFirst; ">
+                        <div class="row" >
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                            <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'syracuse',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                            <img id="article-images" src={{item?.imageUrl}}/>
+                          </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                          <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                            <p class="article-description">{{item?.description}}</p>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <a class="carousel-control-prev" id="control" href="#sports-articles" role="button" data-slide="prev">
+          <span class="btn btn-dark carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" id="control" href="#sports-articles" role="button" data-slide="next">
+          <span class="btn btn-dark carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+          <ul class="carousel-indicators" id="step">
+            <li data-target="#sports-articles" data-slide-to="0" class="active">
+            </li>
+            <li data-target="#sports-articles" data-slide-to="1"></li>
+          </ul>
+        </div>
+
+      </div>
+
+  </div>
+  </div>
+
+</section>
+
+<section class="sources">
+  <div>
+    <br>
+  </div>
+
+  <input type="image" src="assets/images/Vector.png"class="vector"/><br>
+
+  <div class="container">
+    <div class="sources-content">
+      <p class="sources-text">Sources</p>
+
+      <div id="carouselSites" class="carousel slide">
+        <div class="carousel-inner" >
+            <div class="carousel-item active">
+              <img id="site" src="assets/icons/yardbarker.ico">
+              <img id="site" src="assets/icons/sbnation.png">
+              <img id="site" src="assets/icons/fansided.svg">
+              <img id="site"src="assets/icons/yahoo.ico">
+              <img id="site" src="assets/icons/si.png">
+              <img id="site" src="assets/icons/deadspin.ico">
+              <img id="site" src="assets/icons/thesportingnews.svg">
+              <img id="site" src="assets/icons/espn.ico">
+              <img id="site" src="assets/icons/cbssports.gif">
+              <img id="site" src="assets/icons/mlb.ico">
+              <img id="site" src="assets/icons/syracuse.ico">
+            </div>
+            </div>
+              </div>
+        </div>
+  </div>
+
+</section>
+
+<input type="image" src="assets/images/Vector.png"class="vector"/><br>

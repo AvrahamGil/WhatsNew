@@ -1,7 +1,6 @@
 # WhatsNew
 
 #### Web application project URL - https://whatsnew.me
-- ***Note***: Sign Up & Sign In pages are coming soon.
 
 ## Installation
 
@@ -53,14 +52,6 @@ The project requires API keys to pull data from 3rd party APIs.
 2) On the navigation bar, navigate to **API Hub** and choose any API
 4) Your API key is the `X-RapidAPI-Key`.
 
-- New York Times API
-
-1) Browse to https://developer.nytimes.com/apis
-2) Click on *Sign In*, create an account and then sign in.
-3) On the navigation bar, click on your email address and choose **Apps**.
-4) Click on the **+ NEW APP** button and fill **App Name** and enable **Article Search API** create an application API key by click on **SAVE**.
-5) Your API key should be inside the newly created application API.
-
 
 
 ####  Request Headers
@@ -69,7 +60,6 @@ The project requires API keys to pull data from 3rd party APIs.
 ```
 RapidHost("x-rapidapi-host"),
 RapidKey("x-rapidapi-key"),
-NewYorkApi("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key={Your-NY-API-Key}&q="),
 RapidApi("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&autoCorrect=false&pageNumber=1&q="),
 RapidKeyValue("{Your-Rapid-API-Key}"),
 

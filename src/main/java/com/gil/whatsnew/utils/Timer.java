@@ -37,7 +37,6 @@ public class Timer implements Runnable {
 		int displayMinutes = 0;
 		int refresh = 300;
 		long starttime = System.currentTimeMillis();
-		List<List<Article>> articles;
 
 		try {
 			while (true) {
@@ -55,11 +54,11 @@ public class Timer implements Runnable {
 					displayMinutes++;
 				}
 
-				articles = articleLogic.getListOfNewsArticles();
-
-				if (articles.get(0) == null || firstTime == true)
+				
+				if (firstTime == true || articleLogic.getListOfNewsArticles(null).get(0) == null) {
 					displayMinutes = refresh;
-
+				}
+					
 				timeToUpdateArticles = displayMinutes == refresh ? true : false;
 
 				if (timeToUpdateArticles) {

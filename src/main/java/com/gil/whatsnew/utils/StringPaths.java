@@ -24,6 +24,7 @@ public class StringPaths {
 	
 	private static final String exceptionLogicLogFile = exception + "ExceptionLogicLogFile.log";
 	private static final String exceptionDaoLogFile = exception + "ExceptionDaoLogFile.log";
+	private static final String errorLog = basePath + "errorLog.log";
 	
 	
 	public static String getPath(String type) {
@@ -45,7 +46,8 @@ public class StringPaths {
 		paths.add(infoDao);
 		paths.add(exceptionLogicLogFile);
 		paths.add(exceptionDaoLogFile);
-
+		paths.add(errorLog);
+		
 		for(String path : paths) {
 			if(path.contains(type)) return path;
 		}

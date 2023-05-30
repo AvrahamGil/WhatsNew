@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.exception.DataException;
+
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.utils.LoggingHandler;
 import com.gil.whatsnew.utils.StringPaths;
@@ -21,7 +22,10 @@ public class ExceptionHandler {
 		exceptions.add(e);
 		
 		for (ApplicationException exception : exceptions) {
-
+			
+			if (exception.getErrorType().equals(ErrorType.General_Error)) {
+				throw new ApplicationException(ErrorType.General_Error, "Something went wrong", true);
+			}
 			if (exception.getErrorType().equals(ErrorType.Create_Failed)) {
 				throw new ApplicationException(ErrorType.General_Error, "Content is not valid, please check your email", true);
 			}
@@ -31,9 +35,8 @@ public class ExceptionHandler {
 			if (exception.getErrorType().equals(ErrorType.DaoException)) {
 				throw new ApplicationException(ErrorType.General_Error, "Check your details again.", true);
 			}
-			
 		}
-		throw new ApplicationException(ErrorType.General_Error, e.getMessage(),true);
+		throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(),true);
 
 	}
 

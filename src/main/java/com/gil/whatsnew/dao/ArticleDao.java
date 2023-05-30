@@ -1,153 +1,180 @@
 package com.gil.whatsnew.dao;
 
-import java.util.ArrayList;
-
 import java.util.List;
 
-import javax.persistence.NoResultException;
-import javax.transaction.Transactional;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.exception.ConstraintViolationException;
-import org.hibernate.exception.DataException;
-import org.hibernate.query.Query;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import com.gil.whatsnew.bean.Article;
-import com.gil.whatsnew.bean.NewYorkTimesApi;
-import com.gil.whatsnew.enums.Keys;
+import com.gil.whatsnew.bean.UserArticles;
+import com.gil.whatsnew.enums.ErrorType;
+import com.gil.whatsnew.bean.User;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.interfaces.IArticlesDao;
-import com.gil.whatsnew.utils.StringPaths;
-import com.gil.whatsnew.utils.JsonUtils;
+import com.mongodb.client.result.UpdateResult;
 
 @Repository
-@Transactional
-public class ArticleDao implements IArticlesDao {
+public class ArticleDao implements IArticlesDao{
 
 	@Autowired
-	private SessionFactory sessionFactory;
-
-	private Session session;
-	
-	private final String path = "sites";
+	MongoTemplate mongoTemplate;
 
 	Logger logger = LoggerFactory.getLogger(ArticleDao.class);
 	
 	@Override
-	public void addArticle(Article articles,NewYorkTimesApi newYorkArticles,String value) throws ApplicationException {
-
+	public void addArticle(Article articles,String type)
+			throws ApplicationException {
 		try {
-			session = getSessionFactory().getCurrentSession();
-
-			Query query = session.createSQLQuery(JsonUtils.readJsonFile(Keys.Create.getKey(), value, StringPaths.getPath(path)));
+			if(articles != null ) articles.setType(type);
+			Article article = articles != null ? mongoTemplate.save(articles) : null;
 			
-			Query article = articles != null ?  query.setParameter("Title", articles.getTitle()).setParameter("Description", articles.getDescription()).setParameter("Url", articles.getUrl()).setParameter("ImageUrl", articles.getImageUrl()).setParameter("ArticleSource", articles.getNewsType()) : null;
-			Query newYorkArticle = newYorkArticles != null ? query.setParameter("Title", newYorkArticles.getTitle()).setParameter("Description", newYorkArticles.getDescription()).setParameter("Url", newYorkArticles.getUrl()).setParameter("ArticleSource", newYorkArticles.getNewsType()) : null;
+		} catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		logger.info("Article added");
+	}
 	
-			logger.info("Article addedd successfully");
-			query.executeUpdate();
+	@Override
+	public boolean updateArticle(Article articles) throws ApplicationException {
+		Query query = new Query();
+		boolean updated = false;
+		try {
+			UpdateResult article = articles != null ? mongoTemplate.updateFirst(query.addCriteria(Criteria.where("id").is(articles.getId())),Update.update("isLiked", true),Article.class) : null;
 			
-		}catch(ConstraintViolationException| NoResultException |EmptyResultDataAccessException | DataException  ex  ) {
-		ExceptionHandler.generatedDaoExceptions(ex);
-		} 
+			if(article != null) {
+				updated = article.wasAcknowledged() ? true : false;
+			}
+			
+			return updated;
+			
+		} catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		logger.info("Article updated");
+		
+		return false;
 		
 	}
 	
-
 	@Override
-	public void deleteArticle(String value) throws ApplicationException {
-		try {
-			session = getSessionFactory().getCurrentSession();
-			Query query = session.createSQLQuery(JsonUtils.readJsonFile(Keys.Delete.getKey(), value, StringPaths.getPath(path)));
-			
-			logger.info("Article remove successfully");
-			query.executeUpdate();
-			
-		} catch (NoResultException |EmptyResultDataAccessException | DataException  ex ) {
-			ExceptionHandler.generatedDaoExceptions(ex);
-		} 
+	public void deleteArticle(String type) throws ApplicationException {
+		Query query = new Query();
 		
+		query.addCriteria(Criteria.where("newsType").is(type));
+		try {
+			 mongoTemplate.findAllAndRemove(query, Article.class);
+			
+		}catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		logger.info("Delete articles success for type " + type);
+	}
+
+	
+	@Override
+	public List<Article> getAllArticles(String type) throws ApplicationException {
+		Query query = new Query();
+
+		query.addCriteria(Criteria.where("type").is(type)).limit(140);
+		
+		try {
+			List<Article> articleInStock = mongoTemplate.find(query, Article.class);
+			
+			if(!articleInStock.isEmpty()) return articleInStock;
+			
+			return null;
+		}catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		return null;
 	}
 
 	@Override
-	public List<Article> getAllArticles(String value) throws ApplicationException {
+	public Article getArticleDetails(String id) throws ApplicationException {
+		Query query = new Query();
+
 		try {
-			session = getSessionFactory().getCurrentSession();
-			Query query = session.createSQLQuery(JsonUtils.readJsonFile(Keys.GetListOfArticles.getKey(), value, StringPaths.getPath(path)));
-			List<Object[]> articlesObject = query.getResultList();
-	
-			if(articlesObject.isEmpty()) {
-				return null;
-			}
+			query.addCriteria(Criteria.where("id").is(id)).limit(1);
+			Article articleInStock = mongoTemplate.findOne(query, Article.class);
 			
-			List<Article>articles = new ArrayList<Article>();
+			if(articleInStock != null) return articleInStock;
 			
-			for (Object[] result : articlesObject) {
-				Article article = new Article();
-				
-				article.setTitle(String.valueOf(result[0]));
-				article.setDescription(String.valueOf(result[1]));
-				article.setUrl(String.valueOf(result[2]));
-				article.setImageUrl(String.valueOf(result[3]));
-				article.setNewsType(String.valueOf(result[4]));
-
-				articles.add(article);
-			}
+			return null;
 			
-
-			return articles;
-
-		} catch (DataException |NoResultException |EmptyResultDataAccessException ex) {
-			ExceptionHandler.generatedDaoExceptions(ex);
-		} 
+		}catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
 		return null;
 	}
 	
 	@Override
-	public List<NewYorkTimesApi> getNewYorkTimesArticles(String articleType,String value) throws ApplicationException {
+	public void addFavoritArticle(UserArticles like) throws ApplicationException {
 		try {
-			session = getSessionFactory().getCurrentSession();
-			Query query = session.createSQLQuery(JsonUtils.readJsonFile(Keys.GetNewYorkArticles.getKey(),value , StringPaths.getPath(path)));
-			query.setParameter("articleSource", articleType);
-			List<Object[]> articlesObject = query.getResultList();
-			List<NewYorkTimesApi>articles = new ArrayList<NewYorkTimesApi>();
-			
-			if(articlesObject.isEmpty()) {
-				return articles;
-			}
-			
-			for (Object[] result : articlesObject) {
-				NewYorkTimesApi article = new NewYorkTimesApi();
-				
-				article.setTitle(String.valueOf(result[0]));
-				article.setDescription(String.valueOf(result[1]));
-				article.setUrl(String.valueOf(result[2]));
-				article.setNewsType(String.valueOf(result[3]));
+			UserArticles article = like != null ? mongoTemplate.save(like) : null;
+		
+		} catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		logger.info("Article added into favorit list");
+		
+	}
 
-				articles.add(article);
-			}
-			
-
-			return articles;
-
-		} catch (DataException |NoResultException |EmptyResultDataAccessException ex) {
-			ExceptionHandler.generatedDaoExceptions(ex);
-		} 
-		return null;
+	@Override
+	public void deleteFavoritArticle(UserArticles like) throws ApplicationException {
+		Query query = new Query();
+		
+		query.addCriteria(Criteria.where("userId").is(like.getUserId()).and("title").is(like.getTitle()));
+		
+		try {
+			 mongoTemplate.findAndRemove(query,UserArticles.class);
+		
+		} catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
+		}
+		logger.info("Unliked article success");
+		
 	}
 	
-	private SessionFactory getSessionFactory() {
-		return sessionFactory;
+	@Override
+	public boolean isArticleFavorated(String title, String userId) throws ApplicationException {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("userId").is(userId).and("title").is(title));
+	
+		try {
+			UserArticles articles = mongoTemplate.findOne(query, UserArticles.class);
+		
+			if(articles != null) return true;
+			
+			return false;
+			
+		}catch(Exception e) {
+			throw new ApplicationException(ErrorType.Article_Already_Liked,ErrorType.Article_Already_Liked.getMessage(),false);
+		} finally {
+			query = null;
+		}
 	}
 
-	private void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	@Override
+	public List<UserArticles> getFavoritArticles(String userId) throws ApplicationException {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("userId").is(userId));
+		
+		try {
+			List<UserArticles> articles = mongoTemplate.find(query,UserArticles.class);
+			
+			if(!articles.isEmpty()) return articles;
+			
+			return null;
+			
+		}catch(Exception e) {
+			throw new ApplicationException(ErrorType.Get_List_Failed,ErrorType.Get_List_Failed.getMessage(),false);
+		}
 	}
-
-
 }

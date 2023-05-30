@@ -1,0 +1,48 @@
+<section class="section">
+  <div>
+    <br>
+  </div>
+
+    <h2 class="category-content category-header">Login</h2>
+</section>
+
+<section class="product" *ngIf="!isLoging">
+  <div class="sign-in card-group" >
+    <div class="card-body"  aria-expanded="false">
+      <div class="container" id="login">
+        <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+            <div class="card mb-3 box-shadow" id="login-form">
+              <span class="card-title"><h4 class="form-note">Login page</h4></span>
+              <div class="inputs card-body">
+              <form method="POST" [formGroup]="user" (ngSubmit)="login()" >
+                <div>
+                  <div >
+                    <div>
+                      <input class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text" placeholder="Email" minlength="3" maxlength="25" formGroupName="email" formControlName="email" required/>
+                    </div>
+                    <div>
+                      <input class="col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="password" placeholder="Password" minlength="3" maxlength="25"formGroupName="password" formControlName="password" required/>
+                    </div>
+
+                    <div>
+                      <input class="token col-lg-6 col-md-12 col-sm-12 col-xs-2 input-field" type="text"  formGroupName="token" formControlName="token" value="{{field}}"/>
+                    </div>
+                  </div>
+
+                  <div>
+                    <input class="sign-in-btn btn btn-light" type="submit" placeholder="Sign In" id="sign-in" value="Sign In"/>
+                  </div>
+                  <p class="suggestion">Don't have an account? <a href="#/user/register">Sign Up</a></p>
+
+                  <p class="form-error" id="message">{{message}}</p>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

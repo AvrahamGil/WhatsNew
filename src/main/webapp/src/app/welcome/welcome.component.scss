@@ -1,0 +1,389 @@
+
+    .welcome {
+        padding-bottom: 20%;
+        background-image: url("../../assets/images/welcome.png");
+        background-size: cover;
+        background-clip: border-box;
+        clip-path: polygon(0 0,0 100%,  100% 70%,100% 0 );
+        clip-path:fill-box;
+      }
+
+    .welcome-content {
+        text-align: center;
+        padding-left:1%;
+        background: #3d3656d3;
+        box-shadow: 0 50px 50px 0 rgba(8, 8, 8, 0.05), 0 2px 10px 0 rgba(10, 10, 10, 0.05);
+        font-style: normal;
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
+    .welcome-text {
+        font-size: 3rem;
+        line-height: 36px;
+        color: #FEB595;
+        padding-top: 2%;
+        padding-bottom:2%;
+    }
+
+    .content-text {
+        font-size: 1.8rem;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
+
+    .learn-more-button {
+        font-size: 1.5rem;
+        width: 264px;
+        height: 83px;
+        border-radius: 50%;
+        color:#fff;
+        background: #FEB595;
+    }
+
+    .learn-more {
+        padding-top:2%;
+    }
+
+    .learn-more:link {
+        text-decoration: none;
+    }
+
+    .learn-more:visited {
+        text-decoration: none;
+    }
+
+    .learn-more:hover {
+        text-decoration: none;
+        color:#fff;
+    }
+    .learn-more:active {
+        text-decoration: none;
+    }
+    .about-header {
+        font-size: 4rem;
+        color: #FEB595;
+        text-align: center;
+    }
+
+    .about-content {
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 97px;
+        padding-bottom: 5%;
+        width:90%;
+        padding-left:12%;
+        color: #FFFFFF;
+    }
+
+    .about-text {
+        display: inline-block;
+
+    }
+
+    .contact-me-content {
+        width: 100%;
+    }
+
+    .contact-me-header {
+        font-size: 4rem;
+        padding-bottom: 4%;
+        color: #FFFFFF;
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+        color: #F9A079;
+
+    }
+
+    .contact-me-form {
+        padding: 0% 12% 0% 21%;
+        padding-bottom: 3%;
+        white-space: nowrap;
+        width:100%;
+
+    }
+    .input-name {
+        font-style: normal;
+        font-weight: 200;
+        font-size: 20px;
+        line-height: 24px;
+        color: #fff;
+        padding:0% 0% 1% 16%;
+    }
+
+    .input-field {
+        max-width:33%;
+        height: 33px;
+    }
+
+    textarea {
+        max-width:33%;
+    }
+
+    .contact-me-button {
+        font-size: 1.5rem;
+        width: 169px;
+        height: 95px;
+        border-radius: 50%;
+        color:#fff;
+        margin-left:36%;
+        margin-top:3%;
+        background: #FEB595;
+    }
+
+    .vector {
+        padding-bottom: 8%;
+        background-image: url("../../assets/images/Vector.png");
+        background-size:cover;
+    }
+
+@media screen and (min-width:384px) and (max-width:639px) {
+    .welcome-text {
+        font-size:1.5rem;
+    }
+
+    .content-text {
+        font-size:1rem;
+    }
+
+    .learn-more-button {
+        width:114px;
+        height:48px;
+        font-size:1rem;
+    }
+
+    .about-content {
+        font-size:1rem;
+        width:100%;
+    }
+
+    .contact-me-header {
+        font-size:2.5rem;
+    }
+
+    .contact-me-form {
+        width:100%;
+        padding-left:  44%;
+    }
+
+    .input-name {
+        font-size:13px;
+        padding:0%;
+    }
+
+    .input-field {
+        max-width:40%;
+    }
+
+    .contact-me-button {
+        width: 70px;
+        font-size:1rem;
+        height: 49px;
+        margin: 3% 0% 0% 0%;
+    }
+
+    textarea {
+        max-width: 40%;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:800px) {
+    .welcome-text {
+        font-size:2.5rem;
+    }
+
+    .content-text {
+        font-size:1rem;
+    }
+
+    .learn-more {
+        padding-top:4%;
+        width:36%;
+    }
+
+    .about-header {
+        font-size:2.5rem;
+    }
+
+    .about-content {
+        width:98%;
+        padding-left: 9%;
+        font-size: 1rem;
+    }
+
+    .contact-me-header {
+        font-size:2.5rem;
+    }
+    .contact-me-button {
+        width: 68px;
+        height: 55px;
+        margin: 0% 0% 0% 0%;
+        font-size:0.8rem;
+    }
+
+    .contact-me-content {
+        width:100%;
+        padding-left:30%;
+    }
+
+    .input-name {
+        padding: 0% 0% 0% 0%;
+    }
+
+    .contact-me-form {
+        width: 83%;
+        padding-right:10%;
+        padding-bottom:1.5%;
+    }
+  }
+
+  @media screen and (min-width:800px) and (max-width:1000px) {
+    .welcome-text {
+        font-size:2.5rem;
+    }
+
+    .learn-more {
+        padding-top:3%;
+    }
+
+    .content-text {
+        font-size: 1.4rem;
+    }
+    .contact-me-header {
+        font-size:3rem;
+    }
+
+    .contact-me-form {
+        padding:0% 0% 0% 12%;
+    }
+
+    .input-name {
+        padding: 0% 0% 1% 6%;
+    }
+
+    .contact-me-button {
+        width: 116px;
+        height: 85px;
+        margin: 0% 0% 0% 0%;
+    }
+
+    .contact-me-content {
+        width:100%;
+        padding-left:36%;
+    }
+
+    .about-header {
+        font-size:4rem;
+        padding-left:1%;
+    }
+
+    .about-text {
+        font-size:22px;
+        padding-left:6%;
+    }
+
+    textarea {
+        max-width:33%;
+    }
+
+  }
+
+  @media screen and (min-width:1000px) and (max-width:1200px) {
+    .welcome-text {
+        font-size: 2.5rem;
+    }
+
+    .content-text {
+        font-size:1rem;
+    }
+
+    .learn-more {
+        padding-top:3%;
+    }
+
+    .about-content {
+        font-size:1rem;
+    }
+
+    .contact-me-button {
+        margin-left:32%;
+        width:183px;
+        height:95px;
+    }
+  }
+
+  @media screen and (min-width:1200px) and (max-width:1400px) {
+    #register {
+        padding: 5% 0% 0% 23%;
+        margin:0px;
+    }
+
+    .container {
+        padding: 0% 0% 0% 0%;
+        padding-right: auto;
+        padding-left: auto;
+    }
+
+    .contact-me-button {
+        width: 264px;
+        height: 83px;
+        padding-top: 0%;
+        padding-left: 0%;
+        margin: 3% 2% 2% 13%;
+    }
+
+    .contact-me-content {
+        width:86%;
+        padding-left:21%;
+    }
+
+    .contact-me-form {
+        width: 90%;
+        padding-left:20%;
+        padding-bottom:3%;
+    }
+
+    .input-name {
+        padding: 0% 0% 3% 0%;
+    }
+
+    .input-field {
+        padding: 0% 0% 3% 0%;
+    }
+
+
+    textarea {
+        max-width:33%;
+    }
+  }
+
+  @media screen and (min-width:5000px) and (max-width:6000px) {
+    .welcome {
+        padding-bottom: 20%;
+        clip-path:fill-box;
+      }
+
+    .welcome-text {
+        font-size: 2rem;
+        padding-top: 2%;
+        padding-bottom:2%;
+    }
+
+    .content-text {
+        font-size: 1.8rem;
+    }
+
+    .learn-more-button {
+        font-size: 1.5rem;
+        width: 210px;
+        height: 75px;
+    }
+
+    .learn-more {
+        padding-top:2%;
+    }
+  }
