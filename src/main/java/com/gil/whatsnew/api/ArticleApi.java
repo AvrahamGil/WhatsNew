@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.bean.Login;
+
 import com.gil.whatsnew.enums.Cookies;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
@@ -44,14 +47,17 @@ public class ArticleApi {
 		
 		return null;
 	}
-	
+
 	@RequestMapping(value="/liked" , method = RequestMethod.POST)
-	public ResponseEntity<Object> addToFavorit(@RequestBody String articleId , HttpServletRequest request,HttpServletResponse response) throws ApplicationException {	
+	public ResponseEntity<Object> addToFavorit(@RequestBody String articleId , HttpServletRequest request) throws ApplicationException {	
 			try {
 				if(authentication.verifyCookies(request)) {
-					article.addIntoFavorit(articleId, request);
+					ResponseEntity<Object> res = article.addIntoFavorit(articleId, request);
 					
-					return response(response);
+					if(res == null) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
+					
+					return res;
+
 				}
 			}catch(ApplicationException e) {
 				ExceptionHandler.generatedLogicExceptions(e);

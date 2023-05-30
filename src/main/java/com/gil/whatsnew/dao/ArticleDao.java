@@ -138,8 +138,8 @@ public class ArticleDao implements IArticlesDao{
 		} catch(Exception e) {
 			ExceptionHandler.generatedDaoExceptions(e);
 		}
+
 		logger.info("Unliked article success");
-		
 	}
 	
 	@Override

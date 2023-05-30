@@ -77,7 +77,7 @@ public class Timer implements Runnable {
 
 	private void generateArticlesFromStock() throws ApplicationException {
 		System.out.println("Generating articles from stock");
-		eventPublisher.articleEvent();
+		//eventPublisher.articleEvent();
 		System.out.println("Finish");
 	}
 }

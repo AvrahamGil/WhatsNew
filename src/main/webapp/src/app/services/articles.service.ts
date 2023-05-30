@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
+=======
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Articles } from '../models/articles';
@@ -69,6 +73,7 @@ export class ArticleService {
     })
    }
 
+<<<<<<< HEAD
    private liked(articleId:string,csrf:string) : Observable<HttpResponse<ArrayBuffer>> {
     this.postRequest = "http://localhost:8080/whatsnew/articles/liked";
 
@@ -80,6 +85,18 @@ export class ArticleService {
 
   private getAllArticlesData(csrf:string) : Observable<Articles> {
     this.getRequest = "http://localhost:8080/whatsnew/articles/getNewsArticles";
+=======
+   private liked(articleId:string,csrf:string) : Observable<string> {
+    this.postRequest = "/articles/liked";
+
+    const header = new HttpHeaders().set('X-CSRF-TOKEN' , csrf)
+
+    return this.http.post<string>(this.postRequest,articleId,{headers:header}).pipe((err) => err);
+  }
+
+  private getAllArticlesData(csrf:string) : Observable<Articles> {
+    this.getRequest = "/articles/getNewsArticles";
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
 
     const header = new HttpHeaders().set('X-CSRF-TOKEN' , csrf).set('Content-Type', 'application/json');
 

@@ -26,8 +26,13 @@ export class TravelComponent {
   public likedArticle(item:any,type:string,index:number) {
     const csrf = localStorage.getItem('X-CSRF-TOKEN')!
 
+<<<<<<< HEAD
     this.articleService.likeArticle(item.id,csrf).then((response:any) => {
       localStorage.setItem('X-CSRF-TOKEN',response.headers.get("X-CSRF-TOKEN"));
+=======
+    this.articleService.likeArticle(item.id,csrf).then(() => {
+      localStorage.setItem('X-CSRF-TOKEN',this.cookieService.get('X-CSRF-TOKEN'));
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
 
       const travelDaily:number = 0
       const travelAndTourWorld:number = travelDaily + this.travelAr[0].length

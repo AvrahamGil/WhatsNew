@@ -12,6 +12,10 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         catchError((error: HttpErrorResponse) => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
           var token = localStorage.getItem('X-TOKEN');
 
           let errorMsg = '';

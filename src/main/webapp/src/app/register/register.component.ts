@@ -19,6 +19,10 @@ import { ValidateService } from '../services/validate.service';
 export class RegisterComponent implements OnInit{
 
    user:FormGroup;
+<<<<<<< HEAD
+=======
+   siteKey:any = "";
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
    fileName = '';
    file!:File;
 
@@ -47,9 +51,17 @@ export class RegisterComponent implements OnInit{
   }
 
   ngOnInit() {
+<<<<<<< HEAD
 
   }
 
+=======
+    this.siteKey = "6LdiMn8kAAAAAJfVBuBt98ZbrqCtvziO4GCHOn7c";
+  }
+
+
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
   public register() {
     var formData: any = new FormData();
 
@@ -74,6 +86,13 @@ export class RegisterComponent implements OnInit{
 
       formData.append('email', this.user.controls['email'].value);
 
+<<<<<<< HEAD
+=======
+      this.users.captcha = grecaptcha.getResponse();
+
+      if(this.users.captcha.length == 0) throw new ApplicationError("Captcha is required.");
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
       if(this.file !== undefined) this.users.withImage = true;
 
       this.sendRequest(this.users).then(async (response:any) => {

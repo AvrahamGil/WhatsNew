@@ -84,6 +84,10 @@ export class HeaderComponent {
         formData.append("X-TOKEN", localStorage.getItem("X-TOKEN")!);
 
          this.sendFile(formData).then(async (response:any) => {
+<<<<<<< HEAD
+=======
+          debugger;
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
           if(response !== null) {
              localStorage.removeItem('image');
              localStorage.setItem('image',response.body.image);

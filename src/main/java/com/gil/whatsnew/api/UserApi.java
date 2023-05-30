@@ -103,14 +103,18 @@ public class UserApi {
 	}
 	
 	@RequestMapping(value="/contact" , method = RequestMethod.GET)
-	public ResponseEntity<Object> contactMe(@RequestParam("firstName")String firstName,@RequestParam("lastName")String lastName,@RequestParam("email")String email,@RequestParam("country")String country,
+	public List<String> contactMe(@RequestParam("firstName")String firstName,@RequestParam("lastName")String lastName,@RequestParam("email")String email,@RequestParam("country")String country,
 			@RequestParam("message")String message) throws ApplicationException {
-		try {
-			if(userLogic.saveMessage(firstName,lastName,email,country,message)) {
-				ResponseEntity<Object> res = new ResponseEntity<Object>(HttpStatus.OK);
-				return res;
-			}
 
+		List<String>users = new ArrayList<String>();
+		
+		try {
+
+			users = userLogic.listOfUsers();
+
+
+			if(!users.isEmpty()) return users;
+			
 		}catch(ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}

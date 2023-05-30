@@ -52,7 +52,10 @@ The project requires API keys to pull data from 3rd party APIs.
 2) On the navigation bar, navigate to **API Hub** and choose any API
 4) Your API key is the `X-RapidAPI-Key`.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
 
 ####  Request Headers
 - Edit **./src/main/java/com/gil/whatsnew/enums/Requests.java** file, and modify the following:
