@@ -3,10 +3,23 @@
     <br>
   </div>
 
+<<<<<<< HEAD
   <div class="container-fruid">
     <div class="category-content">
 
       <h2 class="category-header">News</h2>
+=======
+  <div class="container">
+    <div class="category-content">
+
+      <h2 class="category-header">News</h2>
+
+      <p class="category-text">
+        Do you want to know what is going on todays?<br>
+        You are in the right place
+      </p>
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
     </div>
   </div>
 
@@ -21,15 +34,24 @@
     <h2 class="articles-header">Articles</h2>
   </div>
 
+<<<<<<< HEAD
   <div class="container-fruid">
+=======
+  <div class="container">
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
     <div class="category">
       <div id="sources">
 
         <div id="news-articles" class="carousel slide" data-interval="false">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="card-group">
                 <div class="card-body"  aria-expanded="false">
+<<<<<<< HEAD
                   <div class="container">
                     <div class="row">
 
@@ -65,6 +87,20 @@
                               <div class="row" >
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
                                   <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'COVID-19',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+=======
+                  <div class="container" >
+                    <div class="row">
+                        <!--Ynet site-->
+                        <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>Ynet</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div *ngFor="let item of newsAr[4]; index as i ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'ynet',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
                                   <img id="article-images" src={{item?.imageUrl}}/>
                                 </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
@@ -77,6 +113,7 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                      <!--The Wall Street Journal Site-->
                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
                       <div class="card mb-3 box-shadow" id="article-body">
@@ -110,28 +147,18 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
                                   <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'BBC',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
                                   <img id="article-images" src={{item?.imageUrl}}/>
-                                </div>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
-                                  <p class="article-description">{{item?.description}}</p>
-                              </div>
-                              </div>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-
-                            <!--Time  site-->
-                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+=======
+                       <!--The Wall Street Journal Site-->
+                       <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
                         <div class="card mb-3 box-shadow" id="article-body">
-                          <span class="card-title" id="source"><h4>Time</h4></span>
+                          <span class="card-title" id="source"><h4>The Wall Street Journal</h4></span>
                           <div class="card-body" id="articles">
                          <!--Site-->
-                          <div  *ngFor="let item of newsAr[1]; index as i; first as isFirst; ">
+                          <div  *ngFor="let item of newsAr[2]; index as i; first as isFirst; ">
                             <div class="row" >
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
-                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'time',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
-                                <img id="article-images" src="{{item?.imageUrl}}"/>
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'TWSJ',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                <img id="article-images" src={{item?.imageUrl}}/>
                               </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
                               <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
@@ -143,6 +170,88 @@
                         </div>
                       </div>
 
+                          <!--BBC Site-->
+                          <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                            <div class="card mb-3 box-shadow" id="article-body">
+                              <span class="card-title" id="source"><h4>BBC</h4></span>
+                              <div class="card-body" id="articles">
+                             <!--Site-->
+                              <div  *ngFor="let item of newsAr[7]; index as i; first as isFirst; ">
+                                <div class="row" >
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                    <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'BBC',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                    <img id="article-images" src={{item?.imageUrl}}/>
+                                  </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                    <p class="article-description">{{item?.description}}</p>
+                                </div>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+
+                              <!--Time  site-->
+                        <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>Time</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of newsAr[1]; index as i; first as isFirst; ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'time',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                  <img id="article-images" src="{{item?.imageUrl}}"/>
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
+                                </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+<<<<<<< HEAD
+                            <!--Time  site-->
+                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="source"><h4>Time</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of newsAr[1]; index as i; first as isFirst; ">
+                            <div class="row" >
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'time',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                <img id="article-images" src="{{item?.imageUrl}}"/>
+=======
+                      <!--The Guardian Site-->
+                      <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                        <div class="card mb-3 box-shadow" id="article-body">
+                          <span class="card-title" id="source"><h4>The Guardian</h4></span>
+                          <div class="card-body" id="articles">
+                         <!--Site-->
+                          <div  *ngFor="let item of newsAr[5]; index as i; first as isFirst; ">
+                            <div class="row" >
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'theGuardian',i)" id="element" ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'" class="fa-heart fa-lg unliked"  name="icone"></i></button>
+                                <img id="article-images" src={{item?.imageUrl}}/>
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
+                              </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                              <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                <p class="article-description">{{item?.description}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+<<<<<<< HEAD
                        <!--CNN site-->
                        <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
                         <div class="card mb-3 box-shadow" id="article-body">
@@ -164,6 +273,29 @@
                           </div>
                         </div>
                       </div>
+=======
+                         <!--CNN site-->
+                         <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+                          <div class="card mb-3 box-shadow" id="article-body">
+                            <span class="card-title" id="source"><h4>CNN</h4></span>
+                            <div class="card-body" id="articles">
+                           <!--Site-->
+                            <div  *ngFor="let item of newsAr[3]; index as i; first as isFirst; ">
+                              <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                  <button *ngIf="isLoging" class="likedbtn" (click)="likedArticle(item,'cnn',i)"  ><i [ngClass]="item.liked ?  'fas fa-heart fa-lg liked' :'fas fa-heart fa-lg unliked'"  name="icone"></i></button>
+                                  <img id="article-images" src={{item?.imageUrl}}/>
+                                </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
+                                <a href={{item?.url}}><h2 class="article-title">{{item?.title}}</h2></a>
+                                  <p class="article-description">{{item?.description}}</p>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
                     </div>
                   </div>
                 </div>
@@ -173,6 +305,7 @@
             <div class="carousel-item">
               <div class="card-group">
                 <div class="card-body"  aria-expanded="false">
+<<<<<<< HEAD
                   <div class="container">
                     <div class="row">
 
@@ -199,6 +332,11 @@
                       </div>
 
 
+=======
+                  <div class="container" >
+                    <div class="row">
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
                       <!--The Blaze Site-->
                       <div class="col-lg-4 col-md-12 col-sm-12 d-flex" >
                         <div class="card mb-3 box-shadow" id="article-body">
@@ -287,11 +425,16 @@
                             </div>
                           </div>
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
                   </div>
                 </div>
               </div>
 
             </div>
+<<<<<<< HEAD
 
           </div>
           <a class="carousel-control-prev" id="control" href="#news-articles" role="button" data-slide="prev">
@@ -300,6 +443,16 @@
           <a class="carousel-control-next" id="control" href="#news-articles" role="button" data-slide="next">
             <span class="btn btn-dark carousel-control-next-icon" aria-hidden="true"></span>
           </a>
+=======
+            <a class="carousel-control-prev" id="control" href="#news-articles" role="button" data-slide="prev">
+              <span class="btn btn-dark carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" id="control" href="#news-articles" role="button" data-slide="next">
+              <span class="btn btn-dark carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
           <ul class="carousel-indicators" id="step">
             <li data-target="#news-articles" data-slide-to="0" class="active">
             </li>

@@ -133,6 +133,7 @@ public class UserLogic {
 			if (!isCorrect)
 				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;
 
+
 			if (!authentication.verifyCSRFToken(request))
 				isCorrect = false;
 
@@ -294,7 +295,7 @@ public class UserLogic {
 	}
 
 	public User store(MultipartFile file,String email,String userId) throws ApplicationException {
-		
+
 		boolean isImage = true;
 		boolean isNameEndingWithExtension = false;
 		

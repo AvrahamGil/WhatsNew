@@ -23,6 +23,10 @@ export class LoginComponent {
   message:string = "";
   field:string = "";
   speicalChar:string = "~`!#$%^&*()_+-=|\\/}]{[\/:;?/>.<,-";
+<<<<<<< HEAD
+=======
+  siteKey:any = "";
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
   authStatus:boolean = false;
   errorMessage = "One or more details are incorrect";
 
@@ -63,6 +67,12 @@ export class LoginComponent {
       if(!this.validateService.validateDetails("email",this.user.controls['email'].value)) throw new ApplicationError("One or more details are incorrect")
       if(!this.validateService.validateDetails("password",this.user.controls['password'].value)) throw new ApplicationError("One or more details are incorrect")
 
+<<<<<<< HEAD
+=======
+      this.users.captcha = grecaptcha.getResponse();
+      if(this.users.captcha.length == 0) throw new ApplicationError("Captcha must be signed");
+
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
       this.users.csrf = this.field;
 
       this.loginRequest(this.users).then((response:any) => {
@@ -143,3 +153,9 @@ export class LoginComponent {
   }
 }
 
+<<<<<<< HEAD
+=======
+export const env = {
+  siteKey: 'key',
+}
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4

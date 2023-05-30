@@ -27,12 +27,20 @@ export class NewsComponent implements OnInit{
 
   public likedArticle(item:any,type:string,index:number) {
     const csrf = localStorage.getItem('X-CSRF-TOKEN')!
+<<<<<<< HEAD
     this.articleService.likeArticle(item.id,csrf).then((response:any) => {
       localStorage.setItem('X-CSRF-TOKEN',response.headers.get("X-CSRF-TOKEN"));
 
       const ynet:number = 0
       const covid19:number = ynet + this.newsAr[4].length
       const twsj:number = covid19 + this.newsAr[9].length
+=======
+    this.articleService.likeArticle(item.id,csrf).then(() => {
+      localStorage.setItem('X-CSRF-TOKEN',this.cookieService.get('X-CSRF-TOKEN'));
+
+      const ynet:number = 0
+      const twsj:number = ynet + this.newsAr[9].length
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
       const bbc:number = twsj + this.newsAr[2].length
       const time:number = bbc + this.newsAr[7].length
       const cnn:number = time + this.newsAr[3].length
@@ -44,7 +52,10 @@ export class NewsComponent implements OnInit{
 
       this.sites = [
         {name:"ynet",value: ynet},
+<<<<<<< HEAD
         {name:"COVID-19",value:covid19},
+=======
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
         {name:"TWSJ",value:twsj},
         {name:"BBC",value:bbc},
         {name:"time",value:time},

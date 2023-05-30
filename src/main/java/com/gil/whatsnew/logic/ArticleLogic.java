@@ -85,6 +85,11 @@ public class ArticleLogic {
 
 			if(request != null && request.getCookies() != null) {
 				List<List<Article>> likedArticles = getArticlesLiked(request,articles); 
+
+				
+				likedArticles = likedArticles != null ? likedArticles : null;
+				
+
 				
 				likedArticles = likedArticles != null ? likedArticles : null;
 				
@@ -181,10 +186,12 @@ public class ArticleLogic {
 
 	}
 
-	public void addIntoFavorit(String articleId,
-			HttpServletRequest request) throws ApplicationException {
+
+	public ResponseEntity<Object> addIntoFavorit(String articleId,HttpServletRequest request) throws ApplicationException {
 		UserArticles details = null;
 		String randomId = UUID.randomUUID().toString();
+		boolean verify = true;
+
 		String[] userDetails = new String[2];
 		
 		try {
@@ -216,9 +223,18 @@ public class ArticleLogic {
 				if (cookie.getName().equals(Cookies.XTOKEN.getName())) {
 		
 					userDetails = cookie.getValue() != null ? authentication.verifyJwtToken(cookie.getValue()) : null;	
+
+				}
+		
+				if (cookie.getName().equals(Cookies.XCSRFTOKEN.getName())) {
+					verify = (cookie.getValue() != null) && authentication.verifyCSRFToken(request) ? true : false;
+				
 				}
 			}
 			
+			if(!verify || userDetails == null) 
+				return null;
+
 			boolean liked = articleDaoMongo.isArticleFavorated(articles.getTitle(),userDetails[1]);
 
 			if (liked) {
@@ -226,10 +242,16 @@ public class ArticleLogic {
 			} else {
 				articleDaoMongo.addFavoritArticle(details);
 			}
-		
+				
+			ResponseEntity<Object> res = new ResponseEntity<Object>(HttpStatus.OK);
+			    
+			return res;
+				
 		} catch (ApplicationException e) {
 			ExceptionHandler.generatedLogicExceptions(e);
 		}
+		return null;
+
 	}
 
 	public List<Article> getFavoritArticles(HttpServletRequest request) throws ApplicationException {

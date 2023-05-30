@@ -41,4 +41,24 @@ public class BaseRequest {
 		}
 		return null;
 	}
+
+	public boolean verifiedCaptcha(String secret, String gRecaptchaResponse)
+			throws IOException {
+
+		RestTemplate restTemplate = new RestTemplate();
+		
+		MultiValueMap<String, String> requestMap = new LinkedMultiValueMap<>();
+		requestMap.add("secret", secret);
+		requestMap.add("response", gRecaptchaResponse);
+
+		CaptchaResponse apiResponse = restTemplate.postForObject(Requests.Captcha.getValue(), requestMap,
+				CaptchaResponse.class);
+		if (apiResponse == null) {
+			return false;
+		}
+
+		return apiResponse.getSuccess();
+
+	}
+
 }

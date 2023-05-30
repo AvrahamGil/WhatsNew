@@ -17,6 +17,10 @@ import { Users } from './models/users';
 import { LoginDetails } from './models/login-details';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from 'ng-recaptcha';
+<<<<<<< HEAD
+=======
+import { env } from '../app/login/login.component';
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -55,7 +59,11 @@ import { FooterComponent } from './footer/footer.component';
   providers: [
     {provide: ArticleService},{provide:Users},{provide:LoginComponent},{provide:LoginDetails},{provide:WelcomeComponent},{provide:ValidateService},{ provide: RECAPTCHA_SETTINGS,
       useValue: {
+<<<<<<< HEAD
 
+=======
+        siteKey: env.siteKey,
+>>>>>>> 43fc34ca728f401a87b5d465bd19f15c579b2da4
       } as RecaptchaSettings,},{ provide: HTTP_INTERCEPTORS,
         useClass: HttpErrorInterceptor,
         multi: true},

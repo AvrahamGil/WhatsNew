@@ -2,7 +2,6 @@ package com.gil.whatsnew.utils;
 
 import java.io.IOException;
 
-
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -21,6 +20,9 @@ import java.util.UUID;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -152,12 +154,32 @@ public class Authentication {
 			csrfCookieValue = csrfCookieValue.replace("%2B", "+");
 		}
 		 
-		
-		if(csrfToken.contains(csrfCookieValue)) {
+		if(csrfToken.equals(csrfCookieValue)) {
+
 			return true;
 		}
 		
 		return false;
+	}
+
+	public boolean verifyCaptcha(HttpServletRequest request) throws ApplicationException {
+		boolean responseCorrect = false;
+
+		try {
+			String googleResponse = request.getHeader(Cookies.RECAPTCHA.getName());
+
+			responseCorrect = googleResponse == null || "".equals(googleResponse) ? false : true;
+
+			if (!responseCorrect)
+				return false;
+
+			boolean isVerified = baseRequest.verifiedCaptcha(secret, googleResponse);
+
+			return isVerified;
+
+		} catch (IOException e) {
+			throw new ApplicationException(ErrorType.General_Error, "Authentication failed", false);
+		}
 	}
 
 	public ResponseEntity<Object> getConnection(User user,int seconds,HttpServletResponse response) throws ApplicationException {
@@ -224,6 +246,10 @@ public class Authentication {
 
 			if (cookie.getName().equals(Cookies.XCSRFTOKEN.getName())) {
 				csrfVerified = verifyCSRFToken(request) ? true : false;
+	
+				String newToken = generateCSRFToken();
+				
+				if(csrfVerified) cookie.setValue(newToken);
 			}
 		}
 
