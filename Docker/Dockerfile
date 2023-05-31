@@ -3,7 +3,7 @@ FROM mongo
 WORKDIR /tmp
 
 RUN apt-get update && apt-get install -y \
-    default-jre=2:1.11-72 \
+    openjdk-11-jre \
     curl
 
 RUN groupadd tomcat && \
