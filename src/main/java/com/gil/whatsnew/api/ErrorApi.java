@@ -1,8 +1,7 @@
 package com.gil.whatsnew.api;
 
-import javax.servlet.RequestDispatcher;
-
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -28,11 +27,4 @@ public class ErrorApi implements ErrorController{
 		    }
 		    return "error";
 	    }
-
-	@Override
-	public String getErrorPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	 
 }

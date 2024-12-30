@@ -2,10 +2,12 @@ package com.gil.whatsnew.logic;
 
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -28,18 +30,22 @@ public class BaseRequest {
 		client = new DefaultHttpClient();
 
 		try {
-			getRequestUrl = Requests.RapidApi.getValue() + type;
-			httpGet = new HttpGet(getRequestUrl);
-			httpGet.setHeader(Requests.RapidHost.getValue(), Requests.ContextRapidHostValue.getValue());
-			httpGet.setHeader(Requests.RapidKey.getValue(), Requests.RapidKeyValue.getValue());
+			URIBuilder builder = new URIBuilder(Requests.CurrentsApi.getValue());
+			builder.setParameter(Requests.CurrentsKeyParameter.getValue(),Requests.CurrentsAPIKeyValue.getValue())
+					.setParameter(Requests.LanguageParameter.getValue(),Requests.LanguageValue.getValue())
+					.setParameter(Requests.CategoryParameter.getValue(),type);
+
+			httpGet = new HttpGet(builder.build());
+			httpGet.setHeader("Content-Type", "application/json");
+			httpGet.setHeader(Requests.CurrentsKeyParameter.getValue(), Requests.CurrentsAPIKeyValue.getValue());
 			response = (HttpResponse) client.execute(httpGet);
 
 			return response;
 
-		} catch (IOException e) {
+		} catch (URISyntaxException | IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+        return null;
 	}
 
 	public boolean verifiedCaptcha(String secret, String gRecaptchaResponse)

@@ -24,55 +24,48 @@ public class Timer implements Runnable {
 
 	@Override
 	public void run() {
-		try {
-			init();
-		} catch (ApplicationException e) {
-			ExceptionHandler.generatedExceptions(e);
-		}
-	}
-
-	private void init() throws ApplicationException {
-		boolean timeToUpdateArticles = false;
-		boolean firstTime = true;
 		int displayMinutes = 0;
 		int refresh = 300;
-		long starttime = System.currentTimeMillis();
+		boolean firstTime = true;
+		boolean timeToUpdateArticles = true;
 
-		try {
-			while (true) {
+		while(true) {
+			try {
+				long starttime = System.currentTimeMillis();
+
 				TimeUnit.SECONDS.sleep(1);
 
 				long timePassed = System.currentTimeMillis() - starttime;
 				long secondspassed = timePassed / 1000;
 
 				if (secondspassed == 60) {
-					secondspassed = 0;
-					starttime = System.currentTimeMillis();
+						secondspassed = 0;
 				}
 
 				if ((secondspassed % 60) == 0) {
-					displayMinutes++;
+						displayMinutes++;
 				}
 
-				
-				if (firstTime == true || articleLogic.getListOfNewsArticles(null).get(0) == null) {
-					displayMinutes = refresh;
+
+				if (firstTime) {
+						displayMinutes = refresh;
 				}
-					
-				timeToUpdateArticles = displayMinutes == refresh ? true : false;
+
+				timeToUpdateArticles = displayMinutes == refresh;
 
 				if (timeToUpdateArticles) {
 					generateArticlesFromStock();
 					displayMinutes = 0;
-					secondspassed = 0;
-					starttime = System.currentTimeMillis();
 					timeToUpdateArticles = false;
 					firstTime = false;
 				}
+
+
+			} catch (ApplicationException | InterruptedException e) {
+				ExceptionHandler.addExceptionIntoLog(e);
 			}
-		} catch (ApplicationException | InterruptedException e) {
-			throw new ApplicationException(ErrorType.Initialize_Error, ErrorType.Initialize_Error.getMessage(), false);
 		}
+
 	}
 
 	private void generateArticlesFromStock() throws ApplicationException {

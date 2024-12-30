@@ -12,9 +12,8 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,7 +23,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.gil.whatsnew.bean.Article;
@@ -159,11 +157,11 @@ public class ArticleLogic {
 
 			for (Article article : tempArticles) {
 				if (article.getUrl().contentEquals(type) || counter <= maxCounter
-						|| article.getImage().getWebpageUrl() != null && !lastTitle.equals(article.getTitle())
+						|| !article.getImage().isEmpty() && !lastTitle.equals(article.getTitle())
 								&& !lastUrl.equals(article.getUrl())) {
 
-					article.setImageUrl(article.getImage().getUrl());
-					article.setNewsType(type);
+					article.setImage(article.getImage());
+					article.setAuthor(type);
 					articles.add(article);
 					counter++;
 					lastTitle = article.getTitle();
@@ -212,7 +210,7 @@ public class ArticleLogic {
 			
 			details.setId(randomId);
 			details.setTitle(articles.getTitle());
-			details.setType(articles.getType());
+			details.setType(articles.getPublished());
 
 			Cookie[] cookies = request.getCookies();
 
@@ -326,7 +324,7 @@ public class ArticleLogic {
 
 			JSONObject json = new JSONObject(responseString);
 
-			JSONArray items = json.getJSONArray("value");
+			JSONArray items = json.getJSONArray("news");
 
 			TypeToken<List<Article>> token = new TypeToken<List<Article>>() {
 			};

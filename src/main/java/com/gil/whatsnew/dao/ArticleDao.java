@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.bean.UserArticles;
 import com.gil.whatsnew.enums.ErrorType;
-import com.gil.whatsnew.bean.User;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.interfaces.IArticlesDao;
@@ -32,13 +31,17 @@ public class ArticleDao implements IArticlesDao{
 	public void addArticle(Article articles,String type)
 			throws ApplicationException {
 		try {
-			if(articles != null ) articles.setType(type);
-			Article article = articles != null ? mongoTemplate.save(articles) : null;
-			
+			Query query = new Query(Criteria.where("id").is(articles.getId()));
+
+			if (!mongoTemplate.exists(query, Article.class)) {
+				articles.setPublished(type);
+				mongoTemplate.insert(articles);
+				logger.info("Article added");
+			}
+
 		} catch(Exception e) {
 			ExceptionHandler.generatedDaoExceptions(e);
 		}
-		logger.info("Article added");
 	}
 	
 	@Override
@@ -82,7 +85,7 @@ public class ArticleDao implements IArticlesDao{
 	public List<Article> getAllArticles(String type) throws ApplicationException {
 		Query query = new Query();
 
-		query.addCriteria(Criteria.where("type").is(type)).limit(140);
+		query.addCriteria(Criteria.where("published").is(type)).limit(140);
 		
 		try {
 			List<Article> articleInStock = mongoTemplate.find(query, Article.class);
@@ -176,5 +179,21 @@ public class ArticleDao implements IArticlesDao{
 		}catch(Exception e) {
 			throw new ApplicationException(ErrorType.Get_List_Failed,ErrorType.Get_List_Failed.getMessage(),false);
 		}
+	}
+
+	private Update addArticle(Article article) {
+		Update update = new Update();
+		update.set("_id", article.getTitle());
+		update.set("title", article.getTitle());
+		update.set("url", article.getTitle());
+		update.set("description", article.getTitle());
+		update.set("language", article.getTitle());
+		update.set("image", article.getTitle());
+		update.set("author", article.getTitle());
+		update.set("published", article.getTitle());
+		update.set("isLiked", article.getTitle());
+		update.set("_class", article.getTitle());
+
+		return update;
 	}
 }

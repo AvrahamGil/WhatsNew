@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import com.gil.whatsnew.bean.Article;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.logic.ArticleLogic;
 
 
-@Service
+@Component
 public class AppListener implements ApplicationListener<AppEvent> {
 
 	@Autowired
@@ -25,6 +25,7 @@ public class AppListener implements ApplicationListener<AppEvent> {
 
 	@Override
 	public void onApplicationEvent(AppEvent event) {
+		System.out.println("Getting categories ready to extracting articles");
 		List<String> source;
 		
 		Set<Article> articles = new HashSet<Article>();
@@ -44,6 +45,8 @@ public class AppListener implements ApplicationListener<AppEvent> {
 				articles = articleLogic.getApiArticles(source);
 				
 				articleLogic.addArticlesToStock(articles, category);
+
+				articles.clear();
 			}
 
 		} catch (ApplicationException e) {

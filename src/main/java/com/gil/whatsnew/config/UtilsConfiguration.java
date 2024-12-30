@@ -23,7 +23,6 @@ public class UtilsConfiguration {
 	public DispatcherServlet dispatcherServlet() {
 	    DispatcherServlet dispatcherServlet = new DispatcherServlet();
 	    dispatcherServlet.setThreadContextInheritable(true);
-	    dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
 	    return dispatcherServlet;
 	}
 	

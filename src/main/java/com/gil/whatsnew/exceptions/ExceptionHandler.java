@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import javax.persistence.NoResultException;
+import jakarta.persistence.NoResultException;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.exception.DataException;

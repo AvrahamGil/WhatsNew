@@ -1,18 +1,27 @@
 package com.gil.whatsnew.utils;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.gil.whatsnew.exceptions.ApplicationException;
+import com.gil.whatsnew.exceptions.ExceptionHandler;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StringPaths {
 
 	private static final String basePath = "\\whatsnew\\src\\main\\resources\\";
-	
-	private static final String utils = basePath + "utils.json";
-	private static final String sites = basePath + "sql.json";
-	private static final String domains = basePath + "domains.json";
+
+	private static Resource utils = new ClassPathResource("data/utils.json");
+	private static Resource sites = new ClassPathResource("data/sql.json");
+	private static Resource domains = new ClassPathResource("data/domains.json");
+
+	//private static final String utils = basePath + "data/utils.json";
+	//private static final String sites = basePath + "data/sql.json";
+	//private static final String domains = basePath + "data/domains.json";
 	
 	private static final String logs =  basePath + "logs\\";
 	
@@ -27,15 +36,21 @@ public class StringPaths {
 	private static final String errorLog = basePath + "errorLog.log";
 	
 	
-	public static String getPath(String type) {
-		Set<String>paths = new HashSet<String>();
+	public static String getPath(String type) throws ApplicationException {
+		Set<Resource>paths = new HashSet<Resource>();
 		paths.add(utils);
 		paths.add(sites);
 		paths.add(domains);
-		
-		for(String path : paths) {
-			if(path.contains(type)) return path;
+
+		try {
+			for(Resource path : paths) {
+				String location = path.getFile().getPath().toString();
+				if(location.contains(type)) return location;
+			}
+		}catch(Exception e) {
+			ExceptionHandler.generatedDaoExceptions(e);
 		}
+
 		
 		return "No such path";
 	}

@@ -2,15 +2,15 @@ package com.gil.whatsnew.enums;
 
 public enum Requests {
 
-	RapidHost("x-rapidapi-host"),
-	RapidKey("x-rapidapi-key"),
-	RapidApi("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?toPublishedDate=null&fromPublishedDate=null&withThumbnails=true&pageSize=15&autoCorrect=false&pageNumber=1&q="),
-	RapidKeyValue("{Your-Rapid-API-Key}"),
+	CurrentsKeyParameter("apiKey"),
+	LanguageParameter("language"),
+	CategoryParameter("category"),
 
-	Captcha("https://www.google.com/recaptcha/api/siteverify"),
+	CurrentsAPIKeyValue("m2eJRAat8L8gNdRdWWjz5kv_w8bwJMsUJt3rkuwfVVtVO_a5"),
+	LanguageValue("en"),
+	CurrentsApi("https://api.currentsapi.services/v1/search?language=en&category="),
+	Captcha("https://www.google.com/recaptcha/api/siteverify");
 
-	ContextRapidHostValue("contextualwebsearch-websearch-v1.p.rapidapi.com");
-	
 	String strings;
 	
 	Requests(String url) {
