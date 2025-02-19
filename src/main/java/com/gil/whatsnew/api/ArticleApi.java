@@ -3,7 +3,7 @@ package com.gil.whatsnew.api;
 import java.util.List;
 
 
-
+import com.gil.whatsnew.bean.Article;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -12,14 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.gil.whatsnew.bean.Article;
+import com.gil.whatsnew.bean.NewsApiDataStructure;
 import com.gil.whatsnew.bean.Login;
 
 import com.gil.whatsnew.enums.Cookies;
@@ -31,7 +29,7 @@ import com.gil.whatsnew.utils.Authentication;
 
 
 @RestController
-@RequestMapping("/articles")
+@RequestMapping("/rest/api/articles")
 public class ArticleApi {
 
 	@Autowired
@@ -41,7 +39,7 @@ public class ArticleApi {
 	private Authentication authentication;
 	
 	@RequestMapping(value="/getNewsArticles" , method = RequestMethod.GET)
-	public List<List<Article>>getNewsArticles(HttpServletRequest request) throws ApplicationException {			
+	public List<List<Article>>getNewsArticles(HttpServletRequest request) throws ApplicationException {
 		List<List<Article>>articles = article.getListOfNewsArticles(request);
 		if(articles != null) return articles;
 		
@@ -49,7 +47,7 @@ public class ArticleApi {
 	}
 
 	@RequestMapping(value="/liked" , method = RequestMethod.POST)
-	public ResponseEntity<Object> addToFavorit(@RequestBody String articleId , HttpServletRequest request) throws ApplicationException {	
+	public ResponseEntity<Object> addToFavorite(@RequestBody String articleId , HttpServletRequest request) throws ApplicationException {
 			try {
 				if(authentication.verifyCookies(request)) {
 					ResponseEntity<Object> res = article.addIntoFavorit(articleId, request);
@@ -67,7 +65,7 @@ public class ArticleApi {
 	
 
 	@RequestMapping(value="/favoritArticles" , method = RequestMethod.GET)
-	public List<Article> getFavoritArticles(@RequestBody Login loginDetail,HttpServletRequest request) throws ApplicationException {
+	public List<NewsApiDataStructure> getFavoriteArticles(@RequestBody Login loginDetail, HttpServletRequest request) throws ApplicationException {
 		try {
 			if(authentication.verifyCookies(request)) {
 				article.getFavoritArticles(request);

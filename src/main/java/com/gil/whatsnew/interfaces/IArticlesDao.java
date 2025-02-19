@@ -3,18 +3,19 @@ package com.gil.whatsnew.interfaces;
 import java.util.List;
 
 
+import com.gil.whatsnew.bean.Article;
 import org.springframework.stereotype.Service;
 
-import com.gil.whatsnew.bean.Article;
+import com.gil.whatsnew.bean.NewsApiDataStructure;
 import com.gil.whatsnew.bean.UserArticles;
 import com.gil.whatsnew.exceptions.ApplicationException;
 
 @Service
 public interface IArticlesDao {
 
-	public void addArticle(Article articles,String type) throws ApplicationException;
+	public void addArticle(Article articles, String type) throws ApplicationException;
 	
-	public boolean updateArticle(Article articles) throws ApplicationException;
+	public boolean updateArticle(NewsApiDataStructure articles) throws ApplicationException;
 	
 	public void deleteArticle(String type) throws ApplicationException;
 		

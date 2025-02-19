@@ -1,10 +1,15 @@
 package com.gil.whatsnew.utils;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
@@ -12,6 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.gil.whatsnew.enums.ErrorType;
@@ -51,7 +58,7 @@ public class JsonUtils {
 		boolean isValidLog = true;
 		
 		try {
-			if(type.equals("errorLog")) {
+			if(type.equals("errorLog") || type.equals("infoLog")) {
 				if(value == null && path.isEmpty()) isValidLog = false;
 				if(value.toString().contains("!@#$%^&*()") || path.contains("!@#$%^&*()")) isValidLog = false;	
 					
@@ -75,7 +82,27 @@ public class JsonUtils {
         return jsonValue;
          
     }
-    
+
+	public static ResponseEntity<String> readFromAFile(String path) throws IOException {
+		ResponseEntity<String>res;
+		if(Files.exists(Paths.get(path))) {
+			String content = Files.readString(Paths.get(path));
+			res= new ResponseEntity<>(content, HttpStatus.OK);
+
+			return res;
+		}
+		return null;
+	}
+
+	public static void writeToAFile(String path, ResponseEntity<String> response) throws IOException {
+		try(FileWriter writer = new FileWriter(path)) {
+			writer.write((response.getBody().toString()));
+			System.out.println("Response has been written to the file.");
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static JSONArray stringToJson(HttpResponse response) throws ParseException, IOException {
  
 		HttpEntity entity = response.getEntity();

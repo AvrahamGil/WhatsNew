@@ -3,19 +3,22 @@ package com.gil.whatsnew.logic;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.gil.whatsnew.bean.CaptchaResponse;
-import com.gil.whatsnew.enums.Requests;
+import com.gil.whatsnew.enums.RequestsUrl;
 
 
 @Service
@@ -23,27 +26,43 @@ public class BaseRequest {
 
 	private HttpClient client;
 	private HttpGet httpGet;
-	private HttpResponse response;
+	private HttpResponse response = null;
 	private String getRequestUrl;
-	
-	public HttpResponse getNewsArticles(String type) {
+
+	public List<HttpResponse> getNewsArticles(String category, RequestsUrl requestUrl) throws IOException {
+		List<HttpResponse> responses = new ArrayList<>();
+
 		client = new DefaultHttpClient();
 
 		try {
-			URIBuilder builder = new URIBuilder(Requests.CurrentsApi.getValue());
-			builder.setParameter(Requests.CurrentsKeyParameter.getValue(),Requests.CurrentsAPIKeyValue.getValue())
-					.setParameter(Requests.LanguageParameter.getValue(),Requests.LanguageValue.getValue())
-					.setParameter(Requests.CategoryParameter.getValue(),type);
+				if(!requestUrl.getApiKeyValue().equalsIgnoreCase("null")) {
+					URIBuilder builder = new URIBuilder(requestUrl.getDomain());
+					builder.setParameter(requestUrl.getApiKeyParameter(),requestUrl.getApiKeyValue())
+							.setParameter(requestUrl.getLanguageParameter(),requestUrl.getLanguageValue());
 
-			httpGet = new HttpGet(builder.build());
-			httpGet.setHeader("Content-Type", "application/json");
-			httpGet.setHeader(Requests.CurrentsKeyParameter.getValue(), Requests.CurrentsAPIKeyValue.getValue());
-			response = (HttpResponse) client.execute(httpGet);
+					if(!category.isEmpty()) {
+						builder.setParameter(requestUrl.getCategoryParameter(), category);
+					}
 
-			return response;
+					httpGet = new HttpGet(builder.build());
+					httpGet.setHeader("Content-Type", "application/json");
+					response = (HttpResponse) client.execute(httpGet);
+					responses.add(response);
+					response = null;
+					client = new DefaultHttpClient();
+				}
+
+
+			return responses;
 
 		} catch (URISyntaxException | IOException e) {
 			e.printStackTrace();
+		} finally {
+			if(response != null) {
+				EntityUtils.consume(response.getEntity());
+			}
+			client = null;
+			httpGet = null;
 		}
         return null;
 	}
@@ -57,7 +76,7 @@ public class BaseRequest {
 		requestMap.add("secret", secret);
 		requestMap.add("response", gRecaptchaResponse);
 
-		CaptchaResponse apiResponse = restTemplate.postForObject(Requests.Captcha.getValue(), requestMap,
+		CaptchaResponse apiResponse = restTemplate.postForObject(RequestsUrl.Captcha.getDomain(), requestMap,
 				CaptchaResponse.class);
 		if (apiResponse == null) {
 			return false;

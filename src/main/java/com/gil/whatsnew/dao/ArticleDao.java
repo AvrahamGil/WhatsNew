@@ -1,8 +1,10 @@
 package com.gil.whatsnew.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
+import com.gil.whatsnew.bean.Article;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
-import com.gil.whatsnew.bean.Article;
+import com.gil.whatsnew.bean.NewsApiDataStructure;
 import com.gil.whatsnew.bean.UserArticles;
 import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
@@ -28,13 +30,14 @@ public class ArticleDao implements IArticlesDao{
 	Logger logger = LoggerFactory.getLogger(ArticleDao.class);
 	
 	@Override
-	public void addArticle(Article articles,String type)
+	public void addArticle(Article articles, String type)
 			throws ApplicationException {
 		try {
-			Query query = new Query(Criteria.where("id").is(articles.getId()));
-
+			List<String> types = new ArrayList<>();
+			Query query = new Query(Criteria.where("id").is(articles.getArticleId()));
+			types.add(type);
 			if (!mongoTemplate.exists(query, Article.class)) {
-				articles.setPublished(type);
+				articles.setCategory(types.get(0));
 				mongoTemplate.insert(articles);
 				logger.info("Article added");
 			}
@@ -45,11 +48,11 @@ public class ArticleDao implements IArticlesDao{
 	}
 	
 	@Override
-	public boolean updateArticle(Article articles) throws ApplicationException {
+	public boolean updateArticle(NewsApiDataStructure articles) throws ApplicationException {
 		Query query = new Query();
 		boolean updated = false;
 		try {
-			UpdateResult article = articles != null ? mongoTemplate.updateFirst(query.addCriteria(Criteria.where("id").is(articles.getId())),Update.update("isLiked", true),Article.class) : null;
+			UpdateResult article = articles != null ? mongoTemplate.updateFirst(query.addCriteria(Criteria.where("id").is(articles.getArticle_id())),Update.update("isLiked", true), NewsApiDataStructure.class) : null;
 			
 			if(article != null) {
 				updated = article.wasAcknowledged() ? true : false;
@@ -70,7 +73,7 @@ public class ArticleDao implements IArticlesDao{
 	public void deleteArticle(String type) throws ApplicationException {
 		Query query = new Query();
 		
-		query.addCriteria(Criteria.where("newsType").is(type));
+		query.addCriteria(Criteria.where("category").is(type));
 		try {
 			 mongoTemplate.findAllAndRemove(query, Article.class);
 			
@@ -85,7 +88,7 @@ public class ArticleDao implements IArticlesDao{
 	public List<Article> getAllArticles(String type) throws ApplicationException {
 		Query query = new Query();
 
-		query.addCriteria(Criteria.where("published").is(type)).limit(140);
+		query.addCriteria(Criteria.where("category").is(type)).limit(140);
 		
 		try {
 			List<Article> articleInStock = mongoTemplate.find(query, Article.class);
@@ -181,18 +184,18 @@ public class ArticleDao implements IArticlesDao{
 		}
 	}
 
-	private Update addArticle(Article article) {
+	private Update addArticle(NewsApiDataStructure article) {
 		Update update = new Update();
-		update.set("_id", article.getTitle());
-		update.set("title", article.getTitle());
-		update.set("url", article.getTitle());
-		update.set("description", article.getTitle());
-		update.set("language", article.getTitle());
-		update.set("image", article.getTitle());
-		update.set("author", article.getTitle());
-		update.set("published", article.getTitle());
-		update.set("isLiked", article.getTitle());
-		update.set("_class", article.getTitle());
+		update.set("_id", article.getArticle_id());
+		update.set("title", article.getSentiment());
+		update.set("url", article.getLink());
+		update.set("description", article.getDescription());
+		update.set("language", article.getLanguage());
+		update.set("image", article.getImage_url());
+		update.set("author", article.getAi_org());
+		update.set("published", article.getAi_tag());
+		update.set("isLiked", article.getCreator());
+		update.set("_class", article.getSource_name());
 
 		return update;
 	}

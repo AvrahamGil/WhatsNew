@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StringPaths {
 
-	private static final String basePath = "\\whatsnew\\src\\main\\resources\\";
+	private static final String basePath =  StringPaths.class.getClassLoader().getResource("").getPath();;
 
 	private static Resource utils = new ClassPathResource("data/utils.json");
 	private static Resource sites = new ClassPathResource("data/sql.json");
@@ -34,6 +34,8 @@ public class StringPaths {
 	private static final String exceptionLogicLogFile = exception + "ExceptionLogicLogFile.log";
 	private static final String exceptionDaoLogFile = exception + "ExceptionDaoLogFile.log";
 	private static final String errorLog = basePath + "errorLog.log";
+
+	private static final String stockResponse = info + "stockResponse.txt";
 	
 	
 	public static String getPath(String type) throws ApplicationException {
@@ -62,7 +64,8 @@ public class StringPaths {
 		paths.add(exceptionLogicLogFile);
 		paths.add(exceptionDaoLogFile);
 		paths.add(errorLog);
-		
+		paths.add(stockResponse);
+
 		for(String path : paths) {
 			if(path.contains(type)) return path;
 		}

@@ -1,13 +1,9 @@
 package com.gil.whatsnew.utils;
 
-import java.time.LocalTime;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.gil.whatsnew.bean.Article;
-import com.gil.whatsnew.enums.ErrorType;
 import com.gil.whatsnew.exceptions.ApplicationException;
 import com.gil.whatsnew.exceptions.ExceptionHandler;
 import com.gil.whatsnew.listener.EventPublisher;
@@ -70,7 +66,9 @@ public class Timer implements Runnable {
 
 	private void generateArticlesFromStock() throws ApplicationException {
 		System.out.println("Generating articles from stock");
-		//eventPublisher.articleEvent();
+		eventPublisher.articleEvent();
 		System.out.println("Finish");
 	}
+
+
 }
