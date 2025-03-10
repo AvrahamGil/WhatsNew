@@ -18,6 +18,7 @@ public class Article {
     private String content;
     private String category;
     private String imageUrl;
+    private String published;
 
     public Article() {
 

@@ -34,11 +34,11 @@ public class Timer implements Runnable {
 				long timePassed = System.currentTimeMillis() - starttime;
 				long secondspassed = timePassed / 1000;
 
-				if (secondspassed == 60) {
+				if (secondspassed == 120) {
 						secondspassed = 0;
 				}
 
-				if ((secondspassed % 60) == 0) {
+				if ((secondspassed % 120) == 0) {
 						displayMinutes++;
 				}
 

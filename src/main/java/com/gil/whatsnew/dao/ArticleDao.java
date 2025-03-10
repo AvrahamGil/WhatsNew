@@ -43,7 +43,7 @@ public class ArticleDao implements IArticlesDao{
 			}
 
 		} catch(Exception e) {
-			ExceptionHandler.generatedDaoExceptions(e);
+			e.printStackTrace();
 		}
 	}
 	

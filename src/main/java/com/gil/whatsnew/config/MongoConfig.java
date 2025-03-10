@@ -22,7 +22,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb://root:Gil123321@localhost");
+        ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/?maxPoolSize=20&w=majority");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
             .build();

@@ -155,7 +155,6 @@ public class Authentication {
 		}
 		 
 		if(csrfToken.equals(csrfCookieValue)) {
-
 			return true;
 		}
 		

@@ -18,7 +18,7 @@ public class AppListener implements ApplicationListener<AppEvent> {
 	@Autowired
 	private ArticleLogic articleLogic;
 
-	private final String[] sharedCategories = {"business","sports", "technology", "entertainment" };
+	private final String[] sharedCategories = {"business","sports", "technology", "entertainment","tourism" };
 
 	private final String[] differentCategories = {"general","politics","world"};
 
@@ -68,6 +68,7 @@ public class AppListener implements ApplicationListener<AppEvent> {
 
 			if(sameArticles != null) sameArticles.clear();
 			if(diffArticles != null) diffArticles.clear();
+
 
 		} catch (ApplicationException e) {
 			e.printStackTrace();

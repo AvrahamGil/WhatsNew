@@ -3,11 +3,11 @@ package com.gil.whatsnew.enums;
 public enum RequestsUrl {
 
 	NewsDataAPI("https://newsdata.io/api/1/latest?language=en&category=","apiKey","language","category",
-			"pub_637969fd831ca2d52f4c8f769d3ecf94330a7","en"),
+			"key","en"),
 	GNewsAPI("https://gnews.io/api/v4/top-headlines?language=en&category=","apikey","language","category",
-			"51aab3ce7df5ca5882ae15425bd71acd","en"),
+			"key","en"),
 	CurrentsApi("https://api.currentsapi.services/v1/latest-news?language=en","apiKey","language","",
-			"m2eJRAat8L8gNdRdWWjz5kv_w8bwJMsUJt3rkuwfVVtVO_a5","en"),
+			"key","en"),
 	Captcha("https://www.google.com/recaptcha/api/siteverify" , "null",
 			"null","null","null","null"),
 	BOTH("" , "null", "null","null","null","null"),

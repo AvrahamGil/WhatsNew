@@ -4,6 +4,7 @@ import java.io.IOException;
 
 
 import java.lang.reflect.Type;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 import com.gil.whatsnew.bean.*;
 import com.gil.whatsnew.enums.RequestsUrl;
@@ -50,7 +50,7 @@ public class ArticleLogic {
 	@Autowired
 	private Authentication authentication;
 
-	private final String[] categories = {"politics", "general", "business", "sports", "technology", "entertainment", "world"};
+	private final String[] categories = {"breaking-news","politics", "general", "business", "sports", "technology", "entertainment", "world", "tourism"};
 	private final String specialChar = "~`!#$%^&*(){}[]+-_=/><:\"\\?;";
 
 	private final String path = "domains";
@@ -63,20 +63,20 @@ public class ArticleLogic {
 		try {
 			if (!jsonArticles.isEmpty()) {
 				for (Article article : jsonArticles) {
+
 					if(article.getArticleId() == null)
 						article.setArticleId(UUID.randomUUID().toString());
 					articleDaoMongo.addArticle(article, category);
 				}
 			}
 		} catch (ApplicationException e) {
-			ExceptionHandler.generatedLogicExceptions(e);
+			e.printStackTrace();
 		}
 
 	}
 
 	public List<List<Article>> getListOfNewsArticles(HttpServletRequest request) throws ApplicationException {
 		List<List<Article>> articles = new ArrayList<List<Article>>();
-
 
 		try {
 			for (String category : categories) {
@@ -95,6 +95,7 @@ public class ArticleLogic {
 				if (likedArticles != null) return likedArticles;
 			}
 
+
 			return articles;
 
 		} catch (ApplicationException e) {
@@ -102,7 +103,6 @@ public class ArticleLogic {
 		}
 		return articles;
 	}
-
 
 	public void deleteArticles(List<String> types) throws ApplicationException {
 		boolean isEmpty = false;
@@ -125,18 +125,12 @@ public class ArticleLogic {
 	public Set<Article> getArticlesApi(String category, boolean sameCategories) throws ApplicationException {
 		Set<Article> newsApiDataList = new HashSet<>();
 
-		try {
-			newsApiDataList = initNewsResponse(category, sameCategories);
-			return newsApiDataList;
+        newsApiDataList = initNewsResponse(category, sameCategories);
+        return newsApiDataList;
 
-		} catch (ApplicationException e) {
-			ExceptionHandler.generatedLogicExceptions(e);
-		}
+    }
 
-		return newsApiDataList;
-	}
-
-	public Set<Article> initNewsResponse(String category, boolean sameCategories) throws ApplicationException {
+	public Set<Article> initNewsResponse(String category, boolean sameCategories)  {
 		List<HttpResponse>response;
 		Set<Article> articles = new HashSet<>();
 		Set<Article> newsArticleData = new HashSet<>();
@@ -174,8 +168,9 @@ public class ArticleLogic {
             return articles;
 
         } catch (ApplicationException | IOException e) {
-			throw new ApplicationException(ErrorType.Api_Failed, ErrorType.Api_Failed.getMessage(), false);
+			e.printStackTrace();
 		}
+		return null;
     }
 
 	private Set<Article>convertArticlesData(Set<Set<Article>>articlesData,String category) {
@@ -209,7 +204,7 @@ public class ArticleLogic {
 		return articles;
 	}
 
-	public ResponseEntity<Object> addIntoFavorit(String articleId, HttpServletRequest request) throws ApplicationException {
+	public ResponseEntity<Object> addIntoFavorite(String articleId, HttpServletRequest request) throws ApplicationException {
 		UserArticles details = null;
 		String randomId = UUID.randomUUID().toString();
 		boolean verify = true;
@@ -276,7 +271,7 @@ public class ArticleLogic {
 
 	}
 
-	public List<Article> getFavoritArticles(HttpServletRequest request) throws ApplicationException {
+	public List<Article> getFavoriteArticles(HttpServletRequest request) throws ApplicationException {
 		List<UserArticles> details;
 		List<Article> articles = new ArrayList<Article>();
 		String[] userDetails = new String[2];
@@ -402,6 +397,7 @@ public class ArticleLogic {
 						article.setContent(apiData.getContent());
 						article.setDescription(apiData.getDescription());
 						article.setImageUrl(apiData.getImage());
+						article.setPublished(apiData.getPublishedAt());
 
 						articles.add(article);
 					}
@@ -421,6 +417,7 @@ public class ArticleLogic {
 						article.setContent(apiData.getContent());
 						article.setDescription(apiData.getDescription());
 						article.setImageUrl(apiData.getImage_url());
+						article.setPublished(apiData.getPubDate());
 
 						articles.add(article);
 					}
@@ -439,6 +436,8 @@ public class ArticleLogic {
 						article.setContent("");
 						article.setDescription(apiData.getDescription());
 						article.setImageUrl(apiData.getImage());
+						String[] details = apiData.getPublished().split(" ");
+						article.setPublished(details[1]);
 
 						articles.add(article);
 					}
@@ -447,7 +446,7 @@ public class ArticleLogic {
 				return articles;
 
 				} catch (Exception e) {
-					throw new ApplicationException(ErrorType.Get_List_Failed, ErrorType.Get_List_Failed.getMessage(), false);
+					e.printStackTrace();
 				}
 			}
 		return null;

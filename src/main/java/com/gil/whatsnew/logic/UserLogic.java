@@ -69,12 +69,9 @@ public class UserLogic {
 			String[] userString = user.toString().split(",");
 
 			for (int i = 1; i <= userString.length - 1; i++) {
-
 				detailsCorrect = userString[i].matches(emailRegex) == true && !userString[i].contains(specialChar)
 						? userDao.isUserExist("email", user.getEmail()) == true ? false : true
 						: true;
-				detailsCorrect = userString[i].matches(emailRegex) == false ? userString[i].length() <= max && 2 <= userString[i].length()
-						: detailsCorrect;
 
 				if (detailsCorrect != true)
 					isCorrect = false;
@@ -126,17 +123,13 @@ public class UserLogic {
 			if (!isCorrect)
 				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;
 
+			if (!authentication.verifyCSRFToken(request))
+				isCorrect = false;
+
 			User user = userDao.getUserDetails(email,password);
 			
 			if (user == null)
-				isCorrect = false;
-
-			if (!isCorrect)
 				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;
-
-
-			if (!authentication.verifyCSRFToken(request))
-				isCorrect = false;
 
 			if (!isCorrect)
 				throw new ApplicationException(ErrorType.General_Error, ErrorType.General_Error.getMessage(), false);;

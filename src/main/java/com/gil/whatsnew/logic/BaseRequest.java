@@ -2,15 +2,24 @@ package com.gil.whatsnew.logic;
 
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.net.http.HttpRequest;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -84,6 +93,52 @@ public class BaseRequest {
 
 		return apiResponse.getSuccess();
 
+	}
+
+	public HttpResponse verifyImageUrl(String requestUrl) throws IOException, URISyntaxException {
+		CloseableHttpClient client = HttpClients.createDefault();
+
+		if(requestUrl == null) return null;
+
+		if(!requestUrl.startsWith("http")) return null;
+
+		String correctUrl = encodeUrl(requestUrl);
+
+		try {
+			if(correctUrl == null) return null;
+			HttpGet httpGet = new HttpGet(correctUrl);
+
+            return client.execute(httpGet);
+
+		} catch ( IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(response != null) {
+				EntityUtils.consume(response.getEntity());
+			}
+		}
+		return null;
+	}
+
+	private String encodeUrl(String url) throws UnsupportedEncodingException, URISyntaxException {
+		int protocolEndIndex = url.indexOf("://");
+		if (protocolEndIndex == -1) return null;
+
+		String protocol = url.substring(0, protocolEndIndex + 3);
+		String restOfUrl = url.substring(protocolEndIndex + 3);
+
+		URI uri = new URI(url);
+
+		if((uri.getScheme() == null && (!uri.getScheme().startsWith("http") && !uri.getScheme().startsWith("https")) &&
+				uri.getHost() == null)) {
+			return null;
+		}
+
+		String encodedRest = URLEncoder.encode(restOfUrl, StandardCharsets.UTF_8.toString())
+				.replaceAll("\\+", "%20")
+				.replaceAll("%2F", "/");
+
+		return protocol + encodedRest;
 	}
 
 }

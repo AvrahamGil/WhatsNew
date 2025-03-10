@@ -50,7 +50,7 @@ public class ArticleApi {
 	public ResponseEntity<Object> addToFavorite(@RequestBody String articleId , HttpServletRequest request) throws ApplicationException {
 			try {
 				if(authentication.verifyCookies(request)) {
-					ResponseEntity<Object> res = article.addIntoFavorit(articleId, request);
+					ResponseEntity<Object> res = article.addIntoFavorite(articleId, request);
 					
 					if(res == null) throw new ApplicationException(ErrorType.General_Error,"One or more details are incorrect",true);
 					
@@ -68,7 +68,7 @@ public class ArticleApi {
 	public List<NewsApiDataStructure> getFavoriteArticles(@RequestBody Login loginDetail, HttpServletRequest request) throws ApplicationException {
 		try {
 			if(authentication.verifyCookies(request)) {
-				article.getFavoritArticles(request);
+				article.getFavoriteArticles(request);
 			}
 			
 		}catch(ApplicationException e) {
