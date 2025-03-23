@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-21T14:50:02</date>
+  <millis>1671627002371</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>Start generating articles from stock...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-21T14:50:57</date>
+  <millis>1671627057244</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>Start generating articles from stock...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-21T14:52:19</date>
+  <millis>1671627139743</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>Start generating articles from stock...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-21T15:47:09</date>
+  <millis>1671630429404</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully15:47:09.350</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-22T14:59:36</date>
+  <millis>1671713976662</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully14:59:36.607</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:32</date>
+  <millis>1672051712966</millis>
+  <sequence>33</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:32.965</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:34</date>
+  <millis>1672051714004</millis>
+  <sequence>36</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:34.004</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:35</date>
+  <millis>1672051715021</millis>
+  <sequence>39</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:35.020</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:36</date>
+  <millis>1672051716032</millis>
+  <sequence>42</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:36.031</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:37</date>
+  <millis>1672051717046</millis>
+  <sequence>45</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:37.046</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:38</date>
+  <millis>1672051718072</millis>
+  <sequence>48</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:38.071</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:39</date>
+  <millis>1672051719092</millis>
+  <sequence>51</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:39.092</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:40</date>
+  <millis>1672051720130</millis>
+  <sequence>54</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:40.129</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:41</date>
+  <millis>1672051721147</millis>
+  <sequence>57</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:41.146</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:42</date>
+  <millis>1672051722164</millis>
+  <sequence>60</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:42.164</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:43</date>
+  <millis>1672051723176</millis>
+  <sequence>63</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:43.176</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:44</date>
+  <millis>1672051724194</millis>
+  <sequence>66</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:44.193</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:45</date>
+  <millis>1672051725211</millis>
+  <sequence>69</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:45.211</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:46</date>
+  <millis>1672051726238</millis>
+  <sequence>72</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:46.238</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:47</date>
+  <millis>1672051727254</millis>
+  <sequence>75</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:47.254</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:48</date>
+  <millis>1672051728279</millis>
+  <sequence>78</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:48.279</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:49</date>
+  <millis>1672051729312</millis>
+  <sequence>81</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:49.311</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:50</date>
+  <millis>1672051730335</millis>
+  <sequence>84</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:50.334</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:51</date>
+  <millis>1672051731358</millis>
+  <sequence>87</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:51.357</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:52</date>
+  <millis>1672051732377</millis>
+  <sequence>90</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:52.377</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:53</date>
+  <millis>1672051733394</millis>
+  <sequence>93</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:53.393</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:54</date>
+  <millis>1672051734415</millis>
+  <sequence>96</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:54.414</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:55</date>
+  <millis>1672051735431</millis>
+  <sequence>99</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:55.431</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:56</date>
+  <millis>1672051736456</millis>
+  <sequence>102</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:56.456</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:57</date>
+  <millis>1672051737475</millis>
+  <sequence>105</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:57.475</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:58</date>
+  <millis>1672051738490</millis>
+  <sequence>108</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:58.489</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:48:59</date>
+  <millis>1672051739500</millis>
+  <sequence>111</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:48:59.500</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:00</date>
+  <millis>1672051740513</millis>
+  <sequence>114</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:00.513</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:01</date>
+  <millis>1672051741531</millis>
+  <sequence>117</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:01.531</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:02</date>
+  <millis>1672051742540</millis>
+  <sequence>120</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:02.540</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:03</date>
+  <millis>1672051743552</millis>
+  <sequence>123</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:03.552</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:04</date>
+  <millis>1672051744579</millis>
+  <sequence>126</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:04.579</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:05</date>
+  <millis>1672051745591</millis>
+  <sequence>129</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:05.590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:06</date>
+  <millis>1672051746617</millis>
+  <sequence>132</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:06.616</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:07</date>
+  <millis>1672051747639</millis>
+  <sequence>135</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:07.639</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:08</date>
+  <millis>1672051748660</millis>
+  <sequence>138</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:08.660</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:09</date>
+  <millis>1672051749688</millis>
+  <sequence>141</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:09.687</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:10</date>
+  <millis>1672051750703</millis>
+  <sequence>144</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:10.703</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:11</date>
+  <millis>1672051751714</millis>
+  <sequence>147</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:11.714</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:12</date>
+  <millis>1672051752794</millis>
+  <sequence>150</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:12.794</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:13</date>
+  <millis>1672051753807</millis>
+  <sequence>153</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:13.806</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:14</date>
+  <millis>1672051754838</millis>
+  <sequence>156</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:14.837</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:15</date>
+  <millis>1672051755870</millis>
+  <sequence>159</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:15.869</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:16</date>
+  <millis>1672051756890</millis>
+  <sequence>162</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:16.890</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:17</date>
+  <millis>1672051757929</millis>
+  <sequence>165</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:17.928</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:18</date>
+  <millis>1672051758951</millis>
+  <sequence>168</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:18.950</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:19</date>
+  <millis>1672051759985</millis>
+  <sequence>171</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:19.984</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:21</date>
+  <millis>1672051761012</millis>
+  <sequence>174</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:21.012</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:22</date>
+  <millis>1672051762022</millis>
+  <sequence>177</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:22.022</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:23</date>
+  <millis>1672051763037</millis>
+  <sequence>180</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:23.037</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:24</date>
+  <millis>1672051764739</millis>
+  <sequence>183</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:24.738</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:25</date>
+  <millis>1672051765747</millis>
+  <sequence>186</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:25.746</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:26</date>
+  <millis>1672051766754</millis>
+  <sequence>189</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:26.754</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:27</date>
+  <millis>1672051767761</millis>
+  <sequence>192</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:27.761</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:28</date>
+  <millis>1672051768789</millis>
+  <sequence>195</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:28.789</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:29</date>
+  <millis>1672051769816</millis>
+  <sequence>198</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:29.816</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:30</date>
+  <millis>1672051770852</millis>
+  <sequence>201</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:30.851</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:31</date>
+  <millis>1672051771885</millis>
+  <sequence>204</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:31.885</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:32</date>
+  <millis>1672051772894</millis>
+  <sequence>207</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:32.894</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:33</date>
+  <millis>1672051773928</millis>
+  <sequence>210</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:33.927</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:34</date>
+  <millis>1672051774941</millis>
+  <sequence>213</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:34.941</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:35</date>
+  <millis>1672051775969</millis>
+  <sequence>216</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:35.968</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:36</date>
+  <millis>1672051776987</millis>
+  <sequence>219</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:36.987</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:38</date>
+  <millis>1672051778012</millis>
+  <sequence>222</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:38.011</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:39</date>
+  <millis>1672051779033</millis>
+  <sequence>225</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:39.033</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:40</date>
+  <millis>1672051780040</millis>
+  <sequence>228</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:40.039</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:41</date>
+  <millis>1672051781061</millis>
+  <sequence>231</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:41.060</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:42</date>
+  <millis>1672051782074</millis>
+  <sequence>234</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:42.074</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:43</date>
+  <millis>1672051783093</millis>
+  <sequence>237</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:43.093</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:44</date>
+  <millis>1672051784126</millis>
+  <sequence>240</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:44.125</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:45</date>
+  <millis>1672051785157</millis>
+  <sequence>243</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:45.156</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:46</date>
+  <millis>1672051786185</millis>
+  <sequence>246</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:46.185</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:47</date>
+  <millis>1672051787217</millis>
+  <sequence>249</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:47.217</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:48</date>
+  <millis>1672051788244</millis>
+  <sequence>252</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:48.243</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:49</date>
+  <millis>1672051789267</millis>
+  <sequence>255</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:49.266</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:50</date>
+  <millis>1672051790294</millis>
+  <sequence>258</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:50.293</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:51</date>
+  <millis>1672051791328</millis>
+  <sequence>261</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:51.327</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:52</date>
+  <millis>1672051792344</millis>
+  <sequence>264</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:52.343</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:53</date>
+  <millis>1672051793355</millis>
+  <sequence>267</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:53.355</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:54</date>
+  <millis>1672051794377</millis>
+  <sequence>270</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:54.377</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:55</date>
+  <millis>1672051795388</millis>
+  <sequence>273</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:55.387</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:56</date>
+  <millis>1672051796399</millis>
+  <sequence>276</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:56.399</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:57</date>
+  <millis>1672051797430</millis>
+  <sequence>279</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:57.429</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:58</date>
+  <millis>1672051798456</millis>
+  <sequence>282</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:58.455</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:49:59</date>
+  <millis>1672051799484</millis>
+  <sequence>285</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:49:59.483</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:00</date>
+  <millis>1672051800513</millis>
+  <sequence>288</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:00.512</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:01</date>
+  <millis>1672051801532</millis>
+  <sequence>291</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:01.532</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:02</date>
+  <millis>1672051802567</millis>
+  <sequence>294</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:02.566</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:03</date>
+  <millis>1672051803585</millis>
+  <sequence>297</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:03.585</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:04</date>
+  <millis>1672051804614</millis>
+  <sequence>300</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:04.613</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:05</date>
+  <millis>1672051805649</millis>
+  <sequence>303</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:05.647</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:06</date>
+  <millis>1672051806678</millis>
+  <sequence>306</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:06.677</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:07</date>
+  <millis>1672051807685</millis>
+  <sequence>309</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:07.685</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:08</date>
+  <millis>1672051808705</millis>
+  <sequence>312</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:08.705</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-26T12:50:09</date>
+  <millis>1672051809720</millis>
+  <sequence>315</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully12:50:09.720</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1255" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T14:56:05</date>
+  <millis>1672664165596</millis>
+  <sequence>31</sequence>
+  <logger>com.gil.whatsnew.utils.LoggingHandler</logger>
+  <level>SEVERE</level>
+  <class>com.gil.whatsnew.utils.LoggingHandler</class>
+  <method>infoLogHandler</method>
+  <thread>21</thread>
+  <message>All articles are added successfully14:56:05.590</message>
+</record>
+</log>
